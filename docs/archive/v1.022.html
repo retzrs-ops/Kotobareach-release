@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Kotobareach（コトバリーチ）説明書 v1.022</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=BIZ+UDPGothic:wght@400;700&family=Outfit:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F3F5F8; --surface:#FFFFFF; --ink:#1B2333; --muted:#5A6478; --line:#D8DDE6;
+  --them:#0E7C86; --them-soft:#E2F2F3; --me:#B7791F; --me-soft:#FBF1DF;
+  --warn:#B4442F; --warn-soft:#FBE9E5; --code:#EEF1F5;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#121722; --surface:#1A2130; --ink:#E6EAF2; --muted:#9AA4B8; --line:#2C3547;
+    --them:#4FC1C9; --them-soft:#16303A; --me:#E8B04B; --me-soft:#352A16;
+    --warn:#EE8A75; --warn-soft:#3A221D; --code:#222B3C;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#121722; --surface:#1A2130; --ink:#E6EAF2; --muted:#9AA4B8; --line:#2C3547;
+  --them:#4FC1C9; --them-soft:#16303A; --me:#E8B04B; --me-soft:#352A16;
+  --warn:#EE8A75; --warn-soft:#3A221D; --code:#222B3C;
+}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 16px);scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font-family:"BIZ UDPGothic","Hiragino Sans","Yu Gothic UI","Meiryo",sans-serif;
+  font-size:16px;line-height:1.85;-webkit-text-size-adjust:100%}
+a{color:var(--them);text-underline-offset:3px}
+a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var(--me);outline-offset:2px;border-radius:4px}
+img,svg{max-width:100%}
+code,kbd{font-family:Consolas,"BIZ UDGothic",monospace;font-size:.92em;background:var(--code);padding:.1em .4em;border-radius:4px}
+kbd{border:1px solid var(--line);border-bottom-width:2px}
+
+/* ---------- hero ---------- */
+.hero{background:var(--ink);color:#F3F5F8;padding:48px 20px 56px}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .hero{background:#0B0F17}}
+:root[data-theme="dark"] .hero{background:#0B0F17}
+.hero-in{max-width:1080px;margin:0 auto;display:grid;gap:36px;grid-template-columns:1fr}
+@media (min-width:880px){.hero-in{grid-template-columns:1fr 1.05fr;align-items:center}}
+.wordmark{font-family:Outfit,"BIZ UDPGothic",sans-serif;font-weight:700;font-size:clamp(2.4rem,7vw,3.6rem);line-height:1.05;margin:0;letter-spacing:-.01em}
+.kana{display:block;font-family:"BIZ UDPGothic",sans-serif;font-size:1rem;font-weight:400;color:#AEB7C8;margin-top:10px;letter-spacing:.2em}
+.lead{font-size:1.08rem;color:#D3D9E4;max-width:34em;margin:22px 0 0}
+.ver{display:inline-block;margin-top:22px;font-size:.88rem;color:#AEB7C8;border:1px solid #3A4458;border-radius:999px;padding:3px 14px}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:20px}
+.btn{display:inline-block;text-decoration:none;font-weight:700;padding:11px 20px;border-radius:8px;background:#F3F5F8;color:#1B2333}
+.btn.ghost{background:transparent;color:#F3F5F8;border:1px solid #4A5468}
+
+/* the memorable thing: the tablet subtitle screen */
+.tablet{background:#2A3142;border-radius:26px;padding:14px;box-shadow:0 22px 48px rgba(0,0,0,.4);max-width:560px;justify-self:center;width:100%}
+.screen{background:#0F141E;border-radius:14px;overflow:hidden}
+.tbar{display:flex;gap:6px;flex-wrap:wrap;padding:8px 10px;border-bottom:1px solid #2C3547}
+.tbar span{font-size:.72rem;color:#C9D1DE;border:1px solid #3A4458;border-radius:6px;padding:1px 8px}
+.tbar .r{margin-left:auto}
+.pane{padding:16px 18px 18px}
+.pane+.pane{border-top:1px solid #2C3547}
+.pane h3{margin:0 0 8px;font-size:.8rem;font-weight:700}
+.pane.them h3{color:#4FC1C9}.pane.me h3{color:#E8B04B}
+.big{font-size:1.34rem;font-weight:700;color:#fff;line-height:1.5;margin:0}
+.small{font-size:.86rem;color:#9AA4B8;margin:4px 0 0}
+.tap{border-bottom:2px dotted #E8B04B;cursor:default}
+.tap-hint{font-size:.72rem;color:#E8B04B;margin-top:8px}
+
+/* ---------- layout ---------- */
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px;display:grid;grid-template-columns:1fr;gap:40px}
+@media (min-width:960px){.wrap{grid-template-columns:230px minmax(0,1fr)}}
+nav.toc{padding-top:28px}
+@media (min-width:960px){nav.toc{position:sticky;top:env(safe-area-inset-top,0px);align-self:start;max-height:100vh;overflow:auto;padding-bottom:28px}}
+.toc details{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:10px 16px}
+@media (min-width:960px){.toc details{background:none;border:0;padding:0}.toc summary{pointer-events:none}.toc summary::marker,.toc summary::-webkit-details-marker{display:none;content:""}}
+.toc summary{font-weight:700;cursor:pointer;color:var(--muted);font-size:.9rem}
+.toc ol{list-style:none;margin:8px 0 0;padding:0}
+.toc a{display:block;padding:5px 0 5px 12px;color:var(--ink);text-decoration:none;border-left:2px solid var(--line);font-size:.94rem}
+.toc a:hover{border-left-color:var(--them);color:var(--them)}
+main{min-width:0;padding:28px 0 80px}
+section{max-width:46em;padding-bottom:28px;margin-bottom:28px;border-bottom:1px solid var(--line)}
+section:last-of-type{border-bottom:0}
+h2{font-size:1.6rem;line-height:1.35;margin:14px 0 14px}
+h3{font-size:1.15rem;margin:30px 0 8px}
+h4{font-size:1rem;margin:22px 0 4px}
+p{margin:0 0 14px}
+ul,ol{padding-left:1.4em;margin:0 0 14px}
+li{margin:4px 0}
+.since{font-size:.76rem;color:var(--muted);border:1px solid var(--line);border-radius:4px;padding:0 6px;margin-left:6px;white-space:nowrap;vertical-align:2px;font-weight:400}
+
+ol.steps{list-style:none;padding:0;counter-reset:s}
+ol.steps>li{counter-increment:s;position:relative;padding:2px 0 14px 52px;margin:0}
+ol.steps>li::before{content:counter(s);position:absolute;left:0;top:0;width:36px;height:36px;border-radius:50%;
+  background:var(--ink);color:var(--bg);font-family:Outfit,sans-serif;font-weight:700;display:grid;place-items:center}
+ol.steps>li:not(:last-child)::after{content:"";position:absolute;left:17px;top:40px;bottom:0;width:2px;background:var(--line)}
+ol.steps strong{display:block;font-size:1.05rem}
+
+.split{display:grid;gap:12px;grid-template-columns:1fr;margin:14px 0 18px}
+@media (min-width:640px){.split{grid-template-columns:1fr 1fr}}
+.side{border-radius:10px;padding:14px 16px;border-left:5px solid}
+.side.them{background:var(--them-soft);border-color:var(--them)}
+.side.me{background:var(--me-soft);border-color:var(--me)}
+.side b{display:block;margin-bottom:4px}
+.note{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px 16px;margin:14px 0;font-size:.95rem}
+.note.warn{background:var(--warn-soft);border-color:transparent;border-left:5px solid var(--warn)}
+
+/* screen illustrations */
+figure{margin:18px 0 24px}
+.shot{overflow-x:auto;border-radius:10px}
+.shot svg{display:block;width:100%;min-width:420px;height:auto;filter:drop-shadow(0 6px 16px rgba(20,30,50,.14))}
+figcaption{font-size:.86rem;color:var(--muted);margin-top:8px}
+.u-win{fill:#FFFFFF;stroke:#C3CAD6}
+.u-title{fill:#E9EDF3}
+.u-t{fill:#1B2333;font:13px "BIZ UDPGothic","Meiryo",sans-serif}
+.u-b{fill:#1B2333;font:700 13px "BIZ UDPGothic","Meiryo",sans-serif}
+.u-m{fill:#6B7487;font:12px "BIZ UDPGothic","Meiryo",sans-serif}
+.u-mono{fill:#3A4458;font:11px Consolas,"BIZ UDGothic",monospace}
+.u-box{fill:#FFFFFF;stroke:#B3BBC9}
+.u-btn{fill:#EEF1F5;stroke:#B3BBC9}
+.u-tab{fill:#EEF1F5;stroke:#C3CAD6}
+.u-tabon{fill:#FFFFFF;stroke:#C3CAD6}
+.u-dark{fill:#0F141E}
+.u-w{fill:#FFFFFF;font:700 19px "BIZ UDPGothic","Meiryo",sans-serif}
+.u-g{fill:#9AA4B8;font:12px "BIZ UDPGothic","Meiryo",sans-serif}
+.u-teal{fill:#4FC1C9;font:700 12px "BIZ UDPGothic","Meiryo",sans-serif}
+.u-amb{fill:#E8B04B;font:700 12px "BIZ UDPGothic","Meiryo",sans-serif}
+.u-wt{fill:#FFFFFF;font:700 12px "BIZ UDPGothic","Meiryo",sans-serif}
+
+.tbl{overflow-x:auto;margin:12px 0 18px}
+table{border-collapse:collapse;width:100%;min-width:480px;font-size:.94rem;background:var(--surface)}
+th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+th{background:var(--code);white-space:nowrap}
+.dot{display:inline-block;width:.8em;height:.8em;border-radius:50%;vertical-align:-1px;margin-right:6px}
+
+details.qa{background:var(--surface);border:1px solid var(--line);border-radius:10px;margin:10px 0}
+details.qa>summary{cursor:pointer;padding:12px 16px;font-weight:700;margin-left:1em}
+details.qa[open]>summary{border-bottom:1px solid var(--line)}
+details.qa>div{padding:12px 16px 4px}
+
+.tabs-list{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0 16px;padding:0;list-style:none}
+.tabs-list li{margin:0}
+.tabs-list a{display:inline-block;padding:4px 12px;border:1px solid var(--line);border-radius:6px;text-decoration:none;color:var(--ink);background:var(--surface);font-size:.92rem}
+.history li{margin-bottom:10px}
+footer{border-top:1px solid var(--line);padding:24px 20px;text-align:center;color:var(--muted);font-size:.86rem}
+.theme-btn{position:fixed;right:14px;bottom:calc(14px + env(safe-area-inset-bottom,0px));background:var(--surface);color:var(--ink);border:1px solid var(--line);border-radius:999px;padding:8px 14px;font:inherit;font-size:.85rem;cursor:pointer}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-in">
+    <div>
+      <h1 class="wordmark">Kotobareach<span class="kana">コトバリーチ</span></h1>
+      <p class="lead">話した日本語は英語に、相手の英語は日本語に。翻訳した字幕を、手元のスマホやタブレットに表示します。ゲームのボイスチャットで英語のやり取りを手助けする、Windows 用の無料アプリです。</p>
+      <span class="ver">説明書 v1.022（2026年10月）　<a href="../" style="color:#AEB7C8">最新の説明書へ</a></span>
+      <div class="cta">
+        <a class="btn" id="dl" href="#">ダウンロード</a>
+        <a class="btn ghost" href="#start">はじめての設定へ</a>
+      </div>
+    </div>
+    <div class="tablet" aria-label="タブレットに表示した字幕のイメージ">
+      <div class="screen">
+        <div class="tbar"><span>A-</span><span>A+</span><span>全画面</span><span class="r">読み上げ設定</span><span>停止</span></div>
+        <div class="pane them">
+          <h3>相手の声　英語 → 日本語（パソコンの音）</h3>
+          <p class="big">右に敵！今のうちに押して！</p>
+          <p class="small"><span class="tap">Enemy on the right, push now!</span></p>
+        </div>
+        <div class="pane me">
+          <h3>自分の声　日本語 → 英語（マイク）</h3>
+          <p class="big"><span class="tap">Got it, I'm covering you.</span></p>
+          <p class="small">了解、援護する</p>
+          <p class="tap-hint">点線の英文をタップすると、タブレットが読み上げます</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+  <nav class="toc" aria-label="目次">
+    <details open>
+      <summary>目次</summary>
+      <ol>
+        <li><a href="#about">コトバリーチでできること</a></li>
+        <li><a href="#env">動作環境と同梱ファイル</a></li>
+        <li><a href="#start">はじめての設定</a></li>
+        <li><a href="#tablet">スマホ・タブレットで字幕を見る</a></li>
+        <li><a href="#screen">パソコンの画面</a></li>
+        <li><a href="#settings">設定ウィンドウ</a></li>
+        <li><a href="#gpu">GPU で速くする</a></li>
+        <li><a href="#trouble">困ったとき</a></li>
+        <li><a href="#history">バージョン履歴</a></li>
+        <li><a href="#disclaimer">免責事項</a></li>
+        <li><a href="#license">使っている技術とライセンス</a></li>
+      </ol>
+    </details>
+  </nav>
+
+  <main>
+    <!-- ================= about ================= -->
+    <section id="about">
+      <h2>コトバリーチでできること</h2>
+      <p>パソコンで声を聞き取って翻訳し、その字幕を同じ Wi-Fi のスマホやタブレットに表示します。ゲーム画面はそのままに、手元の画面で会話を追えます。</p>
+      <div class="split">
+        <div class="side them"><b>相手の声（聞き取り）</b>パソコンから聞こえる英語（ゲームの VC や Discord など）を聞き取り、日本語の字幕にします。Windows 11 のライブキャプションを読み取る方法も選べます。</div>
+        <div class="side me"><b>自分の声</b>マイクで話した日本語を文字にして、自然な英語に訳します。訳は Google 翻訳・Microsoft 翻訳などの無料サービスで行います。</div>
+      </div>
+      <p>スマホ・タブレットの画面で英文をタップすると、その端末が英語で読み上げます<span class="since">v1.022〜</span>。スマホ・タブレットには何もインストールせず、ブラウザで開くだけです。</p>
+      <div class="note">v1.022 から、パソコンからの読み上げ（トリガーキーで英語を話して VC キーを押す機能）はなくなりました。読み上げはスマホ・タブレット側で行います。</div>
+    </section>
+
+    <!-- ================= env ================= -->
+    <section id="env">
+      <h2>動作環境と同梱ファイル</h2>
+      <ul>
+        <li><b>パソコン：</b>Windows 10 / 11（64bit）</li>
+        <li><b>スマホ・タブレット：</b>パソコンと同じ Wi-Fi につながる端末と、ブラウザ（Chrome など）</li>
+        <li><b>インターネット接続：</b>翻訳と、初回の音声認識モデルのダウンロードに使います</li>
+        <li><b>GPU（なくても動きます）：</b>NVIDIA / AMD / Intel の GPU があれば、音声認識が速くなります。AMD・Intel はそのまま使えます。NVIDIA は「GPU」タブから追加の部品をダウンロードします（初回のみ）</li>
+      </ul>
+      <div class="tbl"><table>
+        <tr><th>ファイル</th><th>中身</th></tr>
+        <tr><td><code>Kotobareach.exe</code></td><td>アプリ本体。ダブルクリックで起動します</td></tr>
+        <tr><td><code>_internal</code> フォルダ</td><td>動くのに必要なファイルです。消したり動かしたりしないでください</td></tr>
+        <tr><td><code>Readme.txt</code></td><td>テキスト版の説明書</td></tr>
+      </table></div>
+      <div class="note warn">別の場所に移すときは、フォルダごと移動してください。exe だけでは動きません。</div>
+    </section>
+
+    <!-- ================= start ================= -->
+    <section id="start">
+      <h2>はじめての設定</h2>
+      <ol class="steps">
+        <li><strong>zip を展開する</strong>ダウンロードした zip を右クリックして「すべて展開」を選びます。zip を開いたままでは起動できません。</li>
+        <li><strong>コトバリーチを起動する</strong>展開したフォルダの <code>Kotobareach.exe</code> をダブルクリックします。青い警告画面が出たら、<a href="#smartscreen">初回起動時の警告が出たら</a>の手順で起動します。初回は設定ウィンドウが自動で開きます。</li>
+        <li><strong>音声認識モデルを選ぶ</strong>「STT・翻訳」タブの「Whisperモデルサイズ」で選びます。選ぶと読み込みが始まります（初回のみダウンロード）。<br>おすすめ：GPU が使える PC は <b>large-v3-turbo</b>、GPU がない PC は <b>small</b>。</li>
+        <li><strong>マイクを選ぶ</strong>メイン画面の「有効な入力マイク」で、使うマイクを選びます。見つからないときは「すべての入力デバイスを表示」にチェックを入れます。</li>
+        <li><strong>聞き取る音を選ぶ</strong>「設定」→「聞き取り」タブの「聞き取る音」で、いつも使っているスピーカー（ヘッドホン）の「パソコンの音: ～」を選びます。</li>
+        <li><strong>閾値（しきいち）を合わせる</strong>メイン画面の音量インジケータを見ながら、すぐ下のスライダーを動かします。白い線が今の閾値です。<b>話したときは線を超え、黙っているときは線より下</b>になれば OK です。</li>
+        <li><strong>スマホ・タブレットをつなぐ</strong>メイン画面の「タブレット接続設定」を押し、「字幕をタブレット・スマホにも送る」にチェック。出てきた QR コードをスマホ・タブレットのカメラで読み取ります。くわしくは<a href="#tablet">次の章</a>へ。</li>
+        <li><strong>（必要なら）GPU を準備する</strong>NVIDIA の GPU を使う場合は「GPU」タブでダウンロードします。くわしくは<a href="#gpu">GPU で速くする</a>へ。</li>
+      </ol>
+      <p class="note">設定は変えてから約1秒後に自動で保存されます。保存ボタンはありません。</p>
+
+      <h3 id="smartscreen">初回起動時の警告が出たら</h3>
+      <p>初めて起動すると、「Windows によって PC が保護されました」という青い画面が出ます。コトバリーチは無料配布のため、有料の電子署名をしていないことが理由です。ソフトの不具合やウイルスを意味するものではありません。</p>
+      <ol class="steps">
+        <li><strong>「詳細情報」を押す</strong>説明文の下にある文字のリンクです。「実行しない」を押すと起動せずに閉じます。</li>
+        <li><strong>「実行」を押す</strong>「アプリ: Kotobareach.exe」と表示されていることを確かめてから押します。発行元は「不明な発行元」と出ますが、署名をしていないためです。</li>
+      </ol>
+      <figure>
+        <div class="shot">
+<svg viewBox="0 0 640 600" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="WindowsのSmartScreen警告画面と、詳細情報を押したあとの画面">
+  <rect x="0" y="0" width="640" height="280" fill="#0063B1"/>
+  <text x="28" y="58" style="fill:#fff;font:700 22px 'BIZ UDPGothic','Meiryo',sans-serif">Windows によって PC が保護されました</text>
+  <text x="28" y="98" style="fill:#fff;font:13px 'BIZ UDPGothic','Meiryo',sans-serif">Microsoft Defender SmartScreen は認識されないアプリの起動を停止しました。</text>
+  <text x="28" y="120" style="fill:#fff;font:13px 'BIZ UDPGothic','Meiryo',sans-serif">このアプリを実行すると、PC に問題が起こる可能性があります。</text>
+  <text x="28" y="156" style="fill:#fff;font:700 13px 'BIZ UDPGothic','Meiryo',sans-serif;text-decoration:underline">詳細情報</text>
+  <rect x="20" y="138" width="72" height="26" rx="6" fill="none" stroke="#FFC845" stroke-width="3"/>
+  <text x="104" y="157" style="fill:#FFC845;font:700 14px 'BIZ UDPGothic','Meiryo',sans-serif">① ここを押す</text>
+  <rect x="0" y="210" width="640" height="70" fill="#00508F"/>
+  <rect x="492" y="228" width="124" height="34" fill="none" stroke="#fff"/>
+  <text x="554" y="250" text-anchor="middle" style="fill:#fff;font:13px 'BIZ UDPGothic','Meiryo',sans-serif">実行しない</text>
+  <text x="320" y="308" text-anchor="middle" style="fill:#8A94A8;font:18px sans-serif">▼</text>
+  <rect x="0" y="320" width="640" height="280" fill="#0063B1"/>
+  <text x="28" y="378" style="fill:#fff;font:700 22px 'BIZ UDPGothic','Meiryo',sans-serif">Windows によって PC が保護されました</text>
+  <text x="28" y="418" style="fill:#fff;font:13px 'BIZ UDPGothic','Meiryo',sans-serif">Microsoft Defender SmartScreen は認識されないアプリの起動を停止しました。</text>
+  <text x="28" y="440" style="fill:#fff;font:13px 'BIZ UDPGothic','Meiryo',sans-serif">このアプリを実行すると、PC に問題が起こる可能性があります。</text>
+  <text x="28" y="474" style="fill:#fff;font:13px 'BIZ UDPGothic','Meiryo',sans-serif">アプリ:　Kotobareach.exe</text>
+  <text x="28" y="496" style="fill:#fff;font:13px 'BIZ UDPGothic','Meiryo',sans-serif">発行元:　不明な発行元</text>
+  <rect x="0" y="530" width="640" height="70" fill="#00508F"/>
+  <rect x="356" y="548" width="124" height="34" fill="none" stroke="#fff"/>
+  <text x="418" y="570" text-anchor="middle" style="fill:#fff;font:13px 'BIZ UDPGothic','Meiryo',sans-serif">実行</text>
+  <rect x="350" y="542" width="136" height="46" rx="6" fill="none" stroke="#FFC845" stroke-width="3"/>
+  <text x="340" y="570" text-anchor="end" style="fill:#FFC845;font:700 14px 'BIZ UDPGothic','Meiryo',sans-serif">② 実行を押す</text>
+  <rect x="492" y="548" width="124" height="34" fill="none" stroke="#fff"/>
+  <text x="554" y="570" text-anchor="middle" style="fill:#fff;font:13px 'BIZ UDPGothic','Meiryo',sans-serif">実行しない</text>
+</svg>
+        </div>
+        <figcaption>上：最初に出る画面。下：「詳細情報」を押したあとの画面（画面はイメージです）。</figcaption>
+      </figure>
+      <p>一度実行すれば、次からは出ません。新しい版に入れ替えたときは、また出ることがあります。</p>
+      <div class="note warn">公式の配布ページ以外から手に入れた Kotobareach.exe では、この操作をしないでください。中身が書き換えられているおそれがあります。</div>
+    </section>
+
+    <!-- ================= tablet ================= -->
+    <section id="tablet">
+      <h2>スマホ・タブレットで字幕を見る</h2>
+      <p>コトバリーチのふつうの使い方です。同じ Wi-Fi のスマホやタブレットのブラウザに、字幕を送って表示します。送るのは文字だけです。</p>
+      <ol class="steps">
+        <li><strong>「タブレット接続設定」ボタンを押す</strong>メイン画面のボタンです。「設定」→「タブレット表示」タブが開きます。</li>
+        <li><strong>「字幕をタブレット・スマホにも送る」にチェック</strong>チェックは保存されるので、次回からは起動するだけで送信が始まります。送信中はボタンが緑になります。</li>
+        <li><strong>QR コードを読み取る</strong>スマホ・タブレットのカメラで読み取って開きます。読み取れないときは「URL をコピー」で URL を確かめて、ブラウザに入力します。</li>
+        <li><strong>ブックマークしておく</strong>URL は変わらないので、ブックマークすれば次からは QR 不要です（パソコンの IP アドレスが変わったときだけ読み取り直します）。</li>
+      </ol>
+      <figure>
+        <div class="shot">
+<svg viewBox="0 0 640 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="設定ウィンドウのタブレット表示タブ">
+  <rect class="u-win" x=".5" y=".5" width="639" height="399" rx="8"/>
+  <path class="u-title" d="M8 .5h624a7.5 7.5 0 0 1 7.5 7.5v24H.5V8A7.5 7.5 0 0 1 8 .5z"/>
+  <text class="u-b" x="16" y="21">設定</text>
+  <rect class="u-tab" x="16" y="44" width="84" height="28" rx="4"/><text class="u-t" x="58" y="63" text-anchor="middle">聞き取り</text>
+  <rect class="u-tab" x="104" y="44" width="96" height="28" rx="4"/><text class="u-t" x="152" y="63" text-anchor="middle">STT・翻訳</text>
+  <rect class="u-tab" x="204" y="44" width="60" height="28" rx="4"/><text class="u-t" x="234" y="63" text-anchor="middle">GPU</text>
+  <rect class="u-tab" x="268" y="44" width="84" height="28" rx="4"/><text class="u-t" x="310" y="63" text-anchor="middle">表示設定</text>
+  <rect class="u-tabon" x="356" y="44" width="120" height="28" rx="4"/><text class="u-b" x="416" y="63" text-anchor="middle">タブレット表示</text>
+  <line x1="16" y1="72" x2="624" y2="72" stroke="#C3CAD6"/>
+  <rect x="24" y="92" width="16" height="16" rx="3" fill="#0E7C86"/><path d="M28 100l3 3 6-7" stroke="#fff" stroke-width="2" fill="none"/>
+  <text class="u-b" x="48" y="105">字幕をタブレット・スマホにも送る</text>
+  <!-- QR -->
+  <rect x="24" y="124" width="152" height="152" fill="#fff" stroke="#B3BBC9"/>
+  <g fill="#1B2333">
+    <rect x="34" y="134" width="40" height="40"/><rect x="126" y="134" width="40" height="40"/><rect x="34" y="226" width="40" height="40"/>
+  </g>
+  <g fill="#fff"><rect x="40" y="140" width="28" height="28"/><rect x="132" y="140" width="28" height="28"/><rect x="40" y="232" width="28" height="28"/></g>
+  <g fill="#1B2333">
+    <rect x="46" y="146" width="16" height="16"/><rect x="138" y="146" width="16" height="16"/><rect x="46" y="238" width="16" height="16"/>
+    <rect x="84" y="134" width="8" height="8"/><rect x="100" y="142" width="8" height="8"/><rect x="84" y="158" width="16" height="8"/><rect x="108" y="166" width="8" height="8"/>
+    <rect x="34" y="184" width="8" height="8"/><rect x="50" y="192" width="16" height="8"/><rect x="74" y="184" width="8" height="16"/><rect x="92" y="184" width="8" height="8"/>
+    <rect x="108" y="192" width="16" height="8"/><rect x="134" y="184" width="8" height="8"/><rect x="150" y="192" width="16" height="8"/><rect x="84" y="208" width="8" height="8"/>
+    <rect x="100" y="216" width="8" height="16"/><rect x="116" y="208" width="8" height="8"/><rect x="134" y="216" width="16" height="8"/><rect x="158" y="208" width="8" height="8"/>
+    <rect x="84" y="242" width="16" height="8"/><rect x="108" y="234" width="8" height="8"/><rect x="126" y="250" width="8" height="16"/><rect x="142" y="234" width="8" height="8"/>
+    <rect x="158" y="250" width="8" height="8"/><rect x="92" y="258" width="8" height="8"/><rect x="142" y="258" width="8" height="8"/><rect x="34" y="208" width="8" height="8"/>
+  </g>
+  <text class="u-m" x="196" y="140">タブレットで開く URL</text>
+  <rect class="u-box" x="196" y="150" width="420" height="26" rx="3"/><text class="u-t" x="206" y="168">http://192.168.1.20:8765/?t=k7QmZx…</text>
+  <rect class="u-btn" x="196" y="188" width="110" height="28" rx="4"/><text class="u-t" x="251" y="207" text-anchor="middle">URL をコピー</text>
+  <rect class="u-btn" x="314" y="188" width="140" height="28" rx="4"/><text class="u-t" x="384" y="207" text-anchor="middle">合言葉を作り直す</text>
+  <text class="u-m" x="196" y="244">このパソコンの IP</text>
+  <rect class="u-box" x="196" y="254" width="200" height="26" rx="3"/><text class="u-t" x="206" y="272">192.168.1.20</text><text class="u-t" x="384" y="272" text-anchor="end">▾</text>
+  <text class="u-m" x="412" y="244">ポート</text>
+  <rect class="u-box" x="412" y="254" width="90" height="26" rx="3"/><text class="u-t" x="422" y="272">8765</text>
+  <line x1="24" y1="300" x2="616" y2="300" stroke="#E3E7EE"/>
+  <text class="u-b" x="24" y="328">状態</text>
+  <circle cx="72" cy="323" r="5" fill="#2F9E5B"/>
+  <text class="u-t" x="84" y="328">送信中　最後のアクセス 21:14　192.168.1.31　200（正常）</text>
+  <rect class="u-btn" x="24" y="352" width="110" height="28" rx="4"/><text class="u-t" x="79" y="371" text-anchor="middle">接続テスト</text>
+  <rect class="u-btn" x="144" y="352" width="290" height="28" rx="4"/><text class="u-t" x="289" y="371" text-anchor="middle">ファイアウォールの許可コマンドをコピー</text>
+</svg>
+        </div>
+        <figcaption>「タブレット表示」タブ。QR コードを読み取るだけでつながります（画面はイメージです）。</figcaption>
+      </figure>
+
+      <h3>スマホ・タブレットの画面</h3>
+      <p>ページ上部の画面イメージのように、上下2段で字幕が出ます。</p>
+      <div class="split">
+        <div class="side them"><b>上段：相手の声　英語 → 日本語</b>大きく日本語、下に小さく英語の原文。</div>
+        <div class="side me"><b>下段：自分の声　日本語 → 英語</b>大きく英語、下に小さく日本語。</div>
+      </div>
+      <p>「A-」「A+」で文字の大きさ、「全画面」で全画面表示にできます。画面が消えないよう、端末の画面の自動オフは長めにしておいてください。</p>
+
+      <h3>英文をタップして読み上げる <span class="since">v1.022〜</span></h3>
+      <p>下段の英語と、上段の英語の原文をタップすると、その端末が読み上げます。もう一度タップで止まります。声は端末に入っているものを使います。</p>
+      <p>画面上部の「読み上げ設定」で次のものを変えられます（端末の中に保存されます）：声の絞り込み（男性っぽい / 女性っぽい）、アクセント（en-US・en-GB など）、声、速さ、高さ、音量、読み上げを始めるまでの間、自動で読み上げる（自分の英文 / 相手の英語 / 両方）、試し聞き、初期値に戻す。</p>
+
+      <h3>つながらないとき</h3>
+      <ul>
+        <li>スマホ・タブレットが同じ Wi-Fi か確認します（ゲスト用 Wi-Fi は不可。2.4GHz と 5GHz で別ネットワークのこともあります）</li>
+        <li>URL が <code>http://</code> で始まっているか確認します（<code>https://</code> では開けません）</li>
+        <li>「状態」にアクセスの記録が出ないなら、通信がパソコンに届いていません。「接続テスト」を試します</li>
+        <li>「ファイアウォールの許可コマンドをコピー」を押し、管理者として開いたコマンド プロンプトに貼り付けて実行します。初めて使うときに Windows の許可画面が出たら「許可」（プライベート ネットワーク）を選びます</li>
+        <li>「このパソコンの IP」で別の候補を選んでみます（VPN を使っていると複数出ることがあります）</li>
+        <li>ほかのソフトとポートが重なって始められないときだけ、ポート番号を変えます</li>
+      </ul>
+      <div class="note warn">URL の最後の「?t=…」は合言葉です。知らない人に見せないでください。漏れたら「合言葉を作り直す」を押し、新しい URL で開き直します。通信は暗号化されないので、外出先や公衆 Wi-Fi では使わないでください。</div>
+    </section>
+
+    <!-- ================= screen ================= -->
+    <section id="screen">
+      <h2>パソコンの画面</h2>
+      <p>メイン画面にも、スマホ・タブレットと同じ上下2段の字幕が出ます。各段の見出しの右にあるボタンで、その機能をオン / オフできます。</p>
+      <figure>
+        <div class="shot">
+<svg viewBox="0 0 640 600" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="メイン画面">
+  <rect class="u-win" x=".5" y=".5" width="639" height="599" rx="8"/>
+  <path class="u-title" d="M8 .5h624a7.5 7.5 0 0 1 7.5 7.5v24H.5V8A7.5 7.5 0 0 1 8 .5z"/>
+  <text class="u-b" x="16" y="21">Kotobareach v1.022　[音声認識: GPU]</text>
+  <rect class="u-dark" x="16" y="44" width="608" height="112" rx="6"/>
+  <text class="u-teal" x="30" y="66">相手の声　英語 → 日本語（パソコンの音）</text>
+  <rect x="510" y="52" width="100" height="22" rx="11" fill="none" stroke="#4FC1C9"/><text class="u-teal" x="560" y="67" text-anchor="middle">聞き取り: ON</text>
+  <text class="u-w" x="30" y="112">右に敵！今のうちに押して！</text>
+  <text class="u-g" x="30" y="138">Enemy on the right, push now!</text>
+  <rect class="u-dark" x="16" y="166" width="608" height="112" rx="6"/>
+  <text class="u-amb" x="30" y="188">自分の声　日本語 → 英語（マイク）</text>
+  <rect x="510" y="174" width="100" height="22" rx="11" fill="none" stroke="#E8B04B"/><text class="u-amb" x="560" y="189" text-anchor="middle">自分の声: ON</text>
+  <text class="u-w" x="30" y="234">Got it, I'm covering you.</text>
+  <text class="u-g" x="30" y="260">了解、援護する</text>
+  <text class="u-t" x="16" y="308">有効な入力マイク</text>
+  <rect class="u-box" x="140" y="290" width="380" height="26" rx="3"/><text class="u-t" x="150" y="308">マイク (USB Audio) [Windows WASAPI]</text><text class="u-t" x="508" y="308" text-anchor="end">▾</text>
+  <rect class="u-box" x="140" y="328" width="14" height="14" rx="2"/><text class="u-m" x="162" y="340">すべての入力デバイスを表示</text>
+  <text class="u-t" x="16" y="376">マイク音量</text>
+  <rect x="140" y="364" width="460" height="16" rx="3" fill="#E3E7EE"/>
+  <rect x="140" y="364" width="230" height="16" rx="3" fill="#3BAA5C"/>
+  <rect x="202" y="360" width="4" height="24" fill="#fff" stroke="#1B2333" stroke-width="1"/>
+  <text class="u-t" x="16" y="410">閾値</text>
+  <rect x="140" y="402" width="460" height="4" rx="2" fill="#B3BBC9"/>
+  <circle cx="204" cy="404" r="8" fill="#0E7C86"/>
+  <text class="u-b" x="624" y="410" text-anchor="end">14</text>
+  <text class="u-t" x="16" y="444">稼働ステータスログ</text>
+  <rect x="16" y="452" width="608" height="88" rx="4" fill="#F5F7FA" stroke="#D8DDE6"/>
+  <text class="u-mono" x="26" y="472">[STT 認識] (GPU 0.35秒): 了解、援護する</text>
+  <text class="u-mono" x="26" y="490">[翻訳] Google翻訳: Got it, I'm covering you.</text>
+  <text class="u-mono" x="26" y="508">[聞き取り] Enemy on the right, push now!</text>
+  <text class="u-mono" x="26" y="526">[タブレット] 192.168.1.31 から接続（200）</text>
+  <rect class="u-btn" x="16" y="552" width="90" height="32" rx="4"/><text class="u-t" x="61" y="573" text-anchor="middle">設定</text>
+  <rect x="116" y="552" width="170" height="32" rx="4" fill="#2F9E5B"/><text class="u-wt" x="201" y="573" text-anchor="middle">タブレット接続設定</text>
+</svg>
+        </div>
+        <figcaption>メイン画面。インジケータの白い線と、真下のスライダーのつまみは同じ位置です。字幕を送っている間は「タブレット接続設定」が緑になります（画面はイメージです）。</figcaption>
+      </figure>
+      <div class="split">
+        <div class="side them"><b>上段：相手の声　英語 → 日本語</b>「聞き取り: ON / OFF」ボタンで切り替えます。</div>
+        <div class="side me"><b>下段：自分の声　日本語 → 英語</b>「自分の声: ON / OFF」ボタンで切り替えます。聞き取りだけ使うならオフにすると PC の負担が減ります。</div>
+      </div>
+      <p>その下に、入力マイク、音量インジケータ、閾値スライダー、稼働ステータスログ（最新10件）、「設定」ボタン、「タブレット接続設定」ボタンが並びます。</p>
+      <p>閾値の既定値は 14 です。スライダーをクリックしたあと <kbd>←</kbd> <kbd>→</kbd> で1ずつ動かせます。</p>
+      <div class="note">コトバリーチは同時に1つだけ起動できます。もう一度起動すると、開いている画面が前に出ます。</div>
+    </section>
+
+    <!-- ================= settings ================= -->
+    <section id="settings">
+      <h2>設定ウィンドウ</h2>
+      <p>メイン画面の「設定」ボタンで開きます。開いたままでもメイン画面を操作できます。</p>
+      <ul class="tabs-list">
+        <li><a href="#tab-listen">聞き取り</a></li>
+        <li><a href="#tab-stt">STT・翻訳</a></li>
+        <li><a href="#gpu">GPU</a></li>
+        <li><a href="#tab-display">表示設定</a></li>
+        <li><a href="#tablet">タブレット表示</a></li>
+      </ul>
+
+      <h3 id="tab-listen">聞き取りタブ</h3>
+      <figure>
+        <div class="shot">
+<svg viewBox="0 0 640 450" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="設定ウィンドウの聞き取りタブ">
+  <rect class="u-win" x=".5" y=".5" width="639" height="449" rx="8"/>
+  <path class="u-title" d="M8 .5h624a7.5 7.5 0 0 1 7.5 7.5v24H.5V8A7.5 7.5 0 0 1 8 .5z"/>
+  <text class="u-b" x="16" y="21">設定</text>
+  <rect class="u-tabon" x="16" y="44" width="84" height="28" rx="4"/><text class="u-b" x="58" y="63" text-anchor="middle">聞き取り</text>
+  <rect class="u-tab" x="104" y="44" width="96" height="28" rx="4"/><text class="u-t" x="152" y="63" text-anchor="middle">STT・翻訳</text>
+  <rect class="u-tab" x="204" y="44" width="60" height="28" rx="4"/><text class="u-t" x="234" y="63" text-anchor="middle">GPU</text>
+  <rect class="u-tab" x="268" y="44" width="84" height="28" rx="4"/><text class="u-t" x="310" y="63" text-anchor="middle">表示設定</text>
+  <rect class="u-tab" x="356" y="44" width="120" height="28" rx="4"/><text class="u-t" x="416" y="63" text-anchor="middle">タブレット表示</text>
+  <line x1="16" y1="72" x2="624" y2="72" stroke="#C3CAD6"/>
+  <text class="u-t" x="24" y="104">聞き取りの方法</text>
+  <circle cx="228" cy="100" r="7" fill="#fff" stroke="#0E7C86" stroke-width="2"/><circle cx="228" cy="100" r="3.5" fill="#0E7C86"/>
+  <text class="u-t" x="244" y="104">パソコンの音を音声認識する（Whisper）</text>
+  <circle cx="228" cy="126" r="7" fill="#fff" stroke="#B3BBC9" stroke-width="2"/>
+  <text class="u-t" x="244" y="130">Windows のライブキャプションから読む</text>
+  <text class="u-t" x="24" y="172">聞き取る音</text>
+  <rect class="u-box" x="220" y="154" width="396" height="26" rx="3"/><text class="u-t" x="230" y="172">パソコンの音: スピーカー (Realtek Audio)</text><text class="u-t" x="604" y="172" text-anchor="end">▾</text>
+  <text class="u-t" x="24" y="216">相手の言語</text>
+  <rect class="u-box" x="220" y="198" width="396" height="26" rx="3"/><text class="u-t" x="230" y="216">英語だけ（日本語など、ほかの言語は無視）</text><text class="u-t" x="604" y="216" text-anchor="end">▾</text>
+  <text class="u-t" x="24" y="260">認識モデル</text>
+  <rect class="u-box" x="220" y="242" width="396" height="26" rx="3"/><text class="u-t" x="230" y="260">small</text><text class="u-t" x="604" y="260" text-anchor="end">▾</text>
+  <text class="u-t" x="24" y="302">音量</text>
+  <rect x="220" y="290" width="360" height="16" rx="3" fill="#E3E7EE"/>
+  <rect x="220" y="290" width="150" height="16" rx="3" fill="#3BAA5C"/>
+  <rect x="290" y="286" width="4" height="24" fill="#fff" stroke="#1B2333"/>
+  <text class="u-t" x="24" y="338">閾値</text>
+  <rect x="220" y="330" width="360" height="4" rx="2" fill="#B3BBC9"/>
+  <circle cx="292" cy="332" r="8" fill="#0E7C86"/>
+  <text class="u-b" x="616" y="338" text-anchor="end">20</text>
+  <rect x="220" y="362" width="16" height="16" rx="3" fill="#0E7C86"/><path d="M224 370l3 3 6-7" stroke="#fff" stroke-width="2" fill="none"/>
+  <text class="u-t" x="244" y="375">相手の言葉（原文）も表示する</text>
+  <text class="u-t" x="24" y="420">聞き取りの翻訳</text>
+  <rect class="u-box" x="220" y="402" width="396" height="26" rx="3"/><text class="u-t" x="230" y="420">クラウドの翻訳サービス</text><text class="u-t" x="604" y="420" text-anchor="end">▾</text>
+</svg>
+        </div>
+        <figcaption>「聞き取り」タブ（画面はイメージです）</figcaption>
+      </figure>
+      <h4>聞き取りの方法（どちらか1つ）</h4>
+      <ul>
+        <li><b>パソコンの音を音声認識する（Whisper）：</b>ふつうの方法です。下の設定をすべて使います。</li>
+        <li><b>Windows のライブキャプションから読む：</b>Windows 11 の「ライブキャプション」が出した英語を読み取って訳します。音声認識を動かさないので PC の負担がほとんどありません。
+          <ul>
+            <li>Windows 11（22H2 以降）が必要です。<kbd>Windows</kbd>＋<kbd>Ctrl</kbd>＋<kbd>L</kbd> でも起動できます</li>
+            <li>ライブキャプションの設定で、言語を「英語」に、「マイクの音声を含める」はオフにします</li>
+            <li>ライブキャプションの窓は閉じずに、邪魔にならない場所に置いておきます</li>
+            <li>この方法では「聞き取る音」「相手の言語」「認識モデル」「音量 / 閾値」は使いません</li>
+          </ul>
+        </li>
+      </ul>
+      <h4>聞き取る音</h4>
+      <p>「パソコンの音: スピーカー名」を選ぶと、そのスピーカーから流れる音（ゲームの音・BGM・相手の声など）をそのまま取り込みます。起動時は Windows の既定のスピーカーが自動で選ばれます。一覧にないときは「すべての入力デバイスを表示」にチェックを入れます。</p>
+      <h4>相手の言語</h4>
+      <p>英語 / 自動判定 / 英語だけ。日本語の動画や会話も聞こえる環境では <b>英語だけ</b> を選ぶと、日本語を変な英語字幕にしてしまうのを防げます（初期設定は「英語だけ」）。</p>
+      <h4>認識モデル・音量 / 閾値</h4>
+      <p>聞き取り用のモデルは自分の声用とは別です。おすすめは small。ゲームが重くなるなら base や tiny に。BGM や効果音で字幕が出るときは閾値を上げます。</p>
+      <h4>聞き取りの翻訳（1つ選ぶ）</h4>
+      <ul>
+        <li><b>クラウドの翻訳サービス：</b>精度は高め。無料サービスの回数を自分の声の分に残すため、呼び出しは控えめにしています</li>
+        <li><b>ローカル翻訳 FuguMT：</b>パソコンの中で訳します。軽くて回数制限なし。精度はやや低め。初回使用時に必要なファイルを約125MBダウンロードします</li>
+        <li><b>ローカル LLM HY-MT1.5：</b>FuguMT より自然な訳になりやすい翻訳用 AI。先に GPU タブでダウンロード（約1.2GB）が必要です。EU・英国・韓国では使えません</li>
+      </ul>
+
+      <h3 id="tab-stt">STT・翻訳タブ</h3>
+      <figure>
+        <div class="shot">
+<svg viewBox="0 0 640 486" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="設定ウィンドウのSTT・翻訳タブ">
+  <rect class="u-win" x=".5" y=".5" width="639" height="485" rx="8"/>
+  <path class="u-title" d="M8 .5h624a7.5 7.5 0 0 1 7.5 7.5v24H.5V8A7.5 7.5 0 0 1 8 .5z"/>
+  <text class="u-b" x="16" y="21">設定</text>
+  <rect class="u-tab" x="16" y="44" width="84" height="28" rx="4"/><text class="u-t" x="58" y="63" text-anchor="middle">聞き取り</text>
+  <rect class="u-tabon" x="104" y="44" width="96" height="28" rx="4"/><text class="u-b" x="152" y="63" text-anchor="middle">STT・翻訳</text>
+  <rect class="u-tab" x="204" y="44" width="60" height="28" rx="4"/><text class="u-t" x="234" y="63" text-anchor="middle">GPU</text>
+  <rect class="u-tab" x="268" y="44" width="84" height="28" rx="4"/><text class="u-t" x="310" y="63" text-anchor="middle">表示設定</text>
+  <rect class="u-tab" x="356" y="44" width="120" height="28" rx="4"/><text class="u-t" x="416" y="63" text-anchor="middle">タブレット表示</text>
+  <line x1="16" y1="72" x2="624" y2="72" stroke="#C3CAD6"/>
+  <text class="u-t" x="24" y="108">Whisperモデルサイズ</text>
+  <rect class="u-box" x="220" y="90" width="396" height="26" rx="3"/><text class="u-t" x="230" y="108">large-v3-turbo (GPU向け・高精度)</text><text class="u-t" x="604" y="108" text-anchor="end">▾</text>
+  <text class="u-t" x="24" y="152">音声認識デバイス</text>
+  <rect class="u-box" x="220" y="134" width="210" height="26" rx="3"/><text class="u-t" x="230" y="152">GPU（自動認識）</text><text class="u-t" x="418" y="152" text-anchor="end">▾</text>
+  <text class="u-m" x="442" y="152">実行中:</text>
+  <rect x="490" y="136" width="126" height="22" rx="11" fill="#2F9E5B"/><text class="u-wt" x="553" y="151" text-anchor="middle">GPU（Vulkan）</text>
+  <text class="u-t" x="24" y="196">認識補助ワード</text>
+  <rect class="u-box" x="220" y="178" width="396" height="26" rx="3"/><text class="u-t" x="230" y="196">ARC Raiders, shield, reload, raid</text>
+  <text class="u-t" x="24" y="240">無料クラウド翻訳API</text>
+  <rect class="u-box" x="220" y="222" width="396" height="26" rx="3"/><text class="u-t" x="230" y="240">Google翻訳 (無料)</text><text class="u-t" x="604" y="240" text-anchor="end">▾</text>
+  <text class="u-t" x="24" y="284">翻訳の方法</text>
+  <rect class="u-box" x="220" y="266" width="396" height="26" rx="3"/><text class="u-t" x="230" y="284">クラウド優先・使えないときはローカル LLM</text><text class="u-t" x="604" y="284" text-anchor="end">▾</text>
+  <text class="u-t" x="24" y="328">Gemini API キー</text>
+  <rect class="u-box" x="220" y="310" width="300" height="26" rx="3"/><text class="u-t" x="230" y="328">••••••••••••••••</text>
+  <rect class="u-btn" x="528" y="309" width="88" height="28" rx="4"/><text class="u-t" x="572" y="328" text-anchor="middle">テスト</text>
+  <text class="u-t" x="24" y="372">Google Cloud API キー</text>
+  <rect class="u-box" x="220" y="354" width="300" height="26" rx="3"/>
+  <rect class="u-btn" x="528" y="353" width="88" height="28" rx="4"/><text class="u-t" x="572" y="372" text-anchor="middle">テスト</text>
+  <text class="u-t" x="24" y="416">最大発話時間</text>
+  <rect class="u-box" x="220" y="398" width="100" height="26" rx="3"/><text class="u-t" x="230" y="416">15 秒</text>
+  <text class="u-t" x="24" y="460">無音判定の待ち時間</text>
+  <rect class="u-box" x="220" y="442" width="100" height="26" rx="3"/><text class="u-t" x="230" y="460">0.8 秒</text>
+</svg>
+        </div>
+        <figcaption>「STT・翻訳」タブ。「実行中:」が緑なら GPU で動いています（画面はイメージです）。</figcaption>
+      </figure>
+      <h4>Whisperモデルサイズ</h4>
+      <div class="tbl"><table>
+        <tr><th>モデル</th><th>特徴</th></tr>
+        <tr><td>tiny</td><td>いちばん速い</td></tr>
+        <tr><td>base</td><td>標準</td></tr>
+        <tr><td>small</td><td>高精度。GPU がない PC のおすすめ</td></tr>
+        <tr><td>medium</td><td>さらに高精度</td></tr>
+        <tr><td>large-v3-turbo</td><td>GPU 向けの高精度モデル。GPU がある PC のおすすめ。初回使用時に必要なファイルを約0.9〜1.6GBダウンロードします</td></tr>
+        <tr><td>kotoba-whisper</td><td>日本語特化で最高精度。重い。CPU だと1回の発話に数秒かかります。初回使用時に必要なファイルを約1.5GBダウンロードします</td></tr>
+      </table></div>
+      <h4>音声認識デバイス</h4>
+      <p>「GPU（自動認識）」「GPU の名前」「CPU」から選びます。右の「実行中:」で、いま実際に使っているものを確認できます（色の意味は<a href="#gpu">GPU で速くする</a>へ）。</p>
+      <h4>認識補助ワード（hotwords）</h4>
+      <p>ゲーム用語や固有名詞をカンマ区切りで入れると、認識されやすくなります。例：<code>ARC Raiders, shield, reload, raid</code></p>
+      <h4>無料クラウド翻訳API</h4>
+      <p>最初に使う無料サービスを選びます（Google翻訳 / Microsoft翻訳 / MyMemory / LibreTranslate）。失敗したら自動で次のサービスに切り替わります。「HTTP 429」（呼び出しすぎ）を受けたサービスは、しばらく休ませます。</p>
+      <h4>翻訳の方法</h4>
+      <ul>
+        <li><b>クラウド優先・使えないときはローカル LLM</b>（おすすめ・既定）</li>
+        <li><b>クラウドのみ</b></li>
+        <li><b>ローカル LLM のみ</b>：回数制限なし。精度はクラウドより低めのことがあります</li>
+        <li><b>クラウド優先・使えないときはローカル翻訳 FuguMT</b> / <b>ローカル翻訳 FuguMT のみ（軽い）</b>：CPU で動くので GPU のメモリを使いません。初回使用時に必要なファイルを約245MBダウンロードします</li>
+      </ul>
+      <h4>翻訳 API キー（上級者向け・任意）</h4>
+      <p>自分で取ったキーを入れると、無料サービスより先にそちらを使います。キーはこの PC の Windows ユーザー専用に暗号化して保存します。「テスト」ボタンで使えるか確かめられます。</p>
+      <ul>
+        <li><b>Gemini API キー（おすすめ）：</b>文脈を読んで、ボイスチャット向けの自然な英語にします。<a href="https://aistudio.google.com/apikey" target="_blank" rel="noopener">Google AI Studio</a> で Google アカウントだけで作れます。無料枠があり、無料枠で送った文は Google のサービス改善に使われることがあります</li>
+        <li><b>Google Cloud API キー：</b>月50万文字まで無料。Google Cloud とクレジットカードの登録が必要です</li>
+      </ul>
+      <p>翻訳の順番：Gemini → Google Cloud → 選んだ無料サービス → 残りの無料サービス</p>
+      <h4>最大発話時間・無音判定の待ち時間</h4>
+      <p>1回に受け付ける長さ（3〜30秒）と、話し終わりとみなすまでの無音の長さ（0.5〜3.0秒）です。</p>
+
+      <h3 id="tab-display">表示設定タブ</h3>
+      <ul>
+        <li><b>字幕の文字サイズ：</b>メイン画面の字幕欄の文字の大きさ（10〜36px）</li>
+        <li><b>文字の縁取り：</b>字幕の縁取りの太さ（0〜5px）。英文は単語の途中で改行しません</li>
+      </ul>
+      <p>スマホ・タブレットの文字の大きさは、端末の画面の「A-」「A+」で変えます。</p>
+    </section>
+
+    <!-- ================= gpu ================= -->
+    <section id="gpu">
+      <h2>GPU で速くする</h2>
+      <p>GPU で音声認識すると速くなり、精度の高いモデル（large-v3-turbo / medium / kotoba-whisper）も待ち時間をほとんど増やさずに使えます。</p>
+      <h3>どちらで動いているかを確かめる</h3>
+      <div class="tbl"><table>
+        <tr><th>「実行中:」の色</th><th>意味</th></tr>
+        <tr><td><span class="dot" style="background:#3BAA5C"></span>緑</td><td>GPU で動いています（例：NVIDIA GPU（CUDA））</td></tr>
+        <tr><td><span class="dot" style="background:#3B7BD9"></span>青</td><td>CPU で動いています（CPU を選んだ場合）</td></tr>
+        <tr><td><span class="dot" style="background:#E08A20"></span>橙</td><td>GPU を選んだのに使えず、CPU で動いています。マウスを重ねると理由が出ます</td></tr>
+        <tr><td><span class="dot" style="background:#9AA4B8"></span>灰</td><td>準備中（モデルの読み込み中）</td></tr>
+      </table></div>
+      <p>メイン画面のタイトルにも <code>[音声認識: GPU]</code> / <code>[音声認識: CPU]</code> と出ます。ログには <code>[STT 認識] (GPU 0.35秒): 右から敵が来てる</code> のように処理時間が出ます。</p>
+
+      <h3>AMD / Intel の GPU</h3>
+      <p>追加のダウンロードは不要です。GPU ドライバーだけで動きます。GPU の名前（例：「AMD Radeon RX 9070 XT（Vulkan）」）を選んで使う GPU を決めることもできます。CPU 内蔵のグラフィックスとグラフィックボードがある PC では、グラフィックボードを優先します。</p>
+
+      <h3>NVIDIA の GPU</h3>
+      <p>追加の部品が必要です。初回使用時に必要なファイルを約1GBダウンロードします。</p>
+      <ol class="steps">
+        <li><strong>「GPU」タブを開く</strong>お使いの GPU が自動で表示されます。</li>
+        <li><strong>「ダウンロード」を押す</strong>「※このPCに搭載」と書かれた行のボタンです。</li>
+        <li><strong>サイズの確認で「Yes」を押す</strong>ダウンロード中もアプリは使えます。</li>
+        <li><strong>終わると自動で GPU に切り替わる</strong>「STT・翻訳」タブの「実行中:」が緑になれば成功です。</li>
+      </ol>
+      <figure>
+        <div class="shot">
+<svg viewBox="0 0 640 344" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="設定ウィンドウのGPUタブ">
+  <rect class="u-win" x=".5" y=".5" width="639" height="343" rx="8"/>
+  <path class="u-title" d="M8 .5h624a7.5 7.5 0 0 1 7.5 7.5v24H.5V8A7.5 7.5 0 0 1 8 .5z"/>
+  <text class="u-b" x="16" y="21">設定</text>
+  <rect class="u-tab" x="16" y="44" width="84" height="28" rx="4"/><text class="u-t" x="58" y="63" text-anchor="middle">聞き取り</text>
+  <rect class="u-tab" x="104" y="44" width="96" height="28" rx="4"/><text class="u-t" x="152" y="63" text-anchor="middle">STT・翻訳</text>
+  <rect class="u-tabon" x="204" y="44" width="60" height="28" rx="4"/><text class="u-b" x="234" y="63" text-anchor="middle">GPU</text>
+  <rect class="u-tab" x="268" y="44" width="84" height="28" rx="4"/><text class="u-t" x="310" y="63" text-anchor="middle">表示設定</text>
+  <rect class="u-tab" x="356" y="44" width="120" height="28" rx="4"/><text class="u-t" x="416" y="63" text-anchor="middle">タブレット表示</text>
+  <line x1="16" y1="72" x2="624" y2="72" stroke="#C3CAD6"/>
+  <text class="u-b" x="24" y="104">搭載 GPU</text>
+  <text class="u-t" x="140" y="104">NVIDIA GeForce RTX 4070</text>
+  <text class="u-m" x="140" y="124">Intel(R) UHD Graphics（内蔵）</text>
+  <text class="u-b" x="24" y="162">追加コンポーネント</text>
+  <rect x="24" y="174" width="592" height="132" rx="4" fill="#FAFBFC" stroke="#D8DDE6"/>
+  <line x1="24" y1="218" x2="616" y2="218" stroke="#E3E7EE"/><line x1="24" y1="262" x2="616" y2="262" stroke="#E3E7EE"/>
+  <text class="u-t" x="36" y="194">NVIDIA 用（CUDA）</text><text class="u-m" x="36" y="211">※このPCに搭載</text>
+  <text class="u-t" x="330" y="200">未導入（約1GB）</text>
+  <rect class="u-btn" x="508" y="182" width="96" height="28" rx="4" style="fill:#0E7C86;stroke:#0E7C86"/><text class="u-wt" x="556" y="201" text-anchor="middle">ダウンロード</text>
+  <text class="u-t" x="36" y="244">AMD / Intel 用（Vulkan）</text>
+  <text class="u-t" x="330" y="244">同梱済み</text>
+  <text class="u-t" x="36" y="288">ローカル翻訳 LLM（HY-MT1.5）</text>
+  <text class="u-t" x="330" y="288">未導入（約1.2GB）</text>
+  <rect class="u-btn" x="508" y="270" width="96" height="28" rx="4"/><text class="u-t" x="556" y="289" text-anchor="middle">ダウンロード</text>
+  <rect class="u-box" x="24" y="318" width="14" height="14" rx="2"/><text class="u-m" x="46" y="330">搭載されていない GPU 用のコンポーネントも表示する</text>
+</svg>
+        </div>
+        <figcaption>「GPU」タブ。NVIDIA の GPU がある PC では「※このPCに搭載」の行の「ダウンロード」を押します（画面はイメージです）。</figcaption>
+      </figure>
+      <ul>
+        <li>保存先は <code>%LOCALAPPDATA%\Kotobareach</code>。管理者権限は不要です</li>
+        <li>赤字で「導入済みですが使えません」と出たら「再インストール」を、ドライバーを更新したあとは「もう一度試す」を押します</li>
+        <li>「ローカル翻訳 LLM（HY-MT1.5）」（約1.2GB）も、使いたい人だけこのタブでダウンロードします</li>
+      </ul>
+      <p class="note">グラフィックドライバーは最新にしてください。
+        <a href="https://www.nvidia.com/ja-jp/drivers/" target="_blank" rel="noopener">NVIDIA</a> ／
+        <a href="https://www.amd.com/ja/support/download/drivers.html" target="_blank" rel="noopener">AMD</a> ／
+        <a href="https://www.intel.co.jp/content/www/jp/ja/support/detect.html" target="_blank" rel="noopener">Intel</a></p>
+    </section>
+
+    <!-- ================= trouble ================= -->
+    <section id="trouble">
+      <h2>困ったとき</h2>
+      <details class="qa"><summary>「Windows によって PC が保護されました」と出て起動できない</summary><div>
+        <p>「詳細情報」を押してから「実行」を押します。くわしくは<a href="#smartscreen">初回起動時の警告が出たら</a>へ。</p></div></details>
+      <details class="qa"><summary>スマホ・タブレットで字幕が開けない</summary><div>
+        <p>同じ Wi-Fi か、URL が <code>http://</code> で始まっているかを確かめます。くわしくは<a href="#tablet">つながらないとき</a>へ。</p></div></details>
+      <details class="qa"><summary>スマホ・タブレットで英文をタップしても読み上げない</summary><div>
+        <p>端末の音量と「テキスト読み上げ」の設定（Google の音声合成エンジン、英語の音声データ）を確かめます。「読み上げ設定」で別の声に変えて「試し聞き」をしてみてください。</p></div></details>
+      <details class="qa"><summary>何も話していないのに勝手に文字が出る</summary><div>
+        <ol>
+          <li>閾値を少し上げます</li>
+          <li>マイクの近くにファンの音やキーボードの音など、続く雑音がないか確かめます</li>
+          <li>認識補助ワードを減らすか、一度空にして様子を見ます</li>
+        </ol></div></details>
+      <details class="qa"><summary>何も認識されない</summary><div>
+        <p>話したときにインジケータが白い線を超えているか見ます。超えないなら閾値を下げます。インジケータが動かないなら、選んでいるマイクが正しいか確かめます。</p></div></details>
+      <details class="qa"><summary>「音声入力を開始/継続できません」と出る</summary><div>
+        <p>「すべての入力デバイスを表示」にチェックを入れ、同じマイクの別の方式（<code>[MME]</code> など）を選びます。</p></div></details>
+      <details class="qa"><summary>使いたいマイクが一覧にない</summary><div>
+        <p>「すべての入力デバイスを表示」にチェックを入れてください。</p></div></details>
+      <details class="qa"><summary>日本語の認識がおかしい・語尾が抜ける</summary><div>
+        <p>モデルを「kotoba-whisper」にすると精度が上がります（処理は遅くなります）。ゲーム用語は認識補助ワードに入れます。</p></div></details>
+      <details class="qa"><summary>GPU が使われない（「実行中:」が橙色）</summary><div>
+        <ul>
+          <li>「実行中:」にマウスを重ねるか、ログの <code>[GPU] ～ を使えません: 理由</code> を見ます</li>
+          <li>NVIDIA なら「GPU」タブでダウンロード済みか、AMD / Intel なら「同梱済み」になっているか確かめます</li>
+          <li>ドライバーを最新にして、アプリを起動し直します。更新後は「もう一度試す」を押します</li>
+          <li>「cublas」「cudnn」の文字や赤字のエラーが出たら「再インストール」を押します</li>
+        </ul></div></details>
+      <details class="qa"><summary>追加部品のダウンロードに失敗する</summary><div>
+        <p>ネット接続を確かめて、もう一度「ダウンロード」を押します。「検証に失敗しました」は途中でファイルが壊れたのでやり直し、「使用中です」はアプリを起動し直してからやり直します。</p></div></details>
+      <details class="qa"><summary>Google翻訳で「HTTP 429」が出る</summary><div>
+        <p>呼び出しが多すぎて、一時的に止められています。数十分〜数時間で解除され、その間は自動で Microsoft翻訳 / MyMemory に切り替わります。話していないのに認識が走っているなら、閾値を上げてください。</p></div></details>
+      <details class="qa"><summary>聞き取り字幕に何も出ない</summary><div>
+        <p>「聞き取り」タブのインジケータが、相手が話したときに動くか見ます。動かないなら「聞き取る音」を、実際に音が出ているスピーカーの「パソコンの音」に変えます。動いているのに出ないなら閾値を下げます。</p></div></details>
+      <details class="qa"><summary>聞き取り字幕に BGM や自分の声が出る</summary><div>
+        <p>閾値を上げます。自分の声が出るなら、自分のマイクの音が流れるスピーカーを選んでいないか確かめます。</p></div></details>
+      <details class="qa"><summary>起動しても画面が増えない</summary><div>
+        <p>二重起動はできません。タスクバーの Kotobareach をクリックしてください。終了直後なら数秒待ってから起動し直します。</p></div></details>
+    </section>
+
+    <!-- ================= history ================= -->
+    <section id="history">
+      <h2>バージョン履歴</h2>
+      <h3>v1.022（2026-10）</h3>
+      <ul class="history">
+        <li>パソコンからの読み上げをなくし、スマホ・タブレット側で読み上げるように。「英語TTS設定」タブ、VC・トリガーキー関連の設定を削除</li>
+        <li>字幕をメイン画面の上下2段に表示</li>
+        <li>設定ウィンドウのタブを整理（聞き取り / STT・翻訳 / GPU / 表示設定 / タブレット表示）</li>
+        <li>スマホ・タブレットの「読み上げ設定」、英文タップで読み上げ、接続状態の表示・接続テストを追加</li>
+      </ul>
+      <h3>v1.021（2026-10）</h3>
+      <ul class="history">
+        <li>「タブレット表示」タブと QR コード、「タブレット接続設定」ボタンを追加</li>
+        <li>「パソコンの音: スピーカー名」が一覧に出て、取り込めるように修正</li>
+        <li>聞き取りの「相手の言語」の初期設定を「英語だけ」に</li>
+      </ul>
+      <details class="qa"><summary>それより前の版（v0.90〜v1.019）</summary><div>
+        <ul class="history">
+          <li><b>v1.019：</b>メイン画面のコンパクト化、ログ欄の拡張、設定ウィンドウの幅を拡大</li>
+          <li><b>v1.018：</b>ローカル翻訳 LLM のダウンロード失敗を修正</li>
+          <li><b>v1.017：</b>自分の声の翻訳にローカル翻訳 FuguMT を追加</li>
+          <li><b>v1.016：</b>「翻訳の方法」を追加（クラウド優先・ローカル LLM など）</li>
+          <li><b>v1.015：</b>聞き取りのローカル翻訳を FuguMT に変更、ローカル LLM HY-MT1.5 を追加</li>
+          <li><b>v1.014：</b>「自分の声」「聞き取り」スイッチを追加</li>
+          <li><b>v1.012〜1.013：</b>ライブキャプションから読む方法を追加、翻訳の呼び出し回数を削減</li>
+          <li><b>v1.011：</b>「英語だけ」を追加、トリガーキーが効かなくなる問題を修正</li>
+          <li><b>v1.008：</b>聞き取り機能を追加</li>
+          <li><b>v1.006〜1.007：</b>二重起動の防止、NVIDIA 部品の自動チェックと再インストール</li>
+          <li><b>v1.003〜1.005：</b>GPU を名前で選択、large-v3-turbo 追加、Microsoft翻訳・API キー対応、閾値スライダー化</li>
+          <li><b>v0.997〜1.000：</b>GPU 対応、「GPU」タブ、AMD / Intel をダウンロード不要に</li>
+          <li><b>v0.990〜0.996：</b>翻訳の自動切り替え、認識精度とハルシネーション対策の強化、kotoba-whisper 追加</li>
+          <li><b>v0.90〜0.989：</b>正式名称を制定、ベータ版公開、音量インジケータやステータスログなどの基本機能</li>
+        </ul></div></details>
+    </section>
+
+    <!-- ================= disclaimer ================= -->
+    <section id="disclaimer">
+      <h2>免責事項</h2>
+      <div class="note warn"><b>ゲームでの利用について</b><br>ゲームによっては、外部ツールの使用が利用規約で禁止されている場合があります。コトバリーチを使ったことで、アカウントの停止・削除（BAN）、ペナルティ、警告などの処分を受けても、作者は一切の責任を負いません。お使いのゲームの利用規約を事前に確認し、<b>自己責任</b>でご利用ください。</div>
+      <ul>
+        <li>コトバリーチは無料で配布しているソフトで、動作や品質について一切の保証をしません</li>
+        <li>このソフトの使用、または使用できなかったことによって生じたいかなる損害（データの消失、PC の不具合、ほかのソフトへの影響などを含む）についても、作者は責任を負いません</li>
+        <li>音声認識や翻訳の結果は、正確であることを保証しません。誤訳や聞き間違いによって起きたトラブル（会話相手とのトラブルを含む）について、作者は責任を負いません</li>
+        <li>翻訳には外部のサービス（Google 翻訳、Microsoft 翻訳、MyMemory、Gemini など）を使います。話した内容の文字がこれらのサービスに送られます。各サービスの利用条件に従ってご利用ください。サービスの停止や仕様変更により、翻訳が使えなくなることがあります</li>
+        <li>ソフトの内容や配布は、予告なく変更・終了することがあります</li>
+      </ul>
+      <p>上記に同意いただける場合のみ、ご利用ください。</p>
+    </section>
+
+    <!-- ================= license ================= -->
+    <section id="license">
+      <h2>使っている技術とライセンス</h2>
+      <ul>
+        <li>音声認識：<a href="https://github.com/SYSTRAN/faster-whisper" target="_blank" rel="noopener">faster-whisper</a>、<a href="https://github.com/ggml-org/whisper.cpp" target="_blank" rel="noopener">whisper.cpp</a>（AMD / Intel 用、Vulkan 版）、<a href="https://huggingface.co/kotoba-tech/kotoba-whisper-v2.0" target="_blank" rel="noopener">kotoba-whisper v2.0</a></li>
+        <li>ローカル翻訳 FuguMT（CC BY-SA 4.0）：英→日 <a href="https://huggingface.co/staka/fugumt-en-ja" target="_blank" rel="noopener">staka/fugumt-en-ja</a>（変換版 <a href="https://huggingface.co/jkawamoto/fugumt-en-ja-ct2" target="_blank" rel="noopener">jkawamoto/fugumt-en-ja-ct2</a>）、日→英 <a href="https://huggingface.co/staka/fugumt-ja-en" target="_blank" rel="noopener">staka/fugumt-ja-en</a>（変換版 <a href="https://huggingface.co/shift-ykurami/fugumt-ja-en-ct2-f32" target="_blank" rel="noopener">shift-ykurami/fugumt-ja-en-ct2-f32</a>）</li>
+        <li>ローカル LLM：Tencent HY-MT1.5-1.8B（GGUF 版、Tencent HY Community License。EU・英国・韓国では使用不可）と <a href="https://github.com/ggml-org/llama.cpp" target="_blank" rel="noopener">llama.cpp</a>（MIT）</li>
+        <li>画面（GUI）：<a href="https://doc.qt.io/qtforpython-6/" target="_blank" rel="noopener">PySide6 / Qt for Python</a>（LGPL v3）。Qt の部品は DLL のままフォルダに入っており、差し替えられます。Qt のソースコードは <a href="https://download.qt.io/" target="_blank" rel="noopener">download.qt.io</a> で入手できます</li>
+        <li>そのほかの部品（numpy、CTranslate2、onnxruntime、requests など）のライセンスは、同梱の <code>THIRD_PARTY_LICENSES.txt</code> に載せています</li>
+      </ul>
+      <p class="note">Tencent はこのアプリに関係・協力・推奨をしていません。（Tencent is not affiliated with, associated with, sponsoring, or endorsing this application.）</p>
+    </section>
+  </main>
+</div>
+
+<footer>© 2026 Retzn　Kotobareach は無料で配布しています。再配布・改変・解析（逆アセンブル等）は、お断りしています。<br>配布元：<a href="https://github.com/retzrs-ops/Kotobareach-release" target="_blank" rel="noopener">github.com/retzrs-ops/Kotobareach-release</a></footer>
+
+<button class="theme-btn" id="themeBtn" type="button" aria-label="明るさの切り替え">表示：自動</button>
+<script>
+// ダウンロード先が決まったらここを書き換える
+var DOWNLOAD_URL = "https://github.com/retzrs-ops/Kotobareach-release/releases/latest";
+(function(){
+  var dl=document.getElementById("dl");
+  if(DOWNLOAD_URL){dl.href=DOWNLOAD_URL;dl.target="_blank";dl.rel="noopener";}
+  else{dl.href="#env";}
+  var modes=["auto","light","dark"],labels={auto:"表示：自動",light:"表示：ライト",dark:"表示：ダーク"};
+  var btn=document.getElementById("themeBtn"),cur="auto";
+  try{cur=localStorage.getItem("kr-theme")||"auto";}catch(e){}
+  function apply(m){cur=m;if(m==="auto")document.documentElement.removeAttribute("data-theme");else document.documentElement.setAttribute("data-theme",m);btn.textContent=labels[m];}
+  apply(modes.indexOf(cur)>=0?cur:"auto");
+  btn.addEventListener("click",function(){var n=modes[(modes.indexOf(cur)+1)%3];apply(n);try{localStorage.setItem("kr-theme",n);}catch(e){}});
+})();
+</script>
+</body>
+</html>
