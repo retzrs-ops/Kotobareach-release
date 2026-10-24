@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Kotobareach（コトバリーチ）説明書 v1.022</title>
+<title>Kotobareach（コトバリーチ）説明書 v1.023</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=BIZ+UDPGothic:wght@400;700&family=Outfit:wght@500;700&display=swap" rel="stylesheet">
@@ -154,7 +154,7 @@ footer{border-top:1px solid var(--line);padding:24px 20px;text-align:center;colo
     <div>
       <h1 class="wordmark">Kotobareach<span class="kana">コトバリーチ</span></h1>
       <p class="lead">話した日本語は英語に、相手の英語は日本語に。翻訳した字幕を、手元のスマホやタブレットに表示します。ゲームのボイスチャットで英語のやり取りを手助けする、Windows 用の無料アプリです。</p>
-      <span class="ver">説明書 v1.022（2026年10月）</span>
+      <span class="ver">説明書 v1.023（2026年10月）</span>
       <div class="cta">
         <a class="btn" id="dl" href="#">ダウンロード</a>
         <a class="btn ghost" href="#start">はじめての設定へ</a>
@@ -162,7 +162,7 @@ footer{border-top:1px solid var(--line);padding:24px 20px;text-align:center;colo
     </div>
     <div class="tablet" aria-label="タブレットに表示した字幕のイメージ">
       <div class="screen">
-        <div class="tbar"><span>A-</span><span>A+</span><span>全画面</span><span class="r">読み上げ設定</span><span>停止</span></div>
+        <div class="tbar"><span>A-</span><span>A+</span><span>全画面</span><span>画面を消さない</span><span class="r">読み上げ設定</span><span>停止</span></div>
         <div class="pane them">
           <h3>相手の声　英語 → 日本語（パソコンの音）</h3>
           <p class="big">右に敵！今のうちに押して！</p>
@@ -350,7 +350,16 @@ footer{border-top:1px solid var(--line);padding:24px 20px;text-align:center;colo
         <div class="side them"><b>上段：相手の声　英語 → 日本語</b>大きく日本語、下に小さく英語の原文。</div>
         <div class="side me"><b>下段：自分の声　日本語 → 英語</b>大きく英語、下に小さく日本語。</div>
       </div>
-      <p>「A-」「A+」で文字の大きさ、「全画面」で全画面表示にできます。画面が消えないよう、端末の画面の自動オフは長めにしておいてください。</p>
+      <p>「A-」「A+」で文字の大きさ、「全画面」で全画面表示にできます。</p>
+      <h3>新しい字幕が上、指で見返せる <span class="since">v1.023〜</span></h3>
+      <p>上段も下段も、<b>新しい字幕が上</b>に出ます。指で上下にスクロールすると、過去の字幕を見返せます（上段は60件、下段は40件まで）。見返している間に新しい字幕が来ても、見ている位置は動きません。いちばん上まで戻ると、最新の字幕です。</p>
+      <h3>画面を消さない <span class="since">v1.023〜</span></h3>
+      <p>画面上部の「画面を消さない：オフ」を押して「オン」にすると、端末の画面が自動で暗くならず、字幕を出したままにできます。画面が消えてしまうときに使います（iPhone の Safari、Android の Chrome など）。端末の「画面の自動ロック」の設定は、変えなくて済みます。見えない小さな動画（音は出ません）を再生し続ける仕組みで、画面の右下に、小さな黒い四角が出ます。</p>
+      <ul>
+        <li>押した状態は、そのブラウザに保存されます。次回からは、最初に画面をタッチしたときに、自動でオンになります（ブラウザの決まりで、タッチなしでは始められません）。</li>
+        <li>電池を使います。使い終わったら、オフにしてください。</li>
+        <li>iPhone の「低電力モード」では、効かないことがあります。</li>
+      </ul>
 
       <h3>英文をタップして読み上げる <span class="since">v1.022〜</span></h3>
       <p>下段の英語と、上段の英語の原文をタップすると、その端末が読み上げます。もう一度タップで止まります。声は端末に入っているものを使います。</p>
@@ -377,7 +386,7 @@ footer{border-top:1px solid var(--line);padding:24px 20px;text-align:center;colo
 <svg viewBox="0 0 640 600" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="メイン画面">
   <rect class="u-win" x=".5" y=".5" width="639" height="599" rx="8"/>
   <path class="u-title" d="M8 .5h624a7.5 7.5 0 0 1 7.5 7.5v24H.5V8A7.5 7.5 0 0 1 8 .5z"/>
-  <text class="u-b" x="16" y="21">Kotobareach v1.022　[音声認識: GPU]</text>
+  <text class="u-b" x="16" y="21">Kotobareach v1.023　[音声認識: GPU]</text>
   <rect class="u-dark" x="16" y="44" width="608" height="112" rx="6"/>
   <text class="u-teal" x="30" y="66">相手の声　英語 → 日本語（パソコンの音）</text>
   <rect x="510" y="52" width="100" height="22" rx="11" fill="none" stroke="#4FC1C9"/><text class="u-teal" x="560" y="67" text-anchor="middle">聞き取り: ON</text>
@@ -415,6 +424,7 @@ footer{border-top:1px solid var(--line);padding:24px 20px;text-align:center;colo
         <div class="side them"><b>上段：相手の声　英語 → 日本語</b>「聞き取り: ON / OFF」ボタンで切り替えます。</div>
         <div class="side me"><b>下段：自分の声　日本語 → 英語</b>「自分の声: ON / OFF」ボタンで切り替えます。聞き取りだけ使うならオフにすると PC の負担が減ります。</div>
       </div>
+      <p>どちらの段も、<b>新しい字幕が上</b>に出ます<span class="since">v1.023〜</span>。マウスのホイールで過去の字幕を見返せます（上段は40件、下段は30件まで）。見返している間に新しい字幕が来ても、見ている位置は動きません。ダブルクリックすると、いちばん新しい字幕へ戻ります。</p>
       <p>その下に、入力マイク、音量インジケータ、閾値スライダー、稼働ステータスログ（最新10件）、「設定」ボタン、「タブレット接続設定」ボタンが並びます。</p>
       <p>閾値の既定値は 14 です。スライダーをクリックしたあと <kbd>←</kbd> <kbd>→</kbd> で1ずつ動かせます。</p>
       <div class="note">コトバリーチは同時に1つだけ起動できます。もう一度起動すると、開いている画面が前に出ます。</div>
@@ -651,6 +661,8 @@ footer{border-top:1px solid var(--line);padding:24px 20px;text-align:center;colo
         <p>「詳細情報」を押してから「実行」を押します。くわしくは<a href="#smartscreen">初回起動時の警告が出たら</a>へ。</p></div></details>
       <details class="qa"><summary>スマホ・タブレットで字幕が開けない</summary><div>
         <p>同じ Wi-Fi か、URL が <code>http://</code> で始まっているかを確かめます。くわしくは<a href="#tablet">つながらないとき</a>へ。</p></div></details>
+      <details class="qa"><summary>スマホ・タブレットで、字幕を出している間に画面が消える</summary><div>
+        <p>字幕画面の上部の「画面を消さない：オフ」を押して「オン」にしてください。それでも消えるときは、iPhone の「低電力モード」をオフにするか、画面をいちど開き直して、もう一度「オン」にします。</p></div></details>
       <details class="qa"><summary>スマホ・タブレットで英文をタップしても読み上げない</summary><div>
         <p>端末の音量と「テキスト読み上げ」の設定（Google の音声合成エンジン、英語の音声データ）を確かめます。「読み上げ設定」で別の声に変えて「試し聞き」をしてみてください。</p></div></details>
       <details class="qa"><summary>何も話していないのに勝手に文字が出る</summary><div>
@@ -689,6 +701,13 @@ footer{border-top:1px solid var(--line);padding:24px 20px;text-align:center;colo
     <!-- ================= history ================= -->
     <section id="history">
       <h2>バージョン履歴</h2>
+      <h3>v1.023（2026-10）</h3>
+      <ul class="history">
+        <li>スマホ・タブレットの字幕画面に、「画面を消さない」ボタンを追加（画面が自動で消えるのを防ぐため。Android の Chrome で効果を確認）</li>
+        <li>字幕の並びを、上段・下段とも新しいものが上に変更（スマホ・タブレットと、パソコンのメイン画面の両方）</li>
+        <li>字幕を見返せるように（スマホ・タブレットは指でスクロール、パソコンはマウスのホイール。ダブルクリックで最新へ戻る）</li>
+        <li>スマホ・タブレットで、翻訳の文が自分の声の欄に重なることがある問題を修正</li>
+      </ul>
       <h3>v1.022（2026-10）</h3>
       <ul class="history">
         <li>パソコンからの読み上げをなくし、スマホ・タブレット側で読み上げるように。「英語TTS設定」タブ、VC・トリガーキー関連の設定を削除</li>
