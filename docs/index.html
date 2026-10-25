@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Kotobareach（コトバリーチ）説明書 v1.025</title>
+<title>Kotobareach（コトバリーチ）説明書 v1.026</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=BIZ+UDPGothic:wght@400;700&family=Outfit:wght@500;700&display=swap" rel="stylesheet">
@@ -154,7 +154,7 @@ footer{border-top:1px solid var(--line);padding:24px 20px;text-align:center;colo
     <div>
       <h1 class="wordmark">Kotobareach<span class="kana">コトバリーチ</span></h1>
       <p class="lead">話した日本語は英語に、相手の英語は日本語に。翻訳した字幕を、手元のスマホやタブレットに表示します。ゲームのボイスチャットで英語のやり取りを手助けする、Windows 用の無料アプリです。</p>
-      <span class="ver">説明書 v1.025（2026年10月）</span>
+      <span class="ver">説明書 v1.026（2026年10月）</span>
       <div class="cta">
         <a class="btn" id="dl" href="#">ダウンロード</a>
         <a class="btn ghost" href="#start">はじめての設定へ</a>
@@ -223,7 +223,8 @@ footer{border-top:1px solid var(--line);padding:24px 20px;text-align:center;colo
       </ul>
       <div class="tbl"><table>
         <tr><th>ファイル</th><th>中身</th></tr>
-        <tr><td><code>Kotobareach.exe</code></td><td>アプリ本体。ダブルクリックで起動します</td></tr>
+        <tr><td><code>Kotobareach_Setup_v〇.exe</code></td><td>インストーラー。実行すると、あなたのユーザー専用の場所（<code>%LOCALAPPDATA%\Programs\Kotobareach</code>）に入ります<span class="since">v1.026〜</span></td></tr>
+        <tr><td><code>Kotobareach.exe</code></td><td>アプリ本体（zip 版は、展開したフォルダの中）。ダブルクリックで起動します</td></tr>
         <tr><td><code>_internal</code> フォルダ</td><td>動くのに必要なファイルです。消したり動かしたりしないでください</td></tr>
         <tr><td><code>Readme.txt</code></td><td>テキスト版の説明書</td></tr>
       </table></div>
@@ -234,8 +235,8 @@ footer{border-top:1px solid var(--line);padding:24px 20px;text-align:center;colo
     <section id="start">
       <h2>はじめての設定</h2>
       <ol class="steps">
-        <li><strong>zip を展開する</strong>ダウンロードした zip を右クリックして「すべて展開」を選びます。zip を開いたままでは起動できません。</li>
-        <li><strong>コトバリーチを起動する</strong>展開したフォルダの <code>Kotobareach.exe</code> をダブルクリックします。青い警告画面が出たら、<a href="#smartscreen">初回起動時の警告が出たら</a>の手順で起動します。初回は設定ウィンドウが自動で開きます。</li>
+        <li><strong>インストーラーをダウンロードして実行する</strong>Releases から <code>Kotobareach_Setup_v〇.exe</code> をダウンロードして、ダブルクリックします。青い警告画面が出たら、<a href="#smartscreen">初回起動時の警告が出たら</a>の手順で進めます。画面の案内に従って「インストール」を押します（管理者権限は、いりません）。<span class="since">v1.026〜</span><br>zip 版（<code>Kotobareach_v〇.zip</code>）を使う場合は、zip を右クリックして「すべて展開」を選び、展開したフォルダの <code>Kotobareach.exe</code> を起動します（zip を開いたままでは起動できません）。</li>
+        <li><strong>コトバリーチを起動する</strong>インストール後は、「Kotobareach を起動する」にチェックを入れたまま「完了」を押すか、スタートメニューの「Kotobareach」から起動します。初回は設定ウィンドウが自動で開きます。</li>
         <li><strong>音声認識モデルを選ぶ</strong>「STT・翻訳」タブの「Whisperモデルサイズ」で選びます。選ぶと読み込みが始まります（初回のみダウンロード）。<br>おすすめ：GPU が使える PC は <b>large-v3-turbo</b>、GPU がない PC は <b>small</b>。</li>
         <li><strong>マイクを選ぶ</strong>メイン画面の「有効な入力マイク」で、使うマイクを選びます。見つからないときは「すべての入力デバイスを表示」にチェックを入れます。</li>
         <li><strong>聞き取る音を選ぶ</strong>「設定」→「聞き取り」タブの「聞き取る音」で、いつも使っているスピーカー（ヘッドホン）の「パソコンの音: ～」を選びます。</li>
@@ -244,6 +245,21 @@ footer{border-top:1px solid var(--line);padding:24px 20px;text-align:center;colo
         <li><strong>（必要なら）GPU を準備する</strong>NVIDIA の GPU を使う場合は「GPU」タブでダウンロードします。くわしくは<a href="#gpu">GPU で速くする</a>へ。</li>
       </ol>
       <p class="note">設定は変えてから約1秒後に自動で保存されます。保存ボタンはありません。</p>
+
+      <h3 id="update">新しい版への更新・アンインストール <span class="since">v1.026〜</span></h3>
+      <ul>
+        <li><b>更新：</b>起動して少し経つと、新しい版があるかを自動で確認します。あれば、変更点つきで「今すぐ更新」「あとで」を聞きます。「今すぐ更新」を押すと、ダウンロードして、安全を確かめてから、Kotobareach を終了して入れ替え、自動で起動し直します。設定は、そのまま引き継がれます。</li>
+        <li><b>安全の確認：</b>GitHub が記録しているハッシュ値と、作者の署名の、両方が合ったものだけを実行します。合わないときは、実行せずに、いまの版のまま使えます。通信先は GitHub だけです。</li>
+        <li><b>確認をやめる：</b>「設定」→「表示設定」の「起動時に、新しい版を確認する」のチェックを外します。「今すぐ確認」で、手動でも確認できます。</li>
+        <li><b>zip 版から更新したとき：</b>新しい版は、インストーラーの場所に入ります。いまのフォルダは残るので、いらなければ、あとで削除してください。</li>
+        <li><b>アンインストール：</b>「設定」→「アプリ」→「インストールされているアプリ」から「Kotobareach」を選びます（起動中でも、自動で閉じられます）。途中で、次の2つを聞きます（どちらも、初めから「いいえ」が選ばれています）。
+          <ul>
+            <li>「設定と、あとで追加でダウンロードした部品も、削除しますか？」：「はい」で、設定（翻訳 API キーも含む）と、追加の部品（GPU 用・ローカル翻訳 LLM・iPhone 用の証明書）を削除します。ほかの場所（zip を展開したフォルダなど）の Kotobareach の設定も消えます。</li>
+            <li>（上に「はい」のときだけ）「自動ダウンロードしたモデルも、削除しますか？」：音声認識・翻訳のモデル（数 GB）を削除します。場所は <code>%USERPROFILE%\.cache\huggingface\hub</code> で、ほかのソフトも使う場所です。Kotobareach が使うモデルだけを消しますが、ほかのソフトが同じモデルを使っていると、次に使うとき、ダウンロードし直しになります。</li>
+          </ul>
+          zip 版は、フォルダを削除すれば、アプリ本体は消えます（設定と部品は、上と同じ場所に残ります）。</li>
+      </ul>
+      <p class="note">v1.026 は、インストーラー付きの最初の版です。これまでの版からは、一度、手でインストーラーを実行してください。以後は、アプリの中から更新できます。</p>
 
       <h3 id="smartscreen">初回起動時の警告が出たら</h3>
       <p>初めて起動すると、「Windows によって PC が保護されました」という青い画面が出ます。コトバリーチは無料配布のため、有料の電子署名をしていないことが理由です。ソフトの不具合やウイルスを意味するものではありません。</p>
@@ -393,7 +409,7 @@ footer{border-top:1px solid var(--line);padding:24px 20px;text-align:center;colo
 <svg viewBox="0 0 640 600" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="メイン画面">
   <rect class="u-win" x=".5" y=".5" width="639" height="599" rx="8"/>
   <path class="u-title" d="M8 .5h624a7.5 7.5 0 0 1 7.5 7.5v24H.5V8A7.5 7.5 0 0 1 8 .5z"/>
-  <text class="u-b" x="16" y="21">Kotobareach v1.025　[音声認識: GPU]</text>
+  <text class="u-b" x="16" y="21">Kotobareach v1.026　[音声認識: GPU]</text>
   <rect class="u-dark" x="16" y="44" width="608" height="112" rx="6"/>
   <text class="u-teal" x="30" y="66">相手の声　英語 → 日本語（パソコンの音）</text>
   <rect x="510" y="52" width="100" height="22" rx="11" fill="none" stroke="#4FC1C9"/><text class="u-teal" x="560" y="67" text-anchor="middle">聞き取り: ON</text>
@@ -708,6 +724,12 @@ footer{border-top:1px solid var(--line);padding:24px 20px;text-align:center;colo
     <!-- ================= history ================= -->
     <section id="history">
       <h2>バージョン履歴</h2>
+      <h3>v1.026（2026-10）</h3>
+      <ul class="history">
+        <li>インストーラー（<code>Kotobareach_Setup_v〇.exe</code>）を追加。管理者権限なしで、ユーザー専用の場所に入り、スタートメニューのショートカットとアンインストールに対応</li>
+        <li>新しい版の確認と、ボタンひとつでの更新を追加。起動時に自動で確認し（「表示設定」でオフにできます）、ハッシュと作者の署名が合ったものだけを実行します</li>
+        <li>アンインストールのとき、設定と追加の部品、自動ダウンロードしたモデルも削除するかを、選べます（初めから「いいえ」）</li>
+      </ul>
       <h3>v1.025（2026-10）</h3>
       <ul class="history">
         <li>スマホの字幕画面に、「並び：自動 / 上下 / 左右」ボタンを追加</li>

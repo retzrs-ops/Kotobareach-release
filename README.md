@@ -14,9 +14,10 @@
 
 ## ダウンロードと使い方
 
-1. [Releases](https://github.com/retzrs-ops/Kotobareach-release/releases/latest) から、最新の **`Kotobareach_v〇〇.zip`** をダウンロードします。
-2. zip を右クリック →「すべて展開」。展開したフォルダの `Kotobareach.exe` を起動します。
+1. [Releases](https://github.com/retzrs-ops/Kotobareach-release/releases/latest) から、最新の **`Kotobareach_Setup_v〇〇.exe`**（インストーラー）をダウンロードして実行します。管理者権限は、いりません。
    - 青い警告「WindowsによってPCが保護されました」が出たら、「詳細情報」→「実行」を押してください（電子署名が付いていないための警告です）。
+   - インストールしたくないときは、**`Kotobareach_v〇〇.zip`** を右クリック →「すべて展開」し、展開したフォルダの `Kotobareach.exe` を起動します。
+2. 新しい版は、アプリの中から、ボタンひとつで更新できます（起動時に自動で確認します。「設定」→「表示設定」でオフにできます）。
 3. くわしい使い方は、**[説明書](https://retzrs-ops.github.io/Kotobareach-release/)** をご覧ください。
 
 ## 動作環境
