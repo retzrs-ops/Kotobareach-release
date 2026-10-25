@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Kotobareach（コトバリーチ）説明書 v1.024</title>
+<title>Kotobareach（コトバリーチ）説明書 v1.025</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=BIZ+UDPGothic:wght@400;700&family=Outfit:wght@500;700&display=swap" rel="stylesheet">
@@ -154,7 +154,7 @@ footer{border-top:1px solid var(--line);padding:24px 20px;text-align:center;colo
     <div>
       <h1 class="wordmark">Kotobareach<span class="kana">コトバリーチ</span></h1>
       <p class="lead">話した日本語は英語に、相手の英語は日本語に。翻訳した字幕を、手元のスマホやタブレットに表示します。ゲームのボイスチャットで英語のやり取りを手助けする、Windows 用の無料アプリです。</p>
-      <span class="ver">説明書 v1.024（2026年10月）</span>
+      <span class="ver">説明書 v1.025（2026年10月）</span>
       <div class="cta">
         <a class="btn" id="dl" href="#">ダウンロード</a>
         <a class="btn ghost" href="#start">はじめての設定へ</a>
@@ -350,7 +350,11 @@ footer{border-top:1px solid var(--line);padding:24px 20px;text-align:center;colo
         <div class="side them"><b>上段：相手の声　英語 → 日本語</b>大きく日本語、下に小さく英語の原文。</div>
         <div class="side me"><b>下段：自分の声　日本語 → 英語</b>大きく英語、下に小さく日本語。</div>
       </div>
-      <p>「A-」「A+」で文字の大きさ、「全画面」で全画面表示にできます。</p>
+      <p>「A-」「A+」で文字の大きさを変えます。</p>
+      <ul>
+        <li><b>全画面：</b>iPad や Android は、全画面表示になります。iPhone は、ブラウザの都合で全画面にできないため、「<b>バーを隠す</b>」というボタンになります。押すと、上のボタンが隠れて、字幕が広く見えます。右上の小さな「バーを出す」で戻せます<span class="since">v1.025〜</span>。</li>
+        <li><b>並び：</b>「並び：自動 / 上下 / 左右」ボタンを押すと、上段・下段の並びが、自動 → 上下 → 左右の順に変わります<span class="since">v1.025〜</span>。「自動」は、スマホを横向きにしたときだけ左右に並びます。選んだ並びは、その端末に保存されます。</li>
+      </ul>
       <h3>新しい字幕が上、指で見返せる <span class="since">v1.023〜</span></h3>
       <p>スマホを<b>横向き</b>にすると、上段と下段が左右に並びます<span class="since">v1.024〜</span>。「A-」「A+」を押すと、字幕の文字と一緒に、上のボタンや見出しの文字も、小さく・大きくなります。</p>
       <p>上段も下段も、<b>新しい字幕が上</b>に出ます。指で上下にスクロールすると、過去の字幕を見返せます（上段は60件、下段は40件まで）。見返している間に新しい字幕が来ても、見ている位置は動きません。いちばん上まで戻ると、最新の字幕です。</p>
@@ -389,7 +393,7 @@ footer{border-top:1px solid var(--line);padding:24px 20px;text-align:center;colo
 <svg viewBox="0 0 640 600" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="メイン画面">
   <rect class="u-win" x=".5" y=".5" width="639" height="599" rx="8"/>
   <path class="u-title" d="M8 .5h624a7.5 7.5 0 0 1 7.5 7.5v24H.5V8A7.5 7.5 0 0 1 8 .5z"/>
-  <text class="u-b" x="16" y="21">Kotobareach v1.024　[音声認識: GPU]</text>
+  <text class="u-b" x="16" y="21">Kotobareach v1.025　[音声認識: GPU]</text>
   <rect class="u-dark" x="16" y="44" width="608" height="112" rx="6"/>
   <text class="u-teal" x="30" y="66">相手の声　英語 → 日本語（パソコンの音）</text>
   <rect x="510" y="52" width="100" height="22" rx="11" fill="none" stroke="#4FC1C9"/><text class="u-teal" x="560" y="67" text-anchor="middle">聞き取り: ON</text>
@@ -704,6 +708,11 @@ footer{border-top:1px solid var(--line);padding:24px 20px;text-align:center;colo
     <!-- ================= history ================= -->
     <section id="history">
       <h2>バージョン履歴</h2>
+      <h3>v1.025（2026-10）</h3>
+      <ul class="history">
+        <li>スマホの字幕画面に、「並び：自動 / 上下 / 左右」ボタンを追加</li>
+        <li>iPhone で「全画面」が効かない問題に対応（iPhone は全画面にできないため、「バーを隠す」ボタンに）</li>
+      </ul>
       <h3>v1.024（2026-10）</h3>
       <ul class="history">
         <li>iPhone で「画面を消さない」が効かない問題に対応。字幕を https でも配るようにし、「タブレット表示」タブに「iPhone 用 URL（https）」と「iPhone 用 QR コード」を追加（iPhone はこちらで開きます）</li>
