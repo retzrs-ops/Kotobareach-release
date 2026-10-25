@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Kotobareach（コトバリーチ）説明書 v1.023</title>
+<title>Kotobareach（コトバリーチ）説明書 v1.024</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=BIZ+UDPGothic:wght@400;700&family=Outfit:wght@500;700&display=swap" rel="stylesheet">
@@ -154,7 +154,7 @@ footer{border-top:1px solid var(--line);padding:24px 20px;text-align:center;colo
     <div>
       <h1 class="wordmark">Kotobareach<span class="kana">コトバリーチ</span></h1>
       <p class="lead">話した日本語は英語に、相手の英語は日本語に。翻訳した字幕を、手元のスマホやタブレットに表示します。ゲームのボイスチャットで英語のやり取りを手助けする、Windows 用の無料アプリです。</p>
-      <span class="ver">説明書 v1.023（2026年10月）</span>
+      <span class="ver">説明書 v1.024（2026年10月）</span>
       <div class="cta">
         <a class="btn" id="dl" href="#">ダウンロード</a>
         <a class="btn ghost" href="#start">はじめての設定へ</a>
@@ -352,10 +352,13 @@ footer{border-top:1px solid var(--line);padding:24px 20px;text-align:center;colo
       </div>
       <p>「A-」「A+」で文字の大きさ、「全画面」で全画面表示にできます。</p>
       <h3>新しい字幕が上、指で見返せる <span class="since">v1.023〜</span></h3>
+      <p>スマホを<b>横向き</b>にすると、上段と下段が左右に並びます<span class="since">v1.024〜</span>。「A-」「A+」を押すと、字幕の文字と一緒に、上のボタンや見出しの文字も、小さく・大きくなります。</p>
       <p>上段も下段も、<b>新しい字幕が上</b>に出ます。指で上下にスクロールすると、過去の字幕を見返せます（上段は60件、下段は40件まで）。見返している間に新しい字幕が来ても、見ている位置は動きません。いちばん上まで戻ると、最新の字幕です。</p>
       <h3>画面を消さない <span class="since">v1.023〜</span></h3>
-      <p>画面上部の「画面を消さない：オフ」を押して「オン」にすると、端末の画面が自動で暗くならず、字幕を出したままにできます。画面が消えてしまうときに使います（iPhone の Safari、Android の Chrome など）。端末の「画面の自動ロック」の設定は、変えなくて済みます。見えない小さな動画（音は出ません）を再生し続ける仕組みで、画面の右下に、小さな黒い四角が出ます。</p>
+      <p>画面上部の「画面を消さない：オフ」を押して「オン」にすると、端末の画面が自動で暗くならず、字幕を出したままにできます。画面が消えてしまうときに使います。端末の「画面の自動ロック」の設定は、変えなくて済みます。</p>
       <ul>
+        <li><b>Android の Chrome など：</b>ふだんの（http の）QR コードで開いて使えます。見えない小さな動画（音は出ません）を再生し続ける仕組みで、画面の右下に、小さな黒い四角が出ます。</li>
+        <li><b>iPhone <span class="since">v1.024〜</span>：</b>動画の仕組みは、iPhone では効きません。パソコンの「タブレット表示」タブの<b>「iPhone 用 QR コード」（https）</b>で開いてください。開くとき、「このWebサイトは安全ではありません」などの警告が出ます（このパソコンの中で作った証明書のため。字幕の文字を送るだけで、家の中のネットワークだけで使います）。Safari は「詳細を表示」→「このWebサイトを閲覧」、Chrome は「詳細設定」→「〜にアクセスする（安全ではありません）」で進み、そのあと「画面を消さない：オン」にします。ページを開き直したときは、ボタンに「オン（画面を 1 回タップ）」と出るので、画面を 1 回タップしてください（ボタンが「オン」だけになれば、有効です）。</li>
         <li>押した状態は、そのブラウザに保存されます。次回からは、最初に画面をタッチしたときに、自動でオンになります（ブラウザの決まりで、タッチなしでは始められません）。</li>
         <li>電池を使います。使い終わったら、オフにしてください。</li>
         <li>iPhone の「低電力モード」では、効かないことがあります。</li>
@@ -386,7 +389,7 @@ footer{border-top:1px solid var(--line);padding:24px 20px;text-align:center;colo
 <svg viewBox="0 0 640 600" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="メイン画面">
   <rect class="u-win" x=".5" y=".5" width="639" height="599" rx="8"/>
   <path class="u-title" d="M8 .5h624a7.5 7.5 0 0 1 7.5 7.5v24H.5V8A7.5 7.5 0 0 1 8 .5z"/>
-  <text class="u-b" x="16" y="21">Kotobareach v1.023　[音声認識: GPU]</text>
+  <text class="u-b" x="16" y="21">Kotobareach v1.024　[音声認識: GPU]</text>
   <rect class="u-dark" x="16" y="44" width="608" height="112" rx="6"/>
   <text class="u-teal" x="30" y="66">相手の声　英語 → 日本語（パソコンの音）</text>
   <rect x="510" y="52" width="100" height="22" rx="11" fill="none" stroke="#4FC1C9"/><text class="u-teal" x="560" y="67" text-anchor="middle">聞き取り: ON</text>
@@ -662,7 +665,7 @@ footer{border-top:1px solid var(--line);padding:24px 20px;text-align:center;colo
       <details class="qa"><summary>スマホ・タブレットで字幕が開けない</summary><div>
         <p>同じ Wi-Fi か、URL が <code>http://</code> で始まっているかを確かめます。くわしくは<a href="#tablet">つながらないとき</a>へ。</p></div></details>
       <details class="qa"><summary>スマホ・タブレットで、字幕を出している間に画面が消える</summary><div>
-        <p>字幕画面の上部の「画面を消さない：オフ」を押して「オン」にしてください。それでも消えるときは、iPhone の「低電力モード」をオフにするか、画面をいちど開き直して、もう一度「オン」にします。</p></div></details>
+        <p>字幕画面の上部の「画面を消さない：オフ」を押して「オン」にしてください。iPhone は、「iPhone 用 QR コード」（https）で開く必要があります（上の「画面を消さない」を見てください）。それでも消えるときは、iPhone の「低電力モード」をオフにするか、画面をいちど開き直して、もう一度「オン」にします。</p></div></details>
       <details class="qa"><summary>スマホ・タブレットで英文をタップしても読み上げない</summary><div>
         <p>端末の音量と「テキスト読み上げ」の設定（Google の音声合成エンジン、英語の音声データ）を確かめます。「読み上げ設定」で別の声に変えて「試し聞き」をしてみてください。</p></div></details>
       <details class="qa"><summary>何も話していないのに勝手に文字が出る</summary><div>
@@ -701,6 +704,12 @@ footer{border-top:1px solid var(--line);padding:24px 20px;text-align:center;colo
     <!-- ================= history ================= -->
     <section id="history">
       <h2>バージョン履歴</h2>
+      <h3>v1.024（2026-10）</h3>
+      <ul class="history">
+        <li>iPhone で「画面を消さない」が効かない問題に対応。字幕を https でも配るようにし、「タブレット表示」タブに「iPhone 用 URL（https）」と「iPhone 用 QR コード」を追加（iPhone はこちらで開きます）</li>
+        <li>スマホの字幕画面を、横向きにすると左右に並ぶように。「相手の声」「自分の声」の見出しの説明を省き、「A-」「A+」で、上のボタン・見出しの文字も一緒に変わるように</li>
+        <li>「ファイアウォールの許可コマンド」を、https のポートも含むように変更（すでに実行している場合は、もう一度実行してください）</li>
+      </ul>
       <h3>v1.023（2026-10）</h3>
       <ul class="history">
         <li>スマホ・タブレットの字幕画面に、「画面を消さない」ボタンを追加（画面が自動で消えるのを防ぐため。Android の Chrome で効果を確認）</li>
