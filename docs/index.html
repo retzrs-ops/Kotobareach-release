@@ -592,6 +592,14 @@ footer{border-top:1px solid var(--line);padding:24px 20px;text-align:center;colo
         <li><code>shield=シールド</code> のように「語=訳」と書くと、対訳になります。音声の認識には語（左）だけを渡し、翻訳（相手の声の英語→日本語、自分の声の日本語→英語）には、訳す文に出てきた対訳を渡します（Gemini とローカル LLM で有効）。入力欄にも書けます。</li>
         <li>Whisper に渡せる長さには限りがあります（目安 約 223 トークン）。超えた分（後ろの語）は使われないため、欄の下に目安と注意が出ます。よく使う語に絞ってください。</li>
       </ul>
+      <h4 id="glossary-arc">用語集ファイルの配布：ARC Raiders <span class="since">v1.027〜</span></h4>
+      <p>ARC Raiders の用語（ARC・マップ・トレーダー・武器・弾薬・素材など 522 語）を、「英語=日本語」の形にまとめたファイルです。公式サイトの日本語名と、英語名（Metaforge の公開 API）を、アイテムの ID で結びつけて作りました。</p>
+      <ul>
+        <li><a href="https://retzrs-ops.github.io/Kotobareach-release/hotwords/ArcRaiders.txt" download="ArcRaiders.txt">ArcRaiders.txt をダウンロード</a>（リンクを右クリック →「名前を付けてリンク先を保存」）</li>
+        <li>使い方：保存したら、「設定」→「翻訳」タブ →「用語」→「ファイルを選ぶ…」で選びます。上のほうの語（ARC・マップ・トレーダー・武器）が、音声認識に優先して渡されます。</li>
+        <li>ゲームのアップデートで名前が変わることがあります（2026年10月29日時点）。<code>ARC Deforester</code>・<code>ARC Reclaimer</code>・<code>Riven Tides</code>・<code>Pendra Pass</code> の英語名は、公式に英語の表記が無く、推測です。</li>
+        <li>ゲームの名称・名前の権利は、各権利者（NEXON Korea / Embark Studios）にあります。このファイルは非公式で、名前を並べただけのものです。</li>
+      </ul>
 
       <h3 id="tab-display">表示・更新タブ</h3>
       <ul>
