@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Kotobareach（コトバリーチ）説明書 v1.026</title>
+<title>Kotobareach（コトバリーチ）説明書 v1.027</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=BIZ+UDPGothic:wght@400;700&family=Outfit:wght@500;700&display=swap" rel="stylesheet">
@@ -154,7 +154,7 @@ footer{border-top:1px solid var(--line);padding:24px 20px;text-align:center;colo
     <div>
       <h1 class="wordmark">Kotobareach<span class="kana">コトバリーチ</span></h1>
       <p class="lead">話した日本語は英語に、相手の英語は日本語に。翻訳した字幕を、手元のスマホやタブレットに表示します。ゲームのボイスチャットで英語のやり取りを手助けする、Windows 用の無料アプリです。</p>
-      <span class="ver">説明書 v1.026（2026年10月）</span>
+      <span class="ver">説明書 v1.027（2026年10月）</span>
       <div class="cta">
         <a class="btn" id="dl" href="#">ダウンロード</a>
         <a class="btn ghost" href="#start">はじめての設定へ</a>
@@ -219,7 +219,7 @@ footer{border-top:1px solid var(--line);padding:24px 20px;text-align:center;colo
         <li><b>パソコン：</b>Windows 10 / 11（64bit）</li>
         <li><b>スマホ・タブレット：</b>パソコンと同じ Wi-Fi につながる端末と、ブラウザ（Chrome など）</li>
         <li><b>インターネット接続：</b>翻訳と、初回の音声認識モデルのダウンロードに使います</li>
-        <li><b>GPU（なくても動きます）：</b>NVIDIA / AMD / Intel の GPU があれば、音声認識が速くなります。AMD・Intel はそのまま使えます。NVIDIA は「GPU」タブから追加の部品をダウンロードします（初回のみ）</li>
+        <li><b>GPU（なくても動きます）：</b>NVIDIA / AMD / Intel の GPU があれば、音声認識が速くなります。AMD・Intel はそのまま使えます。NVIDIA は「PC・部品」タブから追加の部品をダウンロードします（初回のみ）</li>
       </ul>
       <div class="tbl"><table>
         <tr><th>ファイル</th><th>中身</th></tr>
@@ -236,13 +236,12 @@ footer{border-top:1px solid var(--line);padding:24px 20px;text-align:center;colo
       <h2>はじめての設定</h2>
       <ol class="steps">
         <li><strong>インストーラーをダウンロードして実行する</strong>Releases から <code>Kotobareach_Setup_v〇.exe</code> をダウンロードして、ダブルクリックします。青い警告画面が出たら、<a href="#smartscreen">初回起動時の警告が出たら</a>の手順で進めます。画面の案内に従って「インストール」を押します（管理者権限は、いりません）。<span class="since">v1.026〜</span><br>zip 版（<code>Kotobareach_v〇.zip</code>）を使う場合は、zip を右クリックして「すべて展開」を選び、展開したフォルダの <code>Kotobareach.exe</code> を起動します（zip を開いたままでは起動できません）。</li>
-        <li><strong>コトバリーチを起動する</strong>インストール後は、「Kotobareach を起動する」にチェックを入れたまま「完了」を押すか、スタートメニューの「Kotobareach」から起動します。初回は設定ウィンドウが自動で開きます。</li>
-        <li><strong>音声認識モデルを選ぶ</strong>「STT・翻訳」タブの「Whisperモデルサイズ」で選びます。選ぶと読み込みが始まります（初回のみダウンロード）。<br>おすすめ：GPU が使える PC は <b>large-v3-turbo</b>、GPU がない PC は <b>small</b>。</li>
-        <li><strong>マイクを選ぶ</strong>メイン画面の「有効な入力マイク」で、使うマイクを選びます。見つからないときは「すべての入力デバイスを表示」にチェックを入れます。</li>
-        <li><strong>聞き取る音を選ぶ</strong>「設定」→「聞き取り」タブの「聞き取る音」で、いつも使っているスピーカー（ヘッドホン）の「パソコンの音: ～」を選びます。</li>
+        <li><strong>コトバリーチを起動する</strong>インストール後は、「Kotobareach を起動する」にチェックを入れたまま「完了」を押すか、スタートメニューの「Kotobareach」から起動します。初回は「設定ウィザード」が自動で開きます（次の手順）。</li>
+        <li><strong>設定ウィザードに答える</strong>用途・PC の様子・翻訳の質などを選ぶだけで、モデルや翻訳の方法が自動で決まります。相手の声・マイクは、<b>ゲームの音だけを流した状態で「音を探す」</b>を押すと、音の出ているものを見つけて選べます。途中でやめても、あとから「設定」→「はじめに」でやり直せます。くわしくは<a href="#wizard">設定ウィザード</a>へ。</li>
+        <li><strong>（ウィザードを使わないとき）手で設定する</strong>「自分の声」タブで認識モデルを、「相手の声」タブで聞き取る音を、メイン画面の「有効な入力マイク」でマイクを選びます。見つからないときは「すべての入力デバイスを表示」にチェックを入れます。</li>
         <li><strong>閾値（しきいち）を合わせる</strong>メイン画面の音量インジケータを見ながら、すぐ下のスライダーを動かします。白い線が今の閾値です。<b>話したときは線を超え、黙っているときは線より下</b>になれば OK です。</li>
         <li><strong>スマホ・タブレットをつなぐ</strong>メイン画面の「タブレット接続設定」を押し、「字幕をタブレット・スマホにも送る」にチェック。出てきた QR コードをスマホ・タブレットのカメラで読み取ります。くわしくは<a href="#tablet">次の章</a>へ。</li>
-        <li><strong>（必要なら）GPU を準備する</strong>NVIDIA の GPU を使う場合は「GPU」タブでダウンロードします。くわしくは<a href="#gpu">GPU で速くする</a>へ。</li>
+        <li><strong>（必要なら）GPU を準備する</strong>NVIDIA の GPU を使う場合は「PC・部品」タブでダウンロードします。くわしくは<a href="#gpu">GPU で速くする</a>へ。</li>
       </ol>
       <p class="note">設定は変えてから約1秒後に自動で保存されます。保存ボタンはありません。</p>
 
@@ -250,7 +249,7 @@ footer{border-top:1px solid var(--line);padding:24px 20px;text-align:center;colo
       <ul>
         <li><b>更新：</b>起動して少し経つと、新しい版があるかを自動で確認します。あれば、変更点つきで「今すぐ更新」「あとで」を聞きます。「今すぐ更新」を押すと、ダウンロードして、安全を確かめてから、Kotobareach を終了して入れ替え、自動で起動し直します。設定は、そのまま引き継がれます。</li>
         <li><b>安全の確認：</b>GitHub が記録しているハッシュ値と、作者の署名の、両方が合ったものだけを実行します。合わないときは、実行せずに、いまの版のまま使えます。通信先は GitHub だけです。</li>
-        <li><b>確認をやめる：</b>「設定」→「表示設定」の「起動時に、新しい版を確認する」のチェックを外します。「今すぐ確認」で、手動でも確認できます。</li>
+        <li><b>確認をやめる：</b>「設定」→「表示・更新」の「起動時に、新しい版を確認する」のチェックを外します。「今すぐ確認」で、手動でも確認できます。</li>
         <li><b>zip 版から更新したとき：</b>新しい版は、インストーラーの場所に入ります。いまのフォルダは残るので、いらなければ、あとで削除してください。</li>
         <li><b>アンインストール：</b>「設定」→「アプリ」→「インストールされているアプリ」から「Kotobareach」を選びます（起動中でも、自動で閉じられます）。途中で、次の2つを聞きます（どちらも、初めから「いいえ」が選ばれています）。
           <ul>
@@ -303,6 +302,38 @@ footer{border-top:1px solid var(--line);padding:24px 20px;text-align:center;colo
     </section>
 
     <!-- ================= tablet ================= -->
+    <section id="wizard">
+      <h2>設定ウィザード <span class="since">v1.027〜</span></h2>
+      <p>初めて起動したときに自動で開きます（すでに使っている人には自動では出ません）。あとから、メイン画面の「設定ウィザード」ボタン、または「設定」→「はじめに」で、いつでもやり直せます。やめたいときは「キャンセル」で、いまの設定はそのままです。</p>
+      <ol class="steps">
+        <li><strong>用途</strong>何に使うかを選びます（相手の声だけ / 自分の声だけ / 両方）。使わない側の質問は出ません。</li>
+        <li><strong>PC の様子</strong>ゲームの重さ・GPU の有無などを選びます。NVIDIA の GPU が見つかった場合は、足りない部品を案内します。</li>
+        <li><strong>翻訳の質と頻度</strong>「いつも訳す／ふつう／ときどき」と、精度（軽さ重視 / 標準 / いちばん自然）を選びます。いちばん自然を選ぶと Gemini API キーの入力欄が出ます（任意）。</li>
+        <li><strong>相手の声の音源</strong>ゲームの音だけを流してから「音を探す」を押します。音の出ている装置が、大きさの順に並びます。1つだけなら自動で選ばれ、2つ以上のときは選びます。見つからなければ、手で選べます。</li>
+        <li><strong>マイク</strong>マイクに向かって話してから「音を探す」を押します。同じ要領です。</li>
+        <li><strong>まとめ</strong>選んだ結果が一覧で出ます。「完了」で設定が反映され、必要な部品のダウンロードも始まります。</li>
+      </ol>
+      <div class="shots">
+        <figure>
+        <div class="shot"><img src="img/wiz-purpose.png" alt="ウィザード：用途" loading="lazy" style="max-width:100%;height:auto"></div>
+        <figcaption>用途を選びます。</figcaption>
+      </figure>
+        <figure>
+        <div class="shot"><img src="img/wiz-translate.png" alt="ウィザード：翻訳" loading="lazy" style="max-width:100%;height:auto"></div>
+        <figcaption>翻訳の質と頻度を選びます。</figcaption>
+      </figure>
+        <figure>
+        <div class="shot"><img src="img/wiz-listen.png" alt="ウィザード：相手の声の音源" loading="lazy" style="max-width:100%;height:auto"></div>
+        <figcaption>音のある装置が見つかった状態（機器名は例です）。</figcaption>
+      </figure>
+        <figure>
+        <div class="shot"><img src="img/wiz-summary.png" alt="ウィザード：まとめ" loading="lazy" style="max-width:100%;height:auto"></div>
+        <figcaption>選んだ内容を確認して「完了」。</figcaption>
+      </figure>
+      </div>
+      <p class="note">音を探すのに、相手の声で約3秒、マイクで約3秒かかります。音がまったく出ていないときは、「音が聞こえませんでした」と出ます。ゲームの音量を上げて、もう一度押してください。</p>
+    </section>
+
     <section id="tablet">
       <h2>スマホ・タブレットで字幕を見る</h2>
       <p>コトバリーチのふつうの使い方です。同じ Wi-Fi のスマホやタブレットのブラウザに、字幕を送って表示します。送るのは文字だけです。</p>
@@ -318,11 +349,13 @@ footer{border-top:1px solid var(--line);padding:24px 20px;text-align:center;colo
   <rect class="u-win" x=".5" y=".5" width="639" height="399" rx="8"/>
   <path class="u-title" d="M8 .5h624a7.5 7.5 0 0 1 7.5 7.5v24H.5V8A7.5 7.5 0 0 1 8 .5z"/>
   <text class="u-b" x="16" y="21">設定</text>
-  <rect class="u-tab" x="16" y="44" width="84" height="28" rx="4"/><text class="u-t" x="58" y="63" text-anchor="middle">聞き取り</text>
-  <rect class="u-tab" x="104" y="44" width="96" height="28" rx="4"/><text class="u-t" x="152" y="63" text-anchor="middle">STT・翻訳</text>
-  <rect class="u-tab" x="204" y="44" width="60" height="28" rx="4"/><text class="u-t" x="234" y="63" text-anchor="middle">GPU</text>
-  <rect class="u-tab" x="268" y="44" width="84" height="28" rx="4"/><text class="u-t" x="310" y="63" text-anchor="middle">表示設定</text>
-  <rect class="u-tabon" x="356" y="44" width="120" height="28" rx="4"/><text class="u-b" x="416" y="63" text-anchor="middle">タブレット表示</text>
+  <rect class="u-tab" x="16" y="44" width="72" height="28" rx="4"/><text class="u-t" x="52" y="63" text-anchor="middle">はじめに</text>
+  <rect class="u-tab" x="92" y="44" width="76" height="28" rx="4"/><text class="u-t" x="130" y="63" text-anchor="middle">相手の声</text>
+  <rect class="u-tab" x="172" y="44" width="76" height="28" rx="4"/><text class="u-t" x="210" y="63" text-anchor="middle">自分の声</text>
+  <rect class="u-tab" x="252" y="44" width="52" height="28" rx="4"/><text class="u-t" x="278" y="63" text-anchor="middle">翻訳</text>
+  <rect class="u-tab" x="308" y="44" width="80" height="28" rx="4"/><text class="u-t" x="348" y="63" text-anchor="middle">PC・部品</text>
+  <rect class="u-tab" x="392" y="44" width="84" height="28" rx="4"/><text class="u-t" x="434" y="63" text-anchor="middle">表示・更新</text>
+  <rect class="u-tabon" x="480" y="44" width="112" height="28" rx="4"/><text class="u-b" x="536" y="63" text-anchor="middle">タブレット表示</text>
   <line x1="16" y1="72" x2="624" y2="72" stroke="#C3CAD6"/>
   <rect x="24" y="92" width="16" height="16" rx="3" fill="#0E7C86"/><path d="M28 100l3 3 6-7" stroke="#fff" stroke-width="2" fill="none"/>
   <text class="u-b" x="48" y="105">字幕をタブレット・スマホにも送る</text>
@@ -409,7 +442,7 @@ footer{border-top:1px solid var(--line);padding:24px 20px;text-align:center;colo
 <svg viewBox="0 0 640 600" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="メイン画面">
   <rect class="u-win" x=".5" y=".5" width="639" height="599" rx="8"/>
   <path class="u-title" d="M8 .5h624a7.5 7.5 0 0 1 7.5 7.5v24H.5V8A7.5 7.5 0 0 1 8 .5z"/>
-  <text class="u-b" x="16" y="21">Kotobareach v1.026　[音声認識: GPU]</text>
+  <text class="u-b" x="16" y="21">Kotobareach v1.027　[音声認識: GPU]</text>
   <rect class="u-dark" x="16" y="44" width="608" height="112" rx="6"/>
   <text class="u-teal" x="30" y="66">相手の声　英語 → 日本語（パソコンの音）</text>
   <rect x="510" y="52" width="100" height="22" rx="11" fill="none" stroke="#4FC1C9"/><text class="u-teal" x="560" y="67" text-anchor="middle">聞き取り: ON</text>
@@ -458,52 +491,26 @@ footer{border-top:1px solid var(--line);padding:24px 20px;text-align:center;colo
       <h2>設定ウィンドウ</h2>
       <p>メイン画面の「設定」ボタンで開きます。開いたままでもメイン画面を操作できます。</p>
       <ul class="tabs-list">
-        <li><a href="#tab-listen">聞き取り</a></li>
-        <li><a href="#tab-stt">STT・翻訳</a></li>
-        <li><a href="#gpu">GPU</a></li>
-        <li><a href="#tab-display">表示設定</a></li>
+        <li><a href="#tab-welcome">はじめに</a></li>
+        <li><a href="#tab-listen">相手の声</a></li>
+        <li><a href="#tab-stt">自分の声</a></li>
+        <li><a href="#tab-translate">翻訳</a></li>
+        <li><a href="#gpu">PC・部品</a></li>
+        <li><a href="#tab-display">表示・更新</a></li>
         <li><a href="#tablet">タブレット表示</a></li>
       </ul>
 
-      <h3 id="tab-listen">聞き取りタブ</h3>
+      <h3 id="tab-welcome">はじめにタブ</h3>
       <figure>
-        <div class="shot">
-<svg viewBox="0 0 640 450" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="設定ウィンドウの聞き取りタブ">
-  <rect class="u-win" x=".5" y=".5" width="639" height="449" rx="8"/>
-  <path class="u-title" d="M8 .5h624a7.5 7.5 0 0 1 7.5 7.5v24H.5V8A7.5 7.5 0 0 1 8 .5z"/>
-  <text class="u-b" x="16" y="21">設定</text>
-  <rect class="u-tabon" x="16" y="44" width="84" height="28" rx="4"/><text class="u-b" x="58" y="63" text-anchor="middle">聞き取り</text>
-  <rect class="u-tab" x="104" y="44" width="96" height="28" rx="4"/><text class="u-t" x="152" y="63" text-anchor="middle">STT・翻訳</text>
-  <rect class="u-tab" x="204" y="44" width="60" height="28" rx="4"/><text class="u-t" x="234" y="63" text-anchor="middle">GPU</text>
-  <rect class="u-tab" x="268" y="44" width="84" height="28" rx="4"/><text class="u-t" x="310" y="63" text-anchor="middle">表示設定</text>
-  <rect class="u-tab" x="356" y="44" width="120" height="28" rx="4"/><text class="u-t" x="416" y="63" text-anchor="middle">タブレット表示</text>
-  <line x1="16" y1="72" x2="624" y2="72" stroke="#C3CAD6"/>
-  <text class="u-t" x="24" y="104">聞き取りの方法</text>
-  <circle cx="228" cy="100" r="7" fill="#fff" stroke="#0E7C86" stroke-width="2"/><circle cx="228" cy="100" r="3.5" fill="#0E7C86"/>
-  <text class="u-t" x="244" y="104">パソコンの音を音声認識する（Whisper）</text>
-  <circle cx="228" cy="126" r="7" fill="#fff" stroke="#B3BBC9" stroke-width="2"/>
-  <text class="u-t" x="244" y="130">Windows のライブキャプションから読む</text>
-  <text class="u-t" x="24" y="172">聞き取る音</text>
-  <rect class="u-box" x="220" y="154" width="396" height="26" rx="3"/><text class="u-t" x="230" y="172">パソコンの音: スピーカー (Realtek Audio)</text><text class="u-t" x="604" y="172" text-anchor="end">▾</text>
-  <text class="u-t" x="24" y="216">相手の言語</text>
-  <rect class="u-box" x="220" y="198" width="396" height="26" rx="3"/><text class="u-t" x="230" y="216">英語だけ（日本語など、ほかの言語は無視）</text><text class="u-t" x="604" y="216" text-anchor="end">▾</text>
-  <text class="u-t" x="24" y="260">認識モデル</text>
-  <rect class="u-box" x="220" y="242" width="396" height="26" rx="3"/><text class="u-t" x="230" y="260">small</text><text class="u-t" x="604" y="260" text-anchor="end">▾</text>
-  <text class="u-t" x="24" y="302">音量</text>
-  <rect x="220" y="290" width="360" height="16" rx="3" fill="#E3E7EE"/>
-  <rect x="220" y="290" width="150" height="16" rx="3" fill="#3BAA5C"/>
-  <rect x="290" y="286" width="4" height="24" fill="#fff" stroke="#1B2333"/>
-  <text class="u-t" x="24" y="338">閾値</text>
-  <rect x="220" y="330" width="360" height="4" rx="2" fill="#B3BBC9"/>
-  <circle cx="292" cy="332" r="8" fill="#0E7C86"/>
-  <text class="u-b" x="616" y="338" text-anchor="end">20</text>
-  <rect x="220" y="362" width="16" height="16" rx="3" fill="#0E7C86"/><path d="M224 370l3 3 6-7" stroke="#fff" stroke-width="2" fill="none"/>
-  <text class="u-t" x="244" y="375">相手の言葉（原文）も表示する</text>
-  <text class="u-t" x="24" y="420">聞き取りの翻訳</text>
-  <rect class="u-box" x="220" y="402" width="396" height="26" rx="3"/><text class="u-t" x="230" y="420">クラウドの翻訳サービス</text><text class="u-t" x="604" y="420" text-anchor="end">▾</text>
-</svg>
-        </div>
-        <figcaption>「聞き取り」タブ（画面はイメージです）</figcaption>
+        <div class="shot"><img src="img/tab-welcome.png" alt="設定ウィンドウのはじめにタブ" loading="lazy" style="max-width:100%;height:auto"></div>
+        <figcaption>「はじめに」タブ。ここから設定ウィザードをやり直せます。「いまの設定」で、選ばれている内容をまとめて確認できます。</figcaption>
+      </figure>
+      <p>「設定ウィザードを開く」ボタンで、質問に答えて設定しなおせます。ウィザードで決めた内容は、このあとの各タブで細かく変えられます。</p>
+
+      <h3 id="tab-listen">相手の声タブ</h3>
+      <figure>
+        <div class="shot"><img src="img/tab-listen.png" alt="設定ウィンドウの相手の声タブ" loading="lazy" style="max-width:100%;height:auto"></div>
+        <figcaption>「相手の声」タブ。上から「音の取り込み」「認識」「表示」の順です（画面は例で、機器の名前はお使いの PC のものが出ます）。</figcaption>
       </figure>
       <h4>聞き取りの方法（どちらか1つ）</h4>
       <ul>
@@ -523,51 +530,18 @@ footer{border-top:1px solid var(--line);padding:24px 20px;text-align:center;colo
       <p>英語 / 自動判定 / 英語だけ。日本語の動画や会話も聞こえる環境では <b>英語だけ</b> を選ぶと、日本語を変な英語字幕にしてしまうのを防げます（初期設定は「英語だけ」）。</p>
       <h4>認識モデル・音量 / 閾値</h4>
       <p>聞き取り用のモデルは自分の声用とは別です。おすすめは small。ゲームが重くなるなら base や tiny に。BGM や効果音で字幕が出るときは閾値を上げます。</p>
-      <h4>聞き取りの翻訳（1つ選ぶ）</h4>
+      <h4>相手の声の翻訳（1つ選ぶ。「翻訳」タブにあります）</h4>
       <ul>
         <li><b>クラウドの翻訳サービス：</b>精度は高め。無料サービスの回数を自分の声の分に残すため、呼び出しは控えめにしています</li>
         <li><b>ローカル翻訳 FuguMT：</b>パソコンの中で訳します。軽くて回数制限なし。精度はやや低め。初回使用時に必要なファイルを約125MBダウンロードします</li>
-        <li><b>ローカル LLM HY-MT1.5：</b>FuguMT より自然な訳になりやすい翻訳用 AI。先に GPU タブでダウンロード（約1.2GB）が必要です。EU・英国・韓国では使えません</li>
+        <li><b>ローカル LLM HY-MT1.5：</b>FuguMT より自然な訳になりやすい翻訳用 AI。先に「PC・部品」タブでダウンロード（約1.2GB）が必要です。EU・英国・韓国では使えません</li>
       </ul>
 
-      <h3 id="tab-stt">STT・翻訳タブ</h3>
+
+      <h3 id="tab-stt">自分の声タブ</h3>
       <figure>
-        <div class="shot">
-<svg viewBox="0 0 640 486" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="設定ウィンドウのSTT・翻訳タブ">
-  <rect class="u-win" x=".5" y=".5" width="639" height="485" rx="8"/>
-  <path class="u-title" d="M8 .5h624a7.5 7.5 0 0 1 7.5 7.5v24H.5V8A7.5 7.5 0 0 1 8 .5z"/>
-  <text class="u-b" x="16" y="21">設定</text>
-  <rect class="u-tab" x="16" y="44" width="84" height="28" rx="4"/><text class="u-t" x="58" y="63" text-anchor="middle">聞き取り</text>
-  <rect class="u-tabon" x="104" y="44" width="96" height="28" rx="4"/><text class="u-b" x="152" y="63" text-anchor="middle">STT・翻訳</text>
-  <rect class="u-tab" x="204" y="44" width="60" height="28" rx="4"/><text class="u-t" x="234" y="63" text-anchor="middle">GPU</text>
-  <rect class="u-tab" x="268" y="44" width="84" height="28" rx="4"/><text class="u-t" x="310" y="63" text-anchor="middle">表示設定</text>
-  <rect class="u-tab" x="356" y="44" width="120" height="28" rx="4"/><text class="u-t" x="416" y="63" text-anchor="middle">タブレット表示</text>
-  <line x1="16" y1="72" x2="624" y2="72" stroke="#C3CAD6"/>
-  <text class="u-t" x="24" y="108">Whisperモデルサイズ</text>
-  <rect class="u-box" x="220" y="90" width="396" height="26" rx="3"/><text class="u-t" x="230" y="108">large-v3-turbo (GPU向け・高精度)</text><text class="u-t" x="604" y="108" text-anchor="end">▾</text>
-  <text class="u-t" x="24" y="152">音声認識デバイス</text>
-  <rect class="u-box" x="220" y="134" width="210" height="26" rx="3"/><text class="u-t" x="230" y="152">GPU（自動認識）</text><text class="u-t" x="418" y="152" text-anchor="end">▾</text>
-  <text class="u-m" x="442" y="152">実行中:</text>
-  <rect x="490" y="136" width="126" height="22" rx="11" fill="#2F9E5B"/><text class="u-wt" x="553" y="151" text-anchor="middle">GPU（Vulkan）</text>
-  <text class="u-t" x="24" y="196">認識補助ワード</text>
-  <rect class="u-box" x="220" y="178" width="396" height="26" rx="3"/><text class="u-t" x="230" y="196">ARC Raiders, shield, reload, raid</text>
-  <text class="u-t" x="24" y="240">無料クラウド翻訳API</text>
-  <rect class="u-box" x="220" y="222" width="396" height="26" rx="3"/><text class="u-t" x="230" y="240">Google翻訳 (無料)</text><text class="u-t" x="604" y="240" text-anchor="end">▾</text>
-  <text class="u-t" x="24" y="284">翻訳の方法</text>
-  <rect class="u-box" x="220" y="266" width="396" height="26" rx="3"/><text class="u-t" x="230" y="284">クラウド優先・使えないときはローカル LLM</text><text class="u-t" x="604" y="284" text-anchor="end">▾</text>
-  <text class="u-t" x="24" y="328">Gemini API キー</text>
-  <rect class="u-box" x="220" y="310" width="300" height="26" rx="3"/><text class="u-t" x="230" y="328">••••••••••••••••</text>
-  <rect class="u-btn" x="528" y="309" width="88" height="28" rx="4"/><text class="u-t" x="572" y="328" text-anchor="middle">テスト</text>
-  <text class="u-t" x="24" y="372">Google Cloud API キー</text>
-  <rect class="u-box" x="220" y="354" width="300" height="26" rx="3"/>
-  <rect class="u-btn" x="528" y="353" width="88" height="28" rx="4"/><text class="u-t" x="572" y="372" text-anchor="middle">テスト</text>
-  <text class="u-t" x="24" y="416">最大発話時間</text>
-  <rect class="u-box" x="220" y="398" width="100" height="26" rx="3"/><text class="u-t" x="230" y="416">15 秒</text>
-  <text class="u-t" x="24" y="460">無音判定の待ち時間</text>
-  <rect class="u-box" x="220" y="442" width="100" height="26" rx="3"/><text class="u-t" x="230" y="460">0.8 秒</text>
-</svg>
-        </div>
-        <figcaption>「STT・翻訳」タブ。「実行中:」が緑なら GPU で動いています（画面はイメージです）。</figcaption>
+        <div class="shot"><img src="img/tab-own.png" alt="設定ウィンドウの自分の声タブ" loading="lazy" style="max-width:100%;height:auto"></div>
+        <figcaption>「自分の声」タブ。「実行中:」が緑なら GPU で動いています。</figcaption>
       </figure>
       <h4>Whisperモデルサイズ</h4>
       <div class="tbl"><table>
@@ -581,17 +555,26 @@ footer{border-top:1px solid var(--line);padding:24px 20px;text-align:center;colo
       </table></div>
       <h4>音声認識デバイス</h4>
       <p>「GPU（自動認識）」「GPU の名前」「CPU」から選びます。右の「実行中:」で、いま実際に使っているものを確認できます（色の意味は<a href="#gpu">GPU で速くする</a>へ）。</p>
-      <h4>認識補助ワード（hotwords）</h4>
-      <p>ゲーム用語や固有名詞をカンマ区切りで入れると、認識されやすくなります。例：<code>ARC Raiders, shield, reload, raid</code></p>
-      <h4>無料クラウド翻訳API</h4>
-      <p>最初に使う無料サービスを選びます（Google翻訳 / Microsoft翻訳 / MyMemory / LibreTranslate）。失敗したら自動で次のサービスに切り替わります。「HTTP 429」（呼び出しすぎ）を受けたサービスは、しばらく休ませます。</p>
-      <h4>翻訳の方法</h4>
+      <h4>発話の区切り（「くわしい設定」を開く）</h4>
+      <p>1回に受け付ける長さ（3〜30秒）と、話し終わりとみなすまでの無音の長さ（0.5〜3.0秒）です。</p>
+
+
+      <h3 id="tab-translate">翻訳タブ</h3>
+      <figure>
+        <div class="shot"><img src="img/tab-translate.png" alt="設定ウィンドウの翻訳タブ" loading="lazy" style="max-width:100%;height:auto"></div>
+        <figcaption>「翻訳」タブ。自分の声・相手の声の翻訳の方法と、クラウドの翻訳サービス、API キー、用語をまとめています。</figcaption>
+      </figure>
+      <h4>自分の声の翻訳の方法</h4>
       <ul>
         <li><b>クラウド優先・使えないときはローカル LLM</b>（おすすめ・既定）</li>
         <li><b>クラウドのみ</b></li>
         <li><b>ローカル LLM のみ</b>：回数制限なし。精度はクラウドより低めのことがあります</li>
         <li><b>クラウド優先・使えないときはローカル翻訳 FuguMT</b> / <b>ローカル翻訳 FuguMT のみ（軽い）</b>：CPU で動くので GPU のメモリを使いません。初回使用時に必要なファイルを約245MBダウンロードします</li>
       </ul>
+      <h4>相手の声の翻訳</h4>
+      <p>クラウド / ローカル翻訳 FuguMT / ローカル LLM から選びます（くわしくは<a href="#tab-listen">相手の声タブ</a>）。</p>
+      <h4>無料クラウド翻訳API</h4>
+      <p>最初に使う無料サービスを選びます（Google翻訳 / Microsoft翻訳 / MyMemory / LibreTranslate）。失敗したら自動で次のサービスに切り替わります。「HTTP 429」（呼び出しすぎ）を受けたサービスは、しばらく休ませます。</p>
       <h4>翻訳 API キー（上級者向け・任意）</h4>
       <p>自分で取ったキーを入れると、無料サービスより先にそちらを使います。キーはこの PC の Windows ユーザー専用に暗号化して保存します。「テスト」ボタンで使えるか確かめられます。</p>
       <ul>
@@ -599,10 +582,18 @@ footer{border-top:1px solid var(--line);padding:24px 20px;text-align:center;colo
         <li><b>Google Cloud API キー：</b>月50万文字まで無料。Google Cloud とクレジットカードの登録が必要です</li>
       </ul>
       <p>翻訳の順番：Gemini → Google Cloud → 選んだ無料サービス → 残りの無料サービス</p>
-      <h4>最大発話時間・無音判定の待ち時間</h4>
-      <p>1回に受け付ける長さ（3〜30秒）と、話し終わりとみなすまでの無音の長さ（0.5〜3.0秒）です。</p>
+      <h4>用語（認識補助ワード）</h4>
+      <p>ゲーム用語や固有名詞をカンマ区切りで入れると、認識されやすくなります。例：<code>ARC Raiders, shield, reload, raid</code></p>
+      <p>語がたくさんあるときは、入力欄の下の「外部ファイル（テキスト）」で、テキストファイルから読み込めます<span class="since">v1.027〜</span>。入力欄の語に足して使います。</p>
+      <ul>
+        <li>「ファイルを選ぶ…」で選びます。一度読み込んだファイルは、プルダウンに並びます（新しい順に 10 件まで）。選ぶだけで切り替わり、「（使わない）」で外せます。</li>
+        <li>ファイルを書き換えたら「再読み込み」。「履歴から消す」は、プルダウンから外すだけで、ファイルは消えません。</li>
+        <li>書き方は、1 行に 1 語、またはカンマで区切って何語でも。空の行と、<code>#</code> で始まる行は無視します。文字コードは UTF-8 / Shift_JIS / UTF-16 に対応（1MB・2000 語まで）。</li>
+        <li><code>shield=シールド</code> のように「語=訳」と書くと、対訳になります。音声の認識には語（左）だけを渡し、翻訳（相手の声の英語→日本語、自分の声の日本語→英語）には、訳す文に出てきた対訳を渡します（Gemini とローカル LLM で有効）。入力欄にも書けます。</li>
+        <li>Whisper に渡せる長さには限りがあります（目安 約 223 トークン）。超えた分（後ろの語）は使われないため、欄の下に目安と注意が出ます。よく使う語に絞ってください。</li>
+      </ul>
 
-      <h3 id="tab-display">表示設定タブ</h3>
+      <h3 id="tab-display">表示・更新タブ</h3>
       <ul>
         <li><b>字幕の文字サイズ：</b>メイン画面の字幕欄の文字の大きさ（10〜36px）</li>
         <li><b>文字の縁取り：</b>字幕の縁取りの太さ（0〜5px）。英文は単語の途中で改行しません</li>
@@ -612,7 +603,7 @@ footer{border-top:1px solid var(--line);padding:24px 20px;text-align:center;colo
 
     <!-- ================= gpu ================= -->
     <section id="gpu">
-      <h2>GPU で速くする</h2>
+      <h2>GPU で速くする（「PC・部品」タブ）</h2>
       <p>GPU で音声認識すると速くなり、精度の高いモデル（large-v3-turbo / medium / kotoba-whisper）も待ち時間をほとんど増やさずに使えます。</p>
       <h3>どちらで動いているかを確かめる</h3>
       <div class="tbl"><table>
@@ -630,41 +621,14 @@ footer{border-top:1px solid var(--line);padding:24px 20px;text-align:center;colo
       <h3>NVIDIA の GPU</h3>
       <p>追加の部品が必要です。初回使用時に必要なファイルを約1GBダウンロードします。</p>
       <ol class="steps">
-        <li><strong>「GPU」タブを開く</strong>お使いの GPU が自動で表示されます。</li>
+        <li><strong>「PC・部品」タブを開く</strong>お使いの GPU が自動で表示されます。</li>
         <li><strong>「ダウンロード」を押す</strong>「※このPCに搭載」と書かれた行のボタンです。</li>
         <li><strong>サイズの確認で「Yes」を押す</strong>ダウンロード中もアプリは使えます。</li>
-        <li><strong>終わると自動で GPU に切り替わる</strong>「STT・翻訳」タブの「実行中:」が緑になれば成功です。</li>
+        <li><strong>終わると自動で GPU に切り替わる</strong>「自分の声」タブの「実行中:」が緑になれば成功です。</li>
       </ol>
-      <figure>
-        <div class="shot">
-<svg viewBox="0 0 640 344" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="設定ウィンドウのGPUタブ">
-  <rect class="u-win" x=".5" y=".5" width="639" height="343" rx="8"/>
-  <path class="u-title" d="M8 .5h624a7.5 7.5 0 0 1 7.5 7.5v24H.5V8A7.5 7.5 0 0 1 8 .5z"/>
-  <text class="u-b" x="16" y="21">設定</text>
-  <rect class="u-tab" x="16" y="44" width="84" height="28" rx="4"/><text class="u-t" x="58" y="63" text-anchor="middle">聞き取り</text>
-  <rect class="u-tab" x="104" y="44" width="96" height="28" rx="4"/><text class="u-t" x="152" y="63" text-anchor="middle">STT・翻訳</text>
-  <rect class="u-tabon" x="204" y="44" width="60" height="28" rx="4"/><text class="u-b" x="234" y="63" text-anchor="middle">GPU</text>
-  <rect class="u-tab" x="268" y="44" width="84" height="28" rx="4"/><text class="u-t" x="310" y="63" text-anchor="middle">表示設定</text>
-  <rect class="u-tab" x="356" y="44" width="120" height="28" rx="4"/><text class="u-t" x="416" y="63" text-anchor="middle">タブレット表示</text>
-  <line x1="16" y1="72" x2="624" y2="72" stroke="#C3CAD6"/>
-  <text class="u-b" x="24" y="104">搭載 GPU</text>
-  <text class="u-t" x="140" y="104">NVIDIA GeForce RTX 4070</text>
-  <text class="u-m" x="140" y="124">Intel(R) UHD Graphics（内蔵）</text>
-  <text class="u-b" x="24" y="162">追加コンポーネント</text>
-  <rect x="24" y="174" width="592" height="132" rx="4" fill="#FAFBFC" stroke="#D8DDE6"/>
-  <line x1="24" y1="218" x2="616" y2="218" stroke="#E3E7EE"/><line x1="24" y1="262" x2="616" y2="262" stroke="#E3E7EE"/>
-  <text class="u-t" x="36" y="194">NVIDIA 用（CUDA）</text><text class="u-m" x="36" y="211">※このPCに搭載</text>
-  <text class="u-t" x="330" y="200">未導入（約1GB）</text>
-  <rect class="u-btn" x="508" y="182" width="96" height="28" rx="4" style="fill:#0E7C86;stroke:#0E7C86"/><text class="u-wt" x="556" y="201" text-anchor="middle">ダウンロード</text>
-  <text class="u-t" x="36" y="244">AMD / Intel 用（Vulkan）</text>
-  <text class="u-t" x="330" y="244">同梱済み</text>
-  <text class="u-t" x="36" y="288">ローカル翻訳 LLM（HY-MT1.5）</text>
-  <text class="u-t" x="330" y="288">未導入（約1.2GB）</text>
-  <rect class="u-btn" x="508" y="270" width="96" height="28" rx="4"/><text class="u-t" x="556" y="289" text-anchor="middle">ダウンロード</text>
-  <rect class="u-box" x="24" y="318" width="14" height="14" rx="2"/><text class="u-m" x="46" y="330">搭載されていない GPU 用のコンポーネントも表示する</text>
-</svg>
-        </div>
-        <figcaption>「GPU」タブ。NVIDIA の GPU がある PC では「※このPCに搭載」の行の「ダウンロード」を押します（画面はイメージです）。</figcaption>
+<figure>
+        <div class="shot"><img src="img/tab-pc.png" alt="設定ウィンドウのPC・部品タブ" loading="lazy" style="max-width:100%;height:auto"></div>
+        <figcaption>「PC・部品」タブ。NVIDIA の GPU がある PC では「ダウンロード」を押します（画面は例です）。</figcaption>
       </figure>
       <ul>
         <li>保存先は <code>%LOCALAPPDATA%\Kotobareach</code>。管理者権限は不要です</li>
@@ -705,7 +669,7 @@ footer{border-top:1px solid var(--line);padding:24px 20px;text-align:center;colo
       <details class="qa"><summary>GPU が使われない（「実行中:」が橙色）</summary><div>
         <ul>
           <li>「実行中:」にマウスを重ねるか、ログの <code>[GPU] ～ を使えません: 理由</code> を見ます</li>
-          <li>NVIDIA なら「GPU」タブでダウンロード済みか、AMD / Intel なら「同梱済み」になっているか確かめます</li>
+          <li>NVIDIA なら「PC・部品」タブでダウンロード済みか、AMD / Intel なら「同梱済み」になっているか確かめます</li>
           <li>ドライバーを最新にして、アプリを起動し直します。更新後は「もう一度試す」を押します</li>
           <li>「cublas」「cudnn」の文字や赤字のエラーが出たら「再インストール」を押します</li>
         </ul></div></details>
@@ -714,7 +678,7 @@ footer{border-top:1px solid var(--line);padding:24px 20px;text-align:center;colo
       <details class="qa"><summary>Google翻訳で「HTTP 429」が出る</summary><div>
         <p>呼び出しが多すぎて、一時的に止められています。数十分〜数時間で解除され、その間は自動で Microsoft翻訳 / MyMemory に切り替わります。話していないのに認識が走っているなら、閾値を上げてください。</p></div></details>
       <details class="qa"><summary>聞き取り字幕に何も出ない</summary><div>
-        <p>「聞き取り」タブのインジケータが、相手が話したときに動くか見ます。動かないなら「聞き取る音」を、実際に音が出ているスピーカーの「パソコンの音」に変えます。動いているのに出ないなら閾値を下げます。</p></div></details>
+        <p>「相手の声」タブのインジケータが、相手が話したときに動くか見ます。動かないなら「聞き取る音」を、実際に音が出ているスピーカーの「パソコンの音」に変えます。動いているのに出ないなら閾値を下げます。</p></div></details>
       <details class="qa"><summary>聞き取り字幕に BGM や自分の声が出る</summary><div>
         <p>閾値を上げます。自分の声が出るなら、自分のマイクの音が流れるスピーカーを選んでいないか確かめます。</p></div></details>
       <details class="qa"><summary>起動しても画面が増えない</summary><div>
@@ -724,10 +688,15 @@ footer{border-top:1px solid var(--line);padding:24px 20px;text-align:center;colo
     <!-- ================= history ================= -->
     <section id="history">
       <h2>バージョン履歴</h2>
+      <h3>v1.027（2026-10）</h3>
+      <ul class="history">
+        <li>認識補助ワードを、テキストファイルから読み込めるように。読み込んだファイルは、プルダウンで選べます。</li>
+        <li>「語=訳」の対訳に対応。翻訳（英語→日本語・日本語→英語）で、訳す文に出てきた対訳を使います（Gemini・ローカル LLM）。</li>
+      </ul>
       <h3>v1.026（2026-10）</h3>
       <ul class="history">
         <li>インストーラー（<code>Kotobareach_Setup_v〇.exe</code>）を追加。管理者権限なしで、ユーザー専用の場所に入り、スタートメニューのショートカットとアンインストールに対応</li>
-        <li>新しい版の確認と、ボタンひとつでの更新を追加。起動時に自動で確認し（「表示設定」でオフにできます）、ハッシュと作者の署名が合ったものだけを実行します</li>
+        <li>新しい版の確認と、ボタンひとつでの更新を追加。起動時に自動で確認し（「表示・更新」でオフにできます）、ハッシュと作者の署名が合ったものだけを実行します</li>
         <li>アンインストールのとき、設定と追加の部品、自動ダウンロードしたモデルも削除するかを、選べます（初めから「いいえ」）</li>
       </ul>
       <h3>v1.025（2026-10）</h3>
@@ -752,7 +721,7 @@ footer{border-top:1px solid var(--line);padding:24px 20px;text-align:center;colo
       <ul class="history">
         <li>パソコンからの読み上げをなくし、スマホ・タブレット側で読み上げるように。「英語TTS設定」タブ、VC・トリガーキー関連の設定を削除</li>
         <li>字幕をメイン画面の上下2段に表示</li>
-        <li>設定ウィンドウのタブを整理（聞き取り / STT・翻訳 / GPU / 表示設定 / タブレット表示）</li>
+        <li>設定ウィンドウのタブを整理（聞き取り / STT・翻訳 / GPU / 表示設定 / タブレット表示。v1.027 で、さらに「はじめに / 相手の声 / 自分の声 / 翻訳 / PC・部品 / 表示・更新 / タブレット表示」に組み直し）</li>
         <li>スマホ・タブレットの「読み上げ設定」、英文タップで読み上げ、接続状態の表示・接続テストを追加</li>
       </ul>
       <h3>v1.021（2026-10）</h3>
@@ -774,7 +743,7 @@ footer{border-top:1px solid var(--line);padding:24px 20px;text-align:center;colo
           <li><b>v1.008：</b>聞き取り機能を追加</li>
           <li><b>v1.006〜1.007：</b>二重起動の防止、NVIDIA 部品の自動チェックと再インストール</li>
           <li><b>v1.003〜1.005：</b>GPU を名前で選択、large-v3-turbo 追加、Microsoft翻訳・API キー対応、閾値スライダー化</li>
-          <li><b>v0.997〜1.000：</b>GPU 対応、「GPU」タブ、AMD / Intel をダウンロード不要に</li>
+          <li><b>v0.997〜1.000：</b>GPU 対応、「GPU」タブ（いまの「PC・部品」）、AMD / Intel をダウンロード不要に</li>
           <li><b>v0.990〜0.996：</b>翻訳の自動切り替え、認識精度とハルシネーション対策の強化、kotoba-whisper 追加</li>
           <li><b>v0.90〜0.989：</b>正式名称を制定、ベータ版公開、音量インジケータやステータスログなどの基本機能</li>
         </ul></div></details>
@@ -785,6 +754,9 @@ footer{border-top:1px solid var(--line);padding:24px 20px;text-align:center;colo
       <h2>免責事項</h2>
       <div class="note warn"><b>ゲームでの利用について</b><br>ゲームによっては、外部ツールの使用が利用規約で禁止されている場合があります。コトバリーチを使ったことで、アカウントの停止・削除（BAN）、ペナルティ、警告などの処分を受けても、作者は一切の責任を負いません。お使いのゲームの利用規約を事前に確認し、<b>自己責任</b>でご利用ください。</div>
       <ul>
+        <li>設定ウィザードを追加。質問に答えるだけで、モデル・翻訳の方法・部品を自動で決めます。初めて使う人には自動で開き、あとからも「設定」→「はじめに」から使えます。</li>
+        <li>相手の声・マイクの音源を、「音を探す」で半自動で選べるように（音の出ているものを大きさの順に表示）。</li>
+        <li>設定ウィンドウを 7 つのタブ（はじめに / 相手の声 / 自分の声 / 翻訳 / PC・部品 / 表示・更新 / タブレット表示）に組み直し。細かい設定は「くわしい設定」にたたみました。</li>
         <li>コトバリーチは無料で配布しているソフトで、動作や品質について一切の保証をしません</li>
         <li>このソフトの使用、または使用できなかったことによって生じたいかなる損害（データの消失、PC の不具合、ほかのソフトへの影響などを含む）についても、作者は責任を負いません</li>
         <li>音声認識や翻訳の結果は、正確であることを保証しません。誤訳や聞き間違いによって起きたトラブル（会話相手とのトラブルを含む）について、作者は責任を負いません</li>
