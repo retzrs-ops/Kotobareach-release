@@ -1,0 +1,13 @@
+{
+ "version": 1,
+ "files": [
+  {
+   "file": "ArcRaiders.txt",
+   "title": "ARC Raiders",
+   "description": "ARC（敵の機械）・マップ・トレーダー・武器・弾薬・素材などの名前（英語=日本語）。公式サイトの日本語名に合わせています。",
+   "words": 522,
+   "updated": "2026-10-29",
+   "sha256": "96ba0754e7e7417cdca2a904b5f2faf5ff32b5f3a6bf4812dd985779ee41e91f"
+  }
+ ]
+}
