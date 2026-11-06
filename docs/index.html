@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Kotobareach（コトバリーチ）説明書 v1.028</title>
+<title>Kotobareach（コトバリーチ）説明書 v1.029</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=BIZ+UDPGothic:wght@400;700&family=Outfit:wght@500;700&display=swap" rel="stylesheet">
@@ -154,7 +154,7 @@ footer{border-top:1px solid var(--line);padding:24px 20px;text-align:center;colo
     <div>
       <h1 class="wordmark">Kotobareach<span class="kana">コトバリーチ</span></h1>
       <p class="lead">話した日本語は英語に、相手の英語は日本語に。翻訳した字幕を、手元のスマホやタブレットに表示します。ゲームのボイスチャットで英語のやり取りを手助けする、Windows 用の無料アプリです。</p>
-      <span class="ver">説明書 v1.028（2026年10月）</span>
+      <span class="ver">説明書 v1.029（2026年10月）</span>
       <div class="cta">
         <a class="btn" id="dl" href="#">ダウンロード</a>
         <a class="btn ghost" href="#start">はじめての設定へ</a>
@@ -442,7 +442,7 @@ footer{border-top:1px solid var(--line);padding:24px 20px;text-align:center;colo
 <svg viewBox="0 0 640 600" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="メイン画面">
   <rect class="u-win" x=".5" y=".5" width="639" height="599" rx="8"/>
   <path class="u-title" d="M8 .5h624a7.5 7.5 0 0 1 7.5 7.5v24H.5V8A7.5 7.5 0 0 1 8 .5z"/>
-  <text class="u-b" x="16" y="21">Kotobareach v1.028　[音声認識: GPU]</text>
+  <text class="u-b" x="16" y="21">Kotobareach v1.029　[音声認識: GPU]</text>
   <rect class="u-dark" x="16" y="44" width="608" height="112" rx="6"/>
   <text class="u-teal" x="30" y="66">相手の声　英語 → 日本語（パソコンの音）</text>
   <rect x="510" y="52" width="100" height="22" rx="11" fill="none" stroke="#4FC1C9"/><text class="u-teal" x="560" y="67" text-anchor="middle">聞き取り: ON</text>
@@ -605,6 +605,7 @@ footer{border-top:1px solid var(--line);padding:24px 20px;text-align:center;colo
       <h3 id="tab-display">表示・更新タブ</h3>
       <ul>
         <li><b>字幕の文字サイズ：</b>メイン画面の字幕欄の文字の大きさ（10〜36px）</li>
+        <li><b>ログ（不具合の調査用）<span class="since">v1.029〜</span>：</b>「ログのフォルダを開く」「ログ全体をコピー」。API キー・合言葉・字幕の本文は、記録しません（くわしくは<a href="#trouble">困ったとき</a>）。</li>
         <li><b>文字の縁取り：</b>字幕の縁取りの太さ（0〜5px）。英文は単語の途中で改行しません</li>
       </ul>
       <p>スマホ・タブレットの文字の大きさは、端末の画面の「A-」「A+」で変えます。</p>
@@ -653,6 +654,9 @@ footer{border-top:1px solid var(--line);padding:24px 20px;text-align:center;colo
     <!-- ================= trouble ================= -->
     <section id="trouble">
       <h2>困ったとき</h2>
+      <details class="qa"><summary>不具合を報告したい（ログの送り方）</summary><div>
+        <p>メイン画面の「稼働ステータスログ」を右クリックして「ログ全体をコピー」を選び、メッセージなどに貼り付けて送ってください（「設定」→「表示・更新」の「ログ全体をコピー」でも同じです）。今日のログ全体がコピーされます。</p>
+        <p>ログには、翻訳がどの翻訳先でなぜ失敗したか、設定（版・翻訳の方法・言語など）、動作の状態が入っています。<b>API キーとタブレットの合言葉は記録せず、字幕の本文も文字数だけ</b>です。保存先は <code>%LOCALAPPDATA%\Kotobareach\logs</code> で、14日たったものは自動で消えます。</p></div></details>
       <details class="qa"><summary>「Windows によって PC が保護されました」と出て起動できない</summary><div>
         <p>「詳細情報」を押してから「実行」を押します。くわしくは<a href="#smartscreen">初回起動時の警告が出たら</a>へ。</p></div></details>
       <details class="qa"><summary>スマホ・タブレットで字幕が開けない</summary><div>
@@ -697,6 +701,11 @@ footer{border-top:1px solid var(--line);padding:24px 20px;text-align:center;colo
     <!-- ================= history ================= -->
     <section id="history">
       <h2>バージョン履歴</h2>
+      <h3>v1.029（2026-11）</h3>
+      <ul>
+        <li>ログ（不具合の調査用）をファイルに残すようにしました。「設定」→「表示・更新」の「ログ全体をコピー」、またはメイン画面の稼働ステータスログを右クリック →「ログ全体をコピー」で、貼り付けて送れます。API キー・合言葉・字幕の本文は、記録しません。</li>
+        <li>相手の声の翻訳が失敗したとき、画面のログに何も出なかったのを直しました。翻訳結果に「&amp;#10;」などが混ざって字幕に出るのも直しました。</li>
+      </ul>
       <h3>v1.028（2026-10）</h3>
       <ul>
         <li>「翻訳」タブの「用語」に、「配布中の用語集…」を追加。ゲームごとの用語集（英語=日本語）を、GitHub から受け取って使えます。新しい版があれば、そこから更新できます（押したときだけ通信します）。最初の配布は ARC Raiders です。</li>
