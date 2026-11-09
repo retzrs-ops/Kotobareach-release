@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Kotobareach（コトバリーチ）説明書 v1.029</title>
+<title>Kotobareach（コトバリーチ）説明書 v1.031</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=BIZ+UDPGothic:wght@400;700&family=Outfit:wght@500;700&display=swap" rel="stylesheet">
@@ -154,7 +154,7 @@ footer{border-top:1px solid var(--line);padding:24px 20px;text-align:center;colo
     <div>
       <h1 class="wordmark">Kotobareach<span class="kana">コトバリーチ</span></h1>
       <p class="lead">話した日本語は英語に、相手の英語は日本語に。翻訳した字幕を、手元のスマホやタブレットに表示します。ゲームのボイスチャットで英語のやり取りを手助けする、Windows 用の無料アプリです。</p>
-      <span class="ver">説明書 v1.029（2026年10月）</span>
+      <span class="ver">説明書 v1.031（2026年11月）</span>
       <div class="cta">
         <a class="btn" id="dl" href="#">ダウンロード</a>
         <a class="btn ghost" href="#start">はじめての設定へ</a>
@@ -206,7 +206,7 @@ footer{border-top:1px solid var(--line);padding:24px 20px;text-align:center;colo
       <p>パソコンで声を聞き取って翻訳し、その字幕を同じ Wi-Fi のスマホやタブレットに表示します。ゲーム画面はそのままに、手元の画面で会話を追えます。</p>
       <div class="split">
         <div class="side them"><b>相手の声（聞き取り）</b>パソコンから聞こえる英語（ゲームの VC や Discord など）を聞き取り、日本語の字幕にします。Windows 11 のライブキャプションを読み取る方法も選べます。</div>
-        <div class="side me"><b>自分の声</b>マイクで話した日本語を文字にして、自然な英語に訳します。訳は Google 翻訳・Microsoft 翻訳などの無料サービスで行います。</div>
+        <div class="side me"><b>自分の声</b>マイクで話した日本語を文字にして、自然な英語に訳します。訳は Google 翻訳・MyMemory などの無料サービスで行います。</div>
       </div>
       <p>スマホ・タブレットの画面で英文をタップすると、その端末が英語で読み上げます<span class="since">v1.022〜</span>。スマホ・タブレットには何もインストールせず、ブラウザで開くだけです。</p>
       <div class="note">v1.022 から、パソコンからの読み上げ（トリガーキーで英語を話して VC キーを押す機能）はなくなりました。読み上げはスマホ・タブレット側で行います。</div>
@@ -442,7 +442,7 @@ footer{border-top:1px solid var(--line);padding:24px 20px;text-align:center;colo
 <svg viewBox="0 0 640 600" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="メイン画面">
   <rect class="u-win" x=".5" y=".5" width="639" height="599" rx="8"/>
   <path class="u-title" d="M8 .5h624a7.5 7.5 0 0 1 7.5 7.5v24H.5V8A7.5 7.5 0 0 1 8 .5z"/>
-  <text class="u-b" x="16" y="21">Kotobareach v1.029　[音声認識: GPU]</text>
+  <text class="u-b" x="16" y="21">Kotobareach v1.031　[音声認識: GPU]</text>
   <rect class="u-dark" x="16" y="44" width="608" height="112" rx="6"/>
   <text class="u-teal" x="30" y="66">相手の声　英語 → 日本語（パソコンの音）</text>
   <rect x="510" y="52" width="100" height="22" rx="11" fill="none" stroke="#4FC1C9"/><text class="u-teal" x="560" y="67" text-anchor="middle">聞き取り: ON</text>
@@ -535,6 +535,7 @@ footer{border-top:1px solid var(--line);padding:24px 20px;text-align:center;colo
         <li><b>クラウドの翻訳サービス：</b>精度は高め。無料サービスの回数を自分の声の分に残すため、呼び出しは控えめにしています</li>
         <li><b>ローカル翻訳 FuguMT：</b>パソコンの中で訳します。軽くて回数制限なし。精度はやや低め。初回使用時に必要なファイルを約125MBダウンロードします</li>
         <li><b>ローカル LLM HY-MT1.5：</b>FuguMT より自然な訳になりやすい翻訳用 AI。先に「PC・部品」タブでダウンロード（約1.2GB）が必要です。EU・英国・韓国では使えません</li>
+        <li><b>クラウド優先・使えないときは FuguMT <span class="since">v1.030〜</span>：</b>ふだんはクラウドで訳し、無料サービスの回数制限（429）などでクラウドが全部使えないときだけ、FuguMT で訳します（英語→日本語のみ。初回使用時に約125MBダウンロードします）</li>
       </ul>
 
 
@@ -557,6 +558,8 @@ footer{border-top:1px solid var(--line);padding:24px 20px;text-align:center;colo
       <p>「GPU（自動認識）」「GPU の名前」「CPU」から選びます。右の「実行中:」で、いま実際に使っているものを確認できます（色の意味は<a href="#gpu">GPU で速くする</a>へ）。</p>
       <h4>発話の区切り（「くわしい設定」を開く）</h4>
       <p>1回に受け付ける長さ（3〜30秒）と、話し終わりとみなすまでの無音の長さ（0.5〜3.0秒）です。</p>
+      <h4>押している間だけ認識 <span class="since">v1.031〜</span></h4>
+      <p>「キーを押している間だけ、自分の声を認識する」にチェックを入れ、「キーを登録」を押して、使いたいキーを押します（マウスの中ボタン・サイドボタンも使えます。Esc でやめる）。登録したキーを押している間だけマイクの声を認識します。ゲームなど、ほかのウィンドウがアクティブでも効きます。キーを離すと、無音を待たずにすぐ認識して英語にします（語尾が欠けないよう、離したあと 0.3 秒ほど拾います）。初期設定はオフで、オフのときはいつも認識します。管理者権限で動くゲームの中でも効くかは、実機で確かめてください。</p>
 
 
       <h3 id="tab-translate">翻訳タブ</h3>
@@ -574,7 +577,7 @@ footer{border-top:1px solid var(--line);padding:24px 20px;text-align:center;colo
       <h4>相手の声の翻訳</h4>
       <p>クラウド / ローカル翻訳 FuguMT / ローカル LLM から選びます（くわしくは<a href="#tab-listen">相手の声タブ</a>）。</p>
       <h4>無料クラウド翻訳API</h4>
-      <p>最初に使う無料サービスを選びます（Google翻訳 / Microsoft翻訳 / MyMemory / LibreTranslate）。失敗したら自動で次のサービスに切り替わります。「HTTP 429」（呼び出しすぎ）を受けたサービスは、しばらく休ませます。</p>
+      <p>最初に使う無料サービスを選びます（Google翻訳 / MyMemory / LibreTranslate）。失敗したら自動で次のサービスに切り替わります（Microsoft翻訳は、無料の入口が閉じているため、v1.030 から使いません。選択肢に残っていても Google翻訳になります）。「HTTP 429」（呼び出しすぎ）を受けたサービスは、しばらく休ませます。</p>
       <h4>翻訳 API キー（上級者向け・任意）</h4>
       <p>自分で取ったキーを入れると、無料サービスより先にそちらを使います。キーはこの PC の Windows ユーザー専用に暗号化して保存します。「テスト」ボタンで使えるか確かめられます。</p>
       <ul>
@@ -689,7 +692,7 @@ footer{border-top:1px solid var(--line);padding:24px 20px;text-align:center;colo
       <details class="qa"><summary>追加部品のダウンロードに失敗する</summary><div>
         <p>ネット接続を確かめて、もう一度「ダウンロード」を押します。「検証に失敗しました」は途中でファイルが壊れたのでやり直し、「使用中です」はアプリを起動し直してからやり直します。</p></div></details>
       <details class="qa"><summary>Google翻訳で「HTTP 429」が出る</summary><div>
-        <p>呼び出しが多すぎて、一時的に止められています。数十分〜数時間で解除され、その間は自動で Microsoft翻訳 / MyMemory に切り替わります。話していないのに認識が走っているなら、閾値を上げてください。</p></div></details>
+        <p>呼び出しが多すぎて、一時的に止められています。数十分〜数時間で解除され、その間は自動で MyMemory に切り替わります（相手の声は、「クラウド優先・使えないときは FuguMT」を選んでいれば FuguMT）。話していないのに認識が走っているなら、閾値を上げてください。</p></div></details>
       <details class="qa"><summary>聞き取り字幕に何も出ない</summary><div>
         <p>「相手の声」タブのインジケータが、相手が話したときに動くか見ます。動かないなら「聞き取る音」を、実際に音が出ているスピーカーの「パソコンの音」に変えます。動いているのに出ないなら閾値を下げます。</p></div></details>
       <details class="qa"><summary>聞き取り字幕に BGM や自分の声が出る</summary><div>
@@ -701,6 +704,16 @@ footer{border-top:1px solid var(--line);padding:24px 20px;text-align:center;colo
     <!-- ================= history ================= -->
     <section id="history">
       <h2>バージョン履歴</h2>
+      <h3>v1.031（2026-11）</h3>
+      <ul>
+        <li>「キーを押している間だけ、自分の声を認識する」を追加しました（「設定」→「自分の声」→「押している間だけ認識」）。ほかのウィンドウがアクティブでも効き、キーを離すとすぐ認識します。初期設定はオフです。</li>
+      </ul>
+      <h3>v1.030（2026-11）</h3>
+      <ul>
+        <li>翻訳サービスの回数制限（429）で翻訳が止まりやすかったのを直しました。自分の声と相手の声で、Google翻訳の「お休み」がいっしょになりました。Google翻訳（無料）を呼ぶ回数に、10分あたりの上限も付けました。</li>
+        <li>Microsoft翻訳（無料）は、入口が閉じていて使えないため、順番から外しました。</li>
+        <li>相手の声の翻訳に「クラウド優先・使えないときは FuguMT」を追加しました。</li>
+      </ul>
       <h3>v1.029（2026-11）</h3>
       <ul>
         <li>ログ（不具合の調査用）をファイルに残すようにしました。「設定」→「表示・更新」の「ログ全体をコピー」、またはメイン画面の稼働ステータスログを右クリック →「ログ全体をコピー」で、貼り付けて送れます。API キー・合言葉・字幕の本文は、記録しません。</li>
