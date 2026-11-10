@@ -31,6 +31,7 @@ Each component below is distributed under its own license.
 - packaging 26.3  [Apache-2.0 OR BSD-2-Clause]  Documentation, https://packaging.pypa.io/
 - protobuf 7.36.2  [3-Clause BSD License]  https://developers.google.com/protocol-buffers/
 - PyAudioWPatch 0.2.12.9  [Apache Software License]  https://github.com/s0d3s/PyAudioWPatch/
+- pygame 2.6.1  [LGPL-2.1]  https://www.pygame.org/ （ゲームパッドの読み取りに使用 / used to read gamepad buttons）
 - pycparser 3.0  [BSD-3-Clause]  Homepage, https://github.com/eliben/pycparser
 - pyreadline3 3.5.6  [BSD License]  Homepage, https://github.com/pyreadline3/pyreadline3
 - PySide6 6.11.2  [LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only]  Homepage, https://pyside.org
@@ -55,6 +56,9 @@ Each component below is distributed under its own license.
 - PySide6 / Qt for Python 6.x and Qt 6 libraries (LGPL v3). Qt source code: https://download.qt.io/
   Qt libraries are shipped as separate DLL files in the _internal\PySide6 folder and can be replaced.
   (Qt Virtual Keyboard and PyAV/FFmpeg are NOT included in this distribution.)
+- pygame 2.6.1 (LGPL v2.1) and SDL 2 (zlib License). pygame source code: https://github.com/pygame/pygame
+  LGPL v2.1 text: https://www.gnu.org/licenses/old-licenses/lgpl-2.1.html
+  pygame / SDL libraries are shipped as separate files in the _internal\pygame folder and can be replaced.
 
 実行時にダウンロードするモデル（同梱はしていません） / Models downloaded at run time (not bundled):
   Whisper / faster-whisper models (MIT), kotoba-whisper (Apache-2.0), FuguMT (CC BY-SA 4.0),
