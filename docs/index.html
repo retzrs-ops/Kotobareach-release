@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Kotobareach（コトバリーチ）説明書 v1.031</title>
+<title>Kotobareach（コトバリーチ）説明書 v1.033</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=BIZ+UDPGothic:wght@400;700&family=Outfit:wght@500;700&display=swap" rel="stylesheet">
@@ -154,7 +154,7 @@ footer{border-top:1px solid var(--line);padding:24px 20px;text-align:center;colo
     <div>
       <h1 class="wordmark">Kotobareach<span class="kana">コトバリーチ</span></h1>
       <p class="lead">話した日本語は英語に、相手の英語は日本語に。翻訳した字幕を、手元のスマホやタブレットに表示します。ゲームのボイスチャットで英語のやり取りを手助けする、Windows 用の無料アプリです。</p>
-      <span class="ver">説明書 v1.031（2026年11月）</span>
+      <span class="ver">説明書 v1.033（2026年11月）</span>
       <div class="cta">
         <a class="btn" id="dl" href="#">ダウンロード</a>
         <a class="btn ghost" href="#start">はじめての設定へ</a>
@@ -442,7 +442,7 @@ footer{border-top:1px solid var(--line);padding:24px 20px;text-align:center;colo
 <svg viewBox="0 0 640 600" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="メイン画面">
   <rect class="u-win" x=".5" y=".5" width="639" height="599" rx="8"/>
   <path class="u-title" d="M8 .5h624a7.5 7.5 0 0 1 7.5 7.5v24H.5V8A7.5 7.5 0 0 1 8 .5z"/>
-  <text class="u-b" x="16" y="21">Kotobareach v1.031　[音声認識: GPU]</text>
+  <text class="u-b" x="16" y="21">Kotobareach v1.033　[音声認識: GPU]</text>
   <rect class="u-dark" x="16" y="44" width="608" height="112" rx="6"/>
   <text class="u-teal" x="30" y="66">相手の声　英語 → 日本語（パソコンの音）</text>
   <rect x="510" y="52" width="100" height="22" rx="11" fill="none" stroke="#4FC1C9"/><text class="u-teal" x="560" y="67" text-anchor="middle">聞き取り: ON</text>
@@ -526,6 +526,7 @@ footer{border-top:1px solid var(--line);padding:24px 20px;text-align:center;colo
       </ul>
       <h4>聞き取る音</h4>
       <p>「パソコンの音: スピーカー名」を選ぶと、そのスピーカーから流れる音（ゲームの音・BGM・相手の声など）をそのまま取り込みます。起動時は Windows の既定のスピーカーが自動で選ばれます。一覧にないときは「すべての入力デバイスを表示」にチェックを入れます。</p>
+      <p><b>「アプリの音だけ: ～.exe」 <span class="since">v1.033〜</span></b>を選ぶと、選んだアプリ（と、その子プロセス）が出している音だけを取り込みます。ゲームの音だけを聞き取りたいとき（Discord・ブラウザ・通知音を混ぜたくないとき）に使います。Windows 10 2004 以降で使えます。アプリを先に起動してから一覧を開き、アプリを起動し直したときは、聞き取りをもう一度開始してください。一覧には、画面に窓があるアプリが出ます。</p>
       <h4>相手の言語</h4>
       <p>英語 / 自動判定 / 英語だけ。日本語の動画や会話も聞こえる環境では <b>英語だけ</b> を選ぶと、日本語を変な英語字幕にしてしまうのを防げます（初期設定は「英語だけ」）。</p>
       <h4>認識モデル・音量 / 閾値</h4>
@@ -704,6 +705,12 @@ footer{border-top:1px solid var(--line);padding:24px 20px;text-align:center;colo
     <!-- ================= history ================= -->
     <section id="history">
       <h2>バージョン履歴</h2>
+      <h3>v1.033（2026-11）</h3>
+      <ul>
+        <li>聞き取りで、「アプリの音だけ」を取り込めるようにしました。ゲームを選ぶと、Discord やブラウザなどの音が混ざらず、雑音が減ります（Windows 10 2004 以降）。</li>
+        <li>自分の声が、日本語で話したのに英語で出てしまうことがあったのを直しました。英語で出たときは、日本語で話していることを伝えて、もう一度確かめます。</li>
+        <li>英語のままの認識結果は、翻訳サービスを呼ばず、そのまま字幕にします（回数制限の節約にもなります）。</li>
+      </ul>
       <h3>v1.031（2026-11）</h3>
       <ul>
         <li>「キーを押している間だけ、自分の声を認識する」を追加しました（「設定」→「自分の声」→「押している間だけ認識」）。ほかのウィンドウがアクティブでも効き、キーを離すとすぐ認識します。初期設定はオフです。</li>
