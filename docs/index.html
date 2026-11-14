@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Kotobareach（コトバリーチ）説明書 v1.036</title>
+<title>Kotobareach（コトバリーチ）説明書 v1.037</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=BIZ+UDPGothic:wght@400;700&family=Outfit:wght@500;700&display=swap" rel="stylesheet">
@@ -154,7 +154,7 @@ footer{border-top:1px solid var(--line);padding:24px 20px;text-align:center;colo
     <div>
       <h1 class="wordmark">Kotobareach<span class="kana">コトバリーチ</span></h1>
       <p class="lead">話した日本語は英語に、相手の英語は日本語に。翻訳した字幕を、手元のスマホやタブレットに表示します。ゲームのボイスチャットで英語のやり取りを手助けする、Windows 用の無料アプリです。</p>
-      <span class="ver">説明書 v1.036（2026年11月）</span>
+      <span class="ver">説明書 v1.037（2026年11月）</span>
       <div class="cta">
         <a class="btn" id="dl" href="#">ダウンロード</a>
         <a class="btn ghost" href="#start">はじめての設定へ</a>
@@ -443,7 +443,7 @@ footer{border-top:1px solid var(--line);padding:24px 20px;text-align:center;colo
 <svg viewBox="0 0 640 340" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="メイン画面">
   <rect class="u-win" x=".5" y=".5" width="639" height="339" rx="8"/>
   <path class="u-title" d="M8 .5h624a7.5 7.5 0 0 1 7.5 7.5v24H.5V8A7.5 7.5 0 0 1 8 .5z"/>
-  <text class="u-b" x="16" y="21">Kotobareach v1.036　[音声認識: GPU]</text>
+  <text class="u-b" x="16" y="21">Kotobareach v1.037　[音声認識: GPU]</text>
   <rect class="u-dark" x="16" y="44" width="608" height="112" rx="6"/>
   <text class="u-teal" x="30" y="66">相手の声　英語 → 日本語（パソコンの音）</text>
   <rect x="510" y="52" width="100" height="22" rx="11" fill="none" stroke="#4FC1C9"/><text class="u-teal" x="560" y="67" text-anchor="middle">聞き取り: ON</text>
@@ -457,20 +457,22 @@ footer{border-top:1px solid var(--line);padding:24px 20px;text-align:center;colo
   <rect x="16" y="292" width="608" height="36" rx="4" fill="#111"/>
   <rect x="24" y="298" width="104" height="24" rx="4" fill="#222" stroke="#444"/><text x="76" y="315" text-anchor="middle" font-size="12" fill="#ddd">設定ウィザード</text>
   <rect x="136" y="298" width="64" height="24" rx="4" fill="#222" stroke="#444"/><text x="168" y="315" text-anchor="middle" font-size="12" fill="#ddd">設定</text>
-  <rect x="208" y="298" width="132" height="24" rx="4" fill="#1d4a2c" stroke="#2c5"/><text x="274" y="315" text-anchor="middle" font-size="12" fill="#bff0c9">タブレット接続設定</text>
+  <rect x="208" y="298" width="132" height="24" rx="4" fill="#222" stroke="#444"/><text x="274" y="315" text-anchor="middle" font-size="12" fill="#ddd">字幕を自動で消す</text>
+  <rect x="348" y="298" width="132" height="24" rx="4" fill="#1d4a2c" stroke="#2c5"/><text x="414" y="315" text-anchor="middle" font-size="12" fill="#bff0c9">タブレット接続設定</text>
   <rect x="540" y="298" width="76" height="24" rx="4" fill="#222" stroke="#444"/><text x="578" y="315" text-anchor="middle" font-size="12" fill="#ddd">ログ ▼</text>
 </svg>
         </div>
-        <figcaption>メイン画面（v1.036〜）。字幕欄と、下のボタンだけです。字幕を送っている間は「タブレット接続設定」が緑になります（画面はイメージです。設定ウィンドウの画像は、一部、前の版のままです）。</figcaption>
+        <figcaption>メイン画面（v1.036〜）。字幕欄と、下のボタンだけです（「字幕を自動で消す」は v1.037〜）。字幕を送っている間は「タブレット接続設定」が緑になります（画面はイメージです。設定ウィンドウの画像は、一部、前の版のままです）。</figcaption>
       </figure>
       <div class="split">
         <div class="side them"><b>上段：相手の声　英語 → 日本語</b>「聞き取り: ON / OFF」ボタンで切り替えます。</div>
         <div class="side me"><b>下段：自分の声　日本語 → 英語</b>「自分の声: ON / OFF」ボタンで切り替えます。聞き取りだけ使うならオフにすると PC の負担が減ります。</div>
       </div>
       <p>どちらの段も、<b>新しい字幕が上</b>に出ます<span class="since">v1.023〜</span>。マウスのホイールで過去の字幕を見返せます（上段は40件、下段は30件まで）。見返している間に新しい字幕が来ても、見ている位置は動きません。ダブルクリックすると、いちばん新しい字幕へ戻ります。</p>
-      <p>その下に、「設定ウィザード」「設定」「タブレット接続設定」と、右端の「ログ ▼ / ▲」のボタンが並びます<span class="since">v1.036〜</span>。「ログ ▼」を押すと、稼働ステータスログ（最新10件）が出ます。もう一度押すと隠れます。</p>
+      <p>その下に、「設定ウィザード」「設定」「字幕を自動で消す」「タブレット接続設定」と、右端の「ログ ▼ / ▲」のボタンが並びます<span class="since">v1.036〜</span>。「ログ ▼」を押すと、稼働ステータスログ（最新10件）が出ます。もう一度押すと隠れます。</p>
       <p>入力マイク、音量インジケータ、閾値スライダーは、メイン画面から「設定」→「自分の声」タブの上へ移りました。閾値の既定値は 14 です。スライダーをクリックしたあと <kbd>←</kbd> <kbd>→</kbd> で1ずつ動かせます。</p>
       <p>メイン画面の見た目は、スマホ・タブレットの表示に近い暗い配色です。字幕の文字の色・大きさ、背景などは、「設定」→「メインウィンドウ」タブで変えられます。</p>
+      <p><b>字幕を自動で消す</b><span class="since">v1.037〜</span>：「設定」ボタンの右隣のボタンです。配信のとき、古い字幕を画面に残したくない場合に使います。オンにすると、字幕の文字が一定の時間（初めは8秒）で自動的に消え、新しい発言が来るとまた表示されます。初めはオフです。消えるのは字幕の文字だけで、窓・背景・ボタンはそのままです。自分の声の欄と相手の声の欄は、別々に数えます。秒数や消え方は、「設定」→「メインウィンドウ」タブで決めます。</p>
       <div class="note">コトバリーチは同時に1つだけ起動できます。もう一度起動すると、開いている画面が前に出ます。</div>
     </section>
 
@@ -603,6 +605,13 @@ footer{border-top:1px solid var(--line);padding:24px 20px;text-align:center;colo
         <li><b>縁取り：</b>字幕の縁取りの太さ（0〜5px）。英文は単語の途中で改行しません</li>
         <li><b>背景：</b>字幕欄の背景色と不透明度（0〜100%）。「背景を透かす」をオンにすると、窓の枠を消して背景を透明にし、字幕の文字だけを画面に浮かせます。透かしている間は、見出しをつかんで窓を動かし、縁で大きさを変え、右上の「＿」「×」で最小化・閉じるができます。</li>
         <li><b>クロマキー：</b>配信ソフト（OBS など）で字幕だけを抜くための設定です。「なし」「緑」「青」「マゼンタ」から選ぶと、字幕欄の背景がその色になります（このとき「背景を透かす」は使えません）。文字と縁取りには、キーの色を使わないでください。</li>
+        <li><b>字幕の自動消去<span class="since">v1.037〜</span>：</b>オン・オフは、メイン画面の「字幕を自動で消す」ボタンです。ここでは次の3つを決めます。
+          <ul>
+            <li>消えるまでの秒数：1〜60秒（初めは8秒）。その欄の字幕が最後に更新されてから、この時間がたつと消えます。</li>
+            <li>消え方：「フェード」（だんだん薄くなる。初めはこちら）か「すぐ消す」。</li>
+            <li>フェードの長さ：0.1〜3.0秒（初めは0.5秒）。「フェード」のときだけ使います。</li>
+          </ul>
+          自分の声の欄と相手の声の欄は、別々に数えます。オフにすると、消えていた字幕はすぐ元に戻ります。</li>
         <li><b>既定に戻す：</b>このタブの設定を、初めの状態に戻します。</li>
       </ul>
 
@@ -703,6 +712,11 @@ footer{border-top:1px solid var(--line);padding:24px 20px;text-align:center;colo
     <!-- ================= history ================= -->
     <section id="history">
       <h2>バージョン履歴</h2>
+      <h3>v1.037（2026-11）</h3>
+      <ul>
+        <li>メイン画面の「設定」ボタンの右隣に、「字幕を自動で消す」ボタンを追加しました（配信用。初めはオフ）。オンにすると、字幕の文字が一定の時間（初めは8秒）で自動的に消え、新しい発言が来るとまた表示されます。自分の声の欄と相手の声の欄は別々に数えます。秒数（1〜60秒）、消え方（フェード / すぐ消す）、フェードの長さ（初めは0.5秒）は、「設定」→「メインウィンドウ」タブで決めます。</li>
+        <li>「背景を透かす」で背景の不透明度を 0% にすると、背景が真っ黒になってしまう不具合を直しました。</li>
+      </ul>
       <h3>v1.036（2026-11）</h3>
       <ul>
         <li>メイン画面を作り直しました。字幕欄と、下のボタン（設定ウィザード・設定・タブレット接続設定・ログ ▼/▲）だけになり、マイクの選択・音量インジケータ・閾値は「設定」→「自分の声」へ移りました。稼働ステータスログは「ログ ▼/▲」で出し入れできます。見た目は、スマホ・タブレットに近い暗い配色にしました。</li>
