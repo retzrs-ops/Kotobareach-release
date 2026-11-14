@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Kotobareach（コトバリーチ）説明書 v1.035</title>
+<title>Kotobareach（コトバリーチ）説明書 v1.036</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=BIZ+UDPGothic:wght@400;700&family=Outfit:wght@500;700&display=swap" rel="stylesheet">
@@ -154,7 +154,7 @@ footer{border-top:1px solid var(--line);padding:24px 20px;text-align:center;colo
     <div>
       <h1 class="wordmark">Kotobareach<span class="kana">コトバリーチ</span></h1>
       <p class="lead">話した日本語は英語に、相手の英語は日本語に。翻訳した字幕を、手元のスマホやタブレットに表示します。ゲームのボイスチャットで英語のやり取りを手助けする、Windows 用の無料アプリです。</p>
-      <span class="ver">説明書 v1.035（2026年11月）</span>
+      <span class="ver">説明書 v1.036（2026年11月）</span>
       <div class="cta">
         <a class="btn" id="dl" href="#">ダウンロード</a>
         <a class="btn ghost" href="#start">はじめての設定へ</a>
@@ -238,8 +238,8 @@ footer{border-top:1px solid var(--line);padding:24px 20px;text-align:center;colo
         <li><strong>インストーラーをダウンロードして実行する</strong>Releases から <code>Kotobareach_Setup_v〇.exe</code> をダウンロードして、ダブルクリックします。青い警告画面が出たら、<a href="#smartscreen">初回起動時の警告が出たら</a>の手順で進めます。画面の案内に従って「インストール」を押します（管理者権限は、いりません）。<span class="since">v1.026〜</span><br>zip 版（<code>Kotobareach_v〇.zip</code>）を使う場合は、zip を右クリックして「すべて展開」を選び、展開したフォルダの <code>Kotobareach.exe</code> を起動します（zip を開いたままでは起動できません）。</li>
         <li><strong>コトバリーチを起動する</strong>インストール後は、「Kotobareach を起動する」にチェックを入れたまま「完了」を押すか、スタートメニューの「Kotobareach」から起動します。初回は「設定ウィザード」が自動で開きます（次の手順）。</li>
         <li><strong>設定ウィザードに答える</strong>用途・PC の様子・翻訳の質などを選ぶだけで、モデルや翻訳の方法が自動で決まります。相手の声・マイクは、<b>ゲームの音だけを流した状態で「音を探す」</b>を押すと、音の出ているものを見つけて選べます。途中でやめても、あとから「設定」→「はじめに」でやり直せます。くわしくは<a href="#wizard">設定ウィザード</a>へ。</li>
-        <li><strong>（ウィザードを使わないとき）手で設定する</strong>「自分の声」タブで認識モデルを、「相手の声」タブで聞き取る音を、メイン画面の「有効な入力マイク」でマイクを選びます。見つからないときは「すべての入力デバイスを表示」にチェックを入れます。</li>
-        <li><strong>閾値（しきいち）を合わせる</strong>メイン画面の音量インジケータを見ながら、すぐ下のスライダーを動かします。白い線が今の閾値です。<b>話したときは線を超え、黙っているときは線より下</b>になれば OK です。</li>
+        <li><strong>（ウィザードを使わないとき）手で設定する</strong>「自分の声」タブで認識モデルを、「相手の声」タブで聞き取る音を、「自分の声」タブの上にある「有効な入力マイク」でマイクを選びます。見つからないときは「すべての入力デバイスを表示」にチェックを入れます。</li>
+        <li><strong>閾値（しきいち）を合わせる</strong>「設定」→「自分の声」タブの音量インジケータを見ながら、すぐ下のスライダーを動かします。白い線が今の閾値です。<b>話したときは線を超え、黙っているときは線より下</b>になれば OK です。</li>
         <li><strong>スマホ・タブレットをつなぐ</strong>メイン画面の「タブレット接続設定」を押し、「字幕をタブレット・スマホにも送る」にチェック。出てきた QR コードをスマホ・タブレットのカメラで読み取ります。くわしくは<a href="#tablet">次の章</a>へ。</li>
         <li><strong>（必要なら）GPU を準備する</strong>NVIDIA の GPU を使う場合は「PC・部品」タブでダウンロードします。くわしくは<a href="#gpu">GPU で速くする</a>へ。</li>
       </ol>
@@ -249,7 +249,7 @@ footer{border-top:1px solid var(--line);padding:24px 20px;text-align:center;colo
       <ul>
         <li><b>更新：</b>起動して少し経つと、新しい版があるかを自動で確認します。あれば、変更点つきで「今すぐ更新」「あとで」を聞きます。「今すぐ更新」を押すと、ダウンロードして、安全を確かめてから、Kotobareach を終了して入れ替え、自動で起動し直します。設定は、そのまま引き継がれます。</li>
         <li><b>安全の確認：</b>GitHub が記録しているハッシュ値と、作者の署名の、両方が合ったものだけを実行します。合わないときは、実行せずに、いまの版のまま使えます。通信先は GitHub だけです。</li>
-        <li><b>確認をやめる：</b>「設定」→「表示・更新」の「起動時に、新しい版を確認する」のチェックを外します。「今すぐ確認」で、手動でも確認できます。</li>
+        <li><b>確認をやめる：</b>「設定」→「更新・ログ」の「起動時に、新しい版を確認する」のチェックを外します。「今すぐ確認」で、手動でも確認できます。</li>
         <li><b>zip 版から更新したとき：</b>新しい版は、インストーラーの場所に入ります。いまのフォルダは残るので、いらなければ、あとで削除してください。</li>
         <li><b>アンインストール：</b>「設定」→「アプリ」→「インストールされているアプリ」から「Kotobareach」を選びます（起動中でも、自動で閉じられます）。途中で、次の2つを聞きます（どちらも、初めから「いいえ」が選ばれています）。
           <ul>
@@ -349,13 +349,14 @@ footer{border-top:1px solid var(--line);padding:24px 20px;text-align:center;colo
   <rect class="u-win" x=".5" y=".5" width="639" height="399" rx="8"/>
   <path class="u-title" d="M8 .5h624a7.5 7.5 0 0 1 7.5 7.5v24H.5V8A7.5 7.5 0 0 1 8 .5z"/>
   <text class="u-b" x="16" y="21">設定</text>
-  <rect class="u-tab" x="16" y="44" width="72" height="28" rx="4"/><text class="u-t" x="52" y="63" text-anchor="middle">はじめに</text>
-  <rect class="u-tab" x="92" y="44" width="76" height="28" rx="4"/><text class="u-t" x="130" y="63" text-anchor="middle">相手の声</text>
-  <rect class="u-tab" x="172" y="44" width="76" height="28" rx="4"/><text class="u-t" x="210" y="63" text-anchor="middle">自分の声</text>
-  <rect class="u-tab" x="252" y="44" width="52" height="28" rx="4"/><text class="u-t" x="278" y="63" text-anchor="middle">翻訳</text>
-  <rect class="u-tab" x="308" y="44" width="80" height="28" rx="4"/><text class="u-t" x="348" y="63" text-anchor="middle">PC・部品</text>
-  <rect class="u-tab" x="392" y="44" width="84" height="28" rx="4"/><text class="u-t" x="434" y="63" text-anchor="middle">表示・更新</text>
-  <rect class="u-tabon" x="480" y="44" width="112" height="28" rx="4"/><text class="u-b" x="536" y="63" text-anchor="middle">タブレット表示</text>
+  <rect class="u-tab" x="16" y="44" width="60" height="28" rx="4"/><text class="u-t" x="46" y="63" text-anchor="middle">はじめに</text>
+  <rect class="u-tab" x="80" y="44" width="66" height="28" rx="4"/><text class="u-t" x="113" y="63" text-anchor="middle">相手の声</text>
+  <rect class="u-tab" x="150" y="44" width="66" height="28" rx="4"/><text class="u-t" x="183" y="63" text-anchor="middle">自分の声</text>
+  <rect class="u-tab" x="220" y="44" width="44" height="28" rx="4"/><text class="u-t" x="242" y="63" text-anchor="middle">翻訳</text>
+  <rect class="u-tab" x="268" y="44" width="66" height="28" rx="4"/><text class="u-t" x="301" y="63" text-anchor="middle">PC・部品</text>
+  <rect class="u-tab" x="338" y="44" width="100" height="28" rx="4"/><text class="u-t" x="388" y="63" text-anchor="middle">メインウィンドウ</text>
+  <rect class="u-tab" x="442" y="44" width="76" height="28" rx="4"/><text class="u-t" x="480" y="63" text-anchor="middle">更新・ログ</text>
+  <rect class="u-tabon" x="522" y="44" width="96" height="28" rx="4"/><text class="u-b" x="570" y="63" text-anchor="middle">タブレット表示</text>
   <line x1="16" y1="72" x2="624" y2="72" stroke="#C3CAD6"/>
   <rect x="24" y="92" width="16" height="16" rx="3" fill="#0E7C86"/><path d="M28 100l3 3 6-7" stroke="#fff" stroke-width="2" fill="none"/>
   <text class="u-b" x="48" y="105">字幕をタブレット・スマホにも送る</text>
@@ -439,10 +440,10 @@ footer{border-top:1px solid var(--line);padding:24px 20px;text-align:center;colo
       <p>メイン画面にも、スマホ・タブレットと同じ上下2段の字幕が出ます。各段の見出しの右にあるボタンで、その機能をオン / オフできます。</p>
       <figure>
         <div class="shot">
-<svg viewBox="0 0 640 600" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="メイン画面">
-  <rect class="u-win" x=".5" y=".5" width="639" height="599" rx="8"/>
+<svg viewBox="0 0 640 340" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="メイン画面">
+  <rect class="u-win" x=".5" y=".5" width="639" height="339" rx="8"/>
   <path class="u-title" d="M8 .5h624a7.5 7.5 0 0 1 7.5 7.5v24H.5V8A7.5 7.5 0 0 1 8 .5z"/>
-  <text class="u-b" x="16" y="21">Kotobareach v1.035　[音声認識: GPU]</text>
+  <text class="u-b" x="16" y="21">Kotobareach v1.036　[音声認識: GPU]</text>
   <rect class="u-dark" x="16" y="44" width="608" height="112" rx="6"/>
   <text class="u-teal" x="30" y="66">相手の声　英語 → 日本語（パソコンの音）</text>
   <rect x="510" y="52" width="100" height="22" rx="11" fill="none" stroke="#4FC1C9"/><text class="u-teal" x="560" y="67" text-anchor="middle">聞き取り: ON</text>
@@ -453,36 +454,23 @@ footer{border-top:1px solid var(--line);padding:24px 20px;text-align:center;colo
   <rect x="510" y="174" width="100" height="22" rx="11" fill="none" stroke="#E8B04B"/><text class="u-amb" x="560" y="189" text-anchor="middle">自分の声: ON</text>
   <text class="u-w" x="30" y="234">Got it, I'm covering you.</text>
   <text class="u-g" x="30" y="260">了解、援護する</text>
-  <text class="u-t" x="16" y="308">有効な入力マイク</text>
-  <rect class="u-box" x="140" y="290" width="380" height="26" rx="3"/><text class="u-t" x="150" y="308">マイク (USB Audio) [Windows WASAPI]</text><text class="u-t" x="508" y="308" text-anchor="end">▾</text>
-  <rect class="u-box" x="140" y="328" width="14" height="14" rx="2"/><text class="u-m" x="162" y="340">すべての入力デバイスを表示</text>
-  <text class="u-t" x="16" y="376">マイク音量</text>
-  <rect x="140" y="364" width="460" height="16" rx="3" fill="#E3E7EE"/>
-  <rect x="140" y="364" width="230" height="16" rx="3" fill="#3BAA5C"/>
-  <rect x="202" y="360" width="4" height="24" fill="#fff" stroke="#1B2333" stroke-width="1"/>
-  <text class="u-t" x="16" y="410">閾値</text>
-  <rect x="140" y="402" width="460" height="4" rx="2" fill="#B3BBC9"/>
-  <circle cx="204" cy="404" r="8" fill="#0E7C86"/>
-  <text class="u-b" x="624" y="410" text-anchor="end">14</text>
-  <text class="u-t" x="16" y="444">稼働ステータスログ</text>
-  <rect x="16" y="452" width="608" height="88" rx="4" fill="#F5F7FA" stroke="#D8DDE6"/>
-  <text class="u-mono" x="26" y="472">[STT 認識] (GPU 0.35秒): 了解、援護する</text>
-  <text class="u-mono" x="26" y="490">[翻訳] Google翻訳: Got it, I'm covering you.</text>
-  <text class="u-mono" x="26" y="508">[聞き取り] Enemy on the right, push now!</text>
-  <text class="u-mono" x="26" y="526">[タブレット] 192.168.1.31 から接続（200）</text>
-  <rect class="u-btn" x="16" y="552" width="90" height="32" rx="4"/><text class="u-t" x="61" y="573" text-anchor="middle">設定</text>
-  <rect x="116" y="552" width="170" height="32" rx="4" fill="#2F9E5B"/><text class="u-wt" x="201" y="573" text-anchor="middle">タブレット接続設定</text>
+  <rect x="16" y="292" width="608" height="36" rx="4" fill="#111"/>
+  <rect x="24" y="298" width="104" height="24" rx="4" fill="#222" stroke="#444"/><text x="76" y="315" text-anchor="middle" font-size="12" fill="#ddd">設定ウィザード</text>
+  <rect x="136" y="298" width="64" height="24" rx="4" fill="#222" stroke="#444"/><text x="168" y="315" text-anchor="middle" font-size="12" fill="#ddd">設定</text>
+  <rect x="208" y="298" width="132" height="24" rx="4" fill="#1d4a2c" stroke="#2c5"/><text x="274" y="315" text-anchor="middle" font-size="12" fill="#bff0c9">タブレット接続設定</text>
+  <rect x="540" y="298" width="76" height="24" rx="4" fill="#222" stroke="#444"/><text x="578" y="315" text-anchor="middle" font-size="12" fill="#ddd">ログ ▼</text>
 </svg>
         </div>
-        <figcaption>メイン画面。インジケータの白い線と、真下のスライダーのつまみは同じ位置です。字幕を送っている間は「タブレット接続設定」が緑になります（画面はイメージです）。</figcaption>
+        <figcaption>メイン画面（v1.036〜）。字幕欄と、下のボタンだけです。字幕を送っている間は「タブレット接続設定」が緑になります（画面はイメージです。設定ウィンドウの画像は、一部、前の版のままです）。</figcaption>
       </figure>
       <div class="split">
         <div class="side them"><b>上段：相手の声　英語 → 日本語</b>「聞き取り: ON / OFF」ボタンで切り替えます。</div>
         <div class="side me"><b>下段：自分の声　日本語 → 英語</b>「自分の声: ON / OFF」ボタンで切り替えます。聞き取りだけ使うならオフにすると PC の負担が減ります。</div>
       </div>
       <p>どちらの段も、<b>新しい字幕が上</b>に出ます<span class="since">v1.023〜</span>。マウスのホイールで過去の字幕を見返せます（上段は40件、下段は30件まで）。見返している間に新しい字幕が来ても、見ている位置は動きません。ダブルクリックすると、いちばん新しい字幕へ戻ります。</p>
-      <p>その下に、入力マイク、音量インジケータ、閾値スライダー、稼働ステータスログ（最新10件）、「設定」ボタン、「タブレット接続設定」ボタンが並びます。</p>
-      <p>閾値の既定値は 14 です。スライダーをクリックしたあと <kbd>←</kbd> <kbd>→</kbd> で1ずつ動かせます。</p>
+      <p>その下に、「設定ウィザード」「設定」「タブレット接続設定」と、右端の「ログ ▼ / ▲」のボタンが並びます<span class="since">v1.036〜</span>。「ログ ▼」を押すと、稼働ステータスログ（最新10件）が出ます。もう一度押すと隠れます。</p>
+      <p>入力マイク、音量インジケータ、閾値スライダーは、メイン画面から「設定」→「自分の声」タブの上へ移りました。閾値の既定値は 14 です。スライダーをクリックしたあと <kbd>←</kbd> <kbd>→</kbd> で1ずつ動かせます。</p>
+      <p>メイン画面の見た目は、スマホ・タブレットの表示に近い暗い配色です。字幕の文字の色・大きさ、背景などは、「設定」→「メインウィンドウ」タブで変えられます。</p>
       <div class="note">コトバリーチは同時に1つだけ起動できます。もう一度起動すると、開いている画面が前に出ます。</div>
     </section>
 
@@ -496,7 +484,8 @@ footer{border-top:1px solid var(--line);padding:24px 20px;text-align:center;colo
         <li><a href="#tab-stt">自分の声</a></li>
         <li><a href="#tab-translate">翻訳</a></li>
         <li><a href="#gpu">PC・部品</a></li>
-        <li><a href="#tab-display">表示・更新</a></li>
+        <li><a href="#tab-main">メインウィンドウ</a></li>
+        <li><a href="#tab-display">更新・ログ</a></li>
         <li><a href="#tablet">タブレット表示</a></li>
       </ul>
 
@@ -545,6 +534,7 @@ footer{border-top:1px solid var(--line);padding:24px 20px;text-align:center;colo
         <div class="shot"><img src="img/tab-own.png" alt="設定ウィンドウの自分の声タブ" loading="lazy" style="max-width:100%;height:auto"></div>
         <figcaption>「自分の声」タブ。「実行中:」が緑なら GPU で動いています。</figcaption>
       </figure>
+      <p>タブの上には、「有効な入力マイク」・マイク音量インジケータ・閾値スライダーがあります<span class="since">v1.036〜</span>（以前はメイン画面にありました。上の画像は前の版のものです）。</p>
       <h4>Whisperモデルサイズ</h4>
       <div class="tbl"><table>
         <tr><th>モデル</th><th>特徴</th></tr>
@@ -606,11 +596,19 @@ footer{border-top:1px solid var(--line);padding:24px 20px;text-align:center;colo
         <li>ゲームの名称・名前の権利は、各権利者（NEXON Korea / Embark Studios）にあります。このファイルは非公式で、名前を並べただけのものです。</li>
       </ul>
 
-      <h3 id="tab-display">表示・更新タブ</h3>
+      <h3 id="tab-main">メインウィンドウタブ <span class="since">v1.036〜</span></h3>
+      <p>メイン画面の字幕欄の見た目を決めます（旧「表示・更新」の字幕の設定は、ここへ移りました）。</p>
       <ul>
-        <li><b>字幕の文字サイズ：</b>メイン画面の字幕欄の文字の大きさ（10〜36px）</li>
+        <li><b>文字（相手の声の欄・自分の声の欄、それぞれ）：</b>訳（翻訳後）と原語の、文字の大きさ（10〜36）と色。初めは、訳が白・22、原語が小さめ（15）で、原語の色は相手の声が緑・自分の声が水色です。</li>
+        <li><b>縁取り：</b>字幕の縁取りの太さ（0〜5px）。英文は単語の途中で改行しません</li>
+        <li><b>背景：</b>字幕欄の背景色と不透明度（0〜100%）。「背景を透かす」をオンにすると、窓の枠を消して背景を透明にし、字幕の文字だけを画面に浮かせます。透かしている間は、見出しをつかんで窓を動かし、縁で大きさを変え、右上の「＿」「×」で最小化・閉じるができます。</li>
+        <li><b>クロマキー：</b>配信ソフト（OBS など）で字幕だけを抜くための設定です。「なし」「緑」「青」「マゼンタ」から選ぶと、字幕欄の背景がその色になります（このとき「背景を透かす」は使えません）。文字と縁取りには、キーの色を使わないでください。</li>
+        <li><b>既定に戻す：</b>このタブの設定を、初めの状態に戻します。</li>
+      </ul>
+
+      <h3 id="tab-display">更新・ログタブ <span class="since">v1.036で改名（旧：表示・更新）</span></h3>
+      <ul>
         <li><b>ログ（不具合の調査用）<span class="since">v1.029〜</span>：</b>「ログのフォルダを開く」「ログ全体をコピー」。API キー・合言葉・字幕の本文は、記録しません（くわしくは<a href="#trouble">困ったとき</a>）。</li>
-        <li><b>文字の縁取り：</b>字幕の縁取りの太さ（0〜5px）。英文は単語の途中で改行しません</li>
       </ul>
       <p>スマホ・タブレットの文字の大きさは、端末の画面の「A-」「A+」で変えます。</p>
     </section>
@@ -659,7 +657,7 @@ footer{border-top:1px solid var(--line);padding:24px 20px;text-align:center;colo
     <section id="trouble">
       <h2>困ったとき</h2>
       <details class="qa"><summary>不具合を報告したい（ログの送り方）</summary><div>
-        <p>メイン画面の「稼働ステータスログ」を右クリックして「ログ全体をコピー」を選び、メッセージなどに貼り付けて送ってください（「設定」→「表示・更新」の「ログ全体をコピー」でも同じです）。今日のログ全体がコピーされます。</p>
+        <p>メイン画面の「ログ ▼」でログ欄を出し、右クリックして「ログ全体をコピー」を選び、メッセージなどに貼り付けて送ってください（「設定」→「更新・ログ」（v1.035 までは「表示・更新」）の「ログ全体をコピー」でも同じです）。今日のログ全体がコピーされます。</p>
         <p>ログには、翻訳がどの翻訳先でなぜ失敗したか、設定（版・翻訳の方法・言語など）、動作の状態が入っています。<b>API キーとタブレットの合言葉は記録せず、字幕の本文も文字数だけ</b>です。保存先は <code>%LOCALAPPDATA%\Kotobareach\logs</code> で、14日たったものは自動で消えます。</p></div></details>
       <details class="qa"><summary>「Windows によって PC が保護されました」と出て起動できない</summary><div>
         <p>「詳細情報」を押してから「実行」を押します。くわしくは<a href="#smartscreen">初回起動時の警告が出たら</a>へ。</p></div></details>
@@ -705,6 +703,13 @@ footer{border-top:1px solid var(--line);padding:24px 20px;text-align:center;colo
     <!-- ================= history ================= -->
     <section id="history">
       <h2>バージョン履歴</h2>
+      <h3>v1.036（2026-11）</h3>
+      <ul>
+        <li>メイン画面を作り直しました。字幕欄と、下のボタン（設定ウィザード・設定・タブレット接続設定・ログ ▼/▲）だけになり、マイクの選択・音量インジケータ・閾値は「設定」→「自分の声」へ移りました。稼働ステータスログは「ログ ▼/▲」で出し入れできます。見た目は、スマホ・タブレットに近い暗い配色にしました。</li>
+        <li>設定に「メインウィンドウ」タブを追加しました。字幕の文字の色・大きさ（訳と原語、相手の声・自分の声それぞれ）、縁取り、背景色・不透明度を変えられます。「背景を透かす」で字幕の文字だけを画面に浮かせたり、「クロマキー」で配信ソフトから字幕だけを抜いたりできます。</li>
+        <li>字幕欄の「相手」「訳」などの説明の文字をなくし、訳（白・大きめ）と原語（小さめ）で見分けるようにしました。原文は1行にまとめて表示します。</li>
+        <li>内部の見直し（2回目）で、アプリの音の聞き取りの後片付け、設定ウィザードの「戻る」、ローカル翻訳の準備に失敗したときの再試行、などの細かな不具合を直しました。</li>
+      </ul>
       <h3>v1.035（2026-11）</h3>
       <ul>
         <li>内部の見直しを行い、細かな不具合を直しました（アプリの音だけの聞き取りで開始に失敗したときの後片付け、ゲームパッドの再接続、押している間だけ認識の切り替え時の音の扱い、設定ウィザードのボタン登録など）。</li>
