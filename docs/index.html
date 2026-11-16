@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Kotobareach（コトバリーチ）説明書 v1.038</title>
+<title>Kotobareach（コトバリーチ）説明書 v1.040</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=BIZ+UDPGothic:wght@400;700&family=Outfit:wght@500;700&display=swap" rel="stylesheet">
@@ -154,7 +154,7 @@ footer{border-top:1px solid var(--line);padding:24px 20px;text-align:center;colo
     <div>
       <h1 class="wordmark">Kotobareach<span class="kana">コトバリーチ</span></h1>
       <p class="lead">話した日本語は英語に、相手の英語は日本語に。翻訳した字幕を、手元のスマホやタブレットに表示します。ゲームのボイスチャットで英語のやり取りを手助けする、Windows 用の無料アプリです。</p>
-      <span class="ver">説明書 v1.038（2026年11月）</span>
+      <span class="ver">説明書 v1.040（2026年11月）</span>
       <div class="cta">
         <a class="btn" id="dl" href="#">ダウンロード</a>
         <a class="btn ghost" href="#start">はじめての設定へ</a>
@@ -443,7 +443,7 @@ footer{border-top:1px solid var(--line);padding:24px 20px;text-align:center;colo
 <svg viewBox="0 0 640 340" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="メイン画面">
   <rect class="u-win" x=".5" y=".5" width="639" height="339" rx="8"/>
   <path class="u-title" d="M8 .5h624a7.5 7.5 0 0 1 7.5 7.5v24H.5V8A7.5 7.5 0 0 1 8 .5z"/>
-  <text class="u-b" x="16" y="21">Kotobareach v1.038　[音声認識: GPU]</text>
+  <text class="u-b" x="16" y="21">Kotobareach v1.040　[音声認識: GPU]</text>
   <rect class="u-dark" x="16" y="44" width="608" height="112" rx="6"/>
   <text class="u-teal" x="30" y="66">相手の声　英語 → 日本語（パソコンの音）</text>
   <rect x="510" y="52" width="100" height="22" rx="11" fill="none" stroke="#4FC1C9"/><text class="u-teal" x="560" y="67" text-anchor="middle">聞き取り: ON</text>
@@ -472,7 +472,7 @@ footer{border-top:1px solid var(--line);padding:24px 20px;text-align:center;colo
       <p>その下に、「設定ウィザード」「設定」「字幕を自動で消す」「タブレット接続設定」と、右端の「ログ ▼ / ▲」のボタンが並びます<span class="since">v1.036〜</span>。「ログ ▼」を押すと、稼働ステータスログ（最新10件）が出ます。もう一度押すと隠れます。</p>
       <p>入力マイク、音量インジケータ、閾値スライダーは、メイン画面から「設定」→「自分の声」タブの上へ移りました。閾値の既定値は 14 です。スライダーをクリックしたあと <kbd>←</kbd> <kbd>→</kbd> で1ずつ動かせます。</p>
       <p>メイン画面の見た目は、スマホ・タブレットの表示に近い暗い配色です。字幕の文字の色・大きさ、背景などは、「設定」→「メインウィンドウ」タブで変えられます。</p>
-      <p><b>字幕を自動で消す</b><span class="since">v1.037〜</span>：「設定」ボタンの右隣のボタンです。配信のとき、古い字幕を画面に残したくない場合に使います。オンにすると、字幕の文字が一定の時間（初めは8秒）で自動的に消え、新しい発言が来るとまた表示されます。初めはオフです。消えるのは字幕の文字だけで、窓・背景・ボタンはそのままです。自分の声の欄と相手の声の欄は、別々に数えます。秒数や消え方は、「設定」→「メインウィンドウ」タブで決めます。</p>
+      <p><b>字幕を自動で消す</b><span class="since">v1.037〜</span>：「設定」ボタンの右隣のボタンです。配信のとき、古い字幕を画面に残したくない場合に使います。オンにすると、字幕の文字が一定の時間（初めは8秒）で自動的に消え、新しい発言が来るとまた表示されます。初めはオフです。消えるのは字幕の文字だけで、窓・背景・ボタンはそのままです。自分の声の欄と相手の声の欄は、別々に数えます。相手の声の欄は、文ごとに表示から一定の時間（初めは15秒）で消えます<span class="since">v1.040〜</span>。秒数や消え方は、「設定」→「メインウィンドウ」タブで決めます。</p>
       <div class="note">コトバリーチは同時に1つだけ起動できます。もう一度起動すると、開いている画面が前に出ます。</div>
     </section>
 
@@ -555,6 +555,9 @@ footer{border-top:1px solid var(--line);padding:24px 20px;text-align:center;colo
       <p>「キーを押している間だけ、自分の声を認識する」にチェックを入れ、「キーを登録」を押して、使いたいキーを押します（マウスの中ボタン・サイドボタンも使えます。Esc でやめる）。登録したキーを押している間だけマイクの声を認識します。ゲームパッド（コントローラー）のボタン・十字キー・トリガー（LT / RT）も登録できます<span class="since">v1.034〜</span>（パッドは先にパソコンにつないでおきます。スティックは登録できません）。ゲームなど、ほかのウィンドウがアクティブでも効きます。キーを離すと、無音を待たずにすぐ認識して英語にします（語尾が欠けないよう、離したあと 0.3 秒ほど拾います）。初期設定はオフで、オフのときはいつも認識します。管理者権限で動くゲームの中でも効くかは、実機で確かめてください。</p>
 
 
+      <h4>Kotobot 連携 <span class="since">v1.040〜</span></h4>
+      <p>配信アシスタント「Kotobot」へ、聞き取った日本語を送ります。初めはオフです。「Kotobot へ聞き取った日本語を送る」をオンにすると、「押している間だけ認識」でキーを押していない時や、「自分の声」がオフの時も、裏で聞き取って Kotobot へ送ります（字幕には出さず、翻訳もしません）。「相手の声（聞き取り）の翻訳結果も送る」をオンにすると、相手の字幕の日本語訳も送ります。送り先はこのパソコンの中（ポート番号は初め 50300）だけです。常に聞き取るので、パソコンの負担は少し増えます。</p>
+
       <h3 id="tab-translate">翻訳タブ</h3>
       <figure>
         <div class="shot"><img src="img/tab-translate.png" alt="設定ウィンドウの翻訳タブ" loading="lazy" style="max-width:100%;height:auto"></div>
@@ -607,7 +610,8 @@ footer{border-top:1px solid var(--line);padding:24px 20px;text-align:center;colo
         <li><b>クロマキー：</b>配信ソフト（OBS など）で字幕だけを抜くための設定です。「なし」「緑」「青」「マゼンタ」から選ぶと、字幕欄の背景がその色になります（このとき「背景を透かす」は使えません）。文字と縁取りには、キーの色を使わないでください。</li>
         <li><b>字幕の自動消去<span class="since">v1.037〜</span>：</b>オン・オフは、メイン画面の「字幕を自動で消す」ボタンです。ここでは次の3つを決めます。
           <ul>
-            <li>消えるまでの秒数：1〜60秒（初めは8秒）。その欄の字幕が最後に更新されてから、この時間がたつと消えます。</li>
+            <li>消えるまでの秒数：1〜60秒（初めは8秒）。自分の声の欄の字幕が最後に更新されてから、この時間がたつと消えます。</li>
+            <li>相手の声: 1文ごとに消えるまでの秒数<span class="since">v1.040〜</span>：1〜120秒（初めは15秒）。相手の声の欄は、文ごとに、表示されてからこの時間がたつと、その文だけが消えます。新しい字幕が来ても、消えた字幕は浮かび上がりません。</li>
             <li>消え方：「フェード」（だんだん薄くなる。初めはこちら）か「すぐ消す」。</li>
             <li>フェードの長さ：0.1〜3.0秒（初めは0.5秒）。「フェード」のときだけ使います。</li>
           </ul>
@@ -712,6 +716,12 @@ footer{border-top:1px solid var(--line);padding:24px 20px;text-align:center;colo
     <!-- ================= history ================= -->
     <section id="history">
       <h2>バージョン履歴</h2>
+      <h3>v1.040（2026-11）</h3>
+      <ul>
+        <li>配信アシスタント「Kotobot」へ、聞き取った日本語を送る機能を追加しました（初めはオフ）。「設定」→「自分の声」の「Kotobot 連携」でオンにします。</li>
+        <li>「字幕を自動で消す」で、相手の声の欄は、文ごとに表示から一定の時間（初めは15秒）で消えるようにしました。新しい字幕が来ても、消えた字幕は浮かび上がりません。</li>
+        <li>相手の声を聞き取っている最中に、自分の声の認識が遅くなることがあったのを、軽くしました（自分の声を先に処理します。その間、相手の字幕が最長で3秒ほど遅れることがあります）。</li>
+      </ul>
       <h3>v1.038（2026-11）</h3>
       <ul>
         <li>起動のたびに、ログに「設定を記録できません」という警告が出ていたのを直しました（動作への影響はありませんでした）。</li>
